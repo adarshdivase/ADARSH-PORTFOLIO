@@ -1,138 +1,180 @@
 // --- DATA ---
 const projectsData = [
     { 
-        title: "E-Com Insight Dashboard", 
+        title: "AI-Fueled E-commerce Analytics & Sales Forecasting System", 
         interactive_cover: { type: 'dashboard' },
-        media: [ { type: 'image', url: 'https://i.imgur.com/3ZkE8aD.png' }, { type: 'image', url: 'https://i.imgur.com/9qZ0A8a.png' } ], 
-        description: "An advanced analytics and sales forecasting platform for e-commerce, designed to provide deep insights into customer behavior and market trends.", 
+        media: [ 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg' }, 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg' } // Using ecommerce2.jpeg as a secondary image for project modal
+        ], 
+        description: "An AI-powered platform for e-commerce analytics and sales forecasting, leveraging Facebook Prophet and interactive dashboards to drive revenue strategy and reduce stockouts.", 
         details: [ 
-            "Engineered a real-time analytics dashboard using Plotly and Dash to visualize key performance indicators, enabling stakeholders to make data-driven decisions swiftly.", 
-            "Implemented the Prophet time series forecasting model, achieving a 92% accuracy (MAPE) for quarterly sales predictions and effectively reducing stockouts by 10%.", 
-            "Developed a robust and scalable multithreaded Python backend, capable of supporting over 100 concurrent users with a 40% reduction in query response time, ensuring seamless data access and analysis." 
+            "Constructed a robust sales forecasting model using **Facebook Prophet**, achieving 92% MAPE for quarterly sales predictions and effectively reducing stockouts by 10%.", 
+            "Engineered comprehensive data processing pipelines using **Pandas and NumPy**, preparing data for time series forecasting and business intelligence.", 
+            "Created interactive and dynamic dashboards using **Plotly Express and Streamlit**, visualizing key e-commerce metrics and forecast performance, leading to a 15% increase in revenue strategy impact and a 5% uplift in overall quarterly sales revenue." 
         ],
-        skills: ["Prophet", "SQL", "Python (Pandas, NumPy)", "Plotly", "Dash", "Multithreading", "Data Engineering", "Business Intelligence", "Predictive Analytics"] 
+        skills: ["Streamlit", "Prophet", "Pandas", "NumPy", "Plotly Express", "Data Engineering", "Business Intelligence", "Predictive Analytics"] 
     },
     { 
-        title: "AI-Powered Trading System", 
+        title: "AI-Powered Trading System with Risk Analytics", 
         interactive_cover: { type: 'trading' },
-        media: [ { type: 'image', url: 'https://i.imgur.com/CAbpXpQ.png' }, { type: 'image', url: 'https://i.imgur.com/s4n4g5K.png' } ], 
-        description: "A sophisticated deep learning system for financial market forecasting, integrated with advanced risk analytics to optimize portfolio performance and minimize exposure.", 
-        details: [ 
-            "Conceptualized and implemented deep learning forecasting models using LSTM networks, which improved prediction accuracy by 18% over traditional methods and led to a 5% increase in simulated portfolio returns.", 
-            "Incorporated advanced financial risk metrics such as Sortino Ratio, Value at Risk (VaR), and Monte Carlo Simulation, effectively lowering simulated investment risk by 22%.", 
-            "Established real-time data ingestion pipelines using Apache Kafka, processing over 10,000 data points per minute, thereby boosting decision efficiency by 30% for timely trading strategies." 
+        media: [ 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg' }, 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg' } // Using stocks2.jpeg as a secondary image for project modal
         ], 
-        skills: ["Deep Learning (LSTMs, RNNs)", "Financial Analytics", "Sortino Ratio", "VaR", "Monte Carlo Simulation", "Python", "Apache Kafka", "Real-Time Systems", "Quantitative Finance", "Time Series Forecasting"] 
+        description: "A real-time AI-driven algorithmic trading system deployed on Streamlit, providing live market data, technical indicators, and automated trade execution with robust risk management protocols.", 
+        details: [ 
+            "Engineered a real-time AI-driven algorithmic trading system deployed on **Streamlit**, providing live market data, technical indicators, and automated trade execution, leading to a 5% increase in simulated portfolio returns.", 
+            "Developed an enhanced trading strategy combining **MACD, RSI, and Bollinger Bands** for multi-factor signal generation with volume confirmation.", 
+            "Implemented robust risk management protocols, including dynamic position sizing based on portfolio risk (2% per trade), and maximum daily loss limits (2%), ensuring capital preservation.", 
+            "Integrated with **Alpaca API** for fetching historical and live stock data, enabling real-time bar updates and seamless order submission." 
+        ], 
+        skills: ["Streamlit", "NumPy", "Pandas", "PyTorch", "Scikit-learn", "Plotly", "Alpaca API", "Technical Indicators (MACD, RSI, Bollinger Bands, SMAs)", "Financial Analytics", "VaR", "Monte Carlo Simulation", "Real-Time Systems", "Quantitative Finance", "Time Series Forecasting"] 
     },
     { 
-        title: "AI Services Toolkit (Multi-Modal Assistant)", 
+        title: "AI Services Toolkit Pro (Multi-Modal AI Assistant)", 
         interactive_cover: { type: 'toolkit' },
-        media: [ { type: 'image', url: 'https://i.imgur.com/3i4b5nS.png' }, { type: 'image', url: 'https://i.imgur.com/rGfFvWq.png' } ], 
-        description: "A full-stack web application serving a suite of self-hosted AI models, including a multi-modal assistant, through a clean, interactive user interface built with React and FastAPI.", 
-        details: [ 
-            "Engineered a multi-modal AI assistant utilizing OpenAI Whisper for high-fidelity speech-to-text transcription (95% accuracy) and YOLOv5 for real-time object detection (90% object accuracy).", 
-            "Developed a robust FastAPI backend optimized for asynchronous performance, significantly lowering API latency by 35% to achieve sub-200ms response times for AI model inferences.", 
-            "Deployed real-time Text-to-Speech (TTS) translation capabilities, boosting accessibility and user engagement for approximately 5,000 daily users by 15%." 
+        media: [ 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg' }, 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg' } // Using toolkit1.jpeg as a secondary image for project modal
         ], 
-        skills: ["React", "FastAPI (Asynchronous)", "Hugging Face Transformers", "Docker", "Full-Stack Development", "MLOps", "Whisper API", "YOLOv5", "NLP", "Speech-to-Text", "Text-to-Speech", "Real-time Systems", "Computer Vision"] 
+        description: "Architected and deployed a comprehensive, integrated Multi-Modal AI Toolkit on Hugging Face Spaces, integrating 9 state-of-the-art Transformer pipelines for diverse AI capabilities.", 
+        details: [ 
+            "Architected and deployed a comprehensive, integrated Multi-Modal AI Toolkit on **Hugging Face Spaces**, integrating 9 state-of-the-art Transformer pipelines for diverse AI capabilities.", 
+            "Developed a robust **FastAPI** backend with asynchronous operations and **Pydantic models**, exposed via `/api` endpoints.", 
+            "Designed an intuitive **Streamlit** frontend for interactive AI service interaction, API call history, and system status monitoring.", 
+            "Implemented Text-to-Speech (TTS) with dynamic speaker embeddings and Speech-to-Text (STT) with automatic audio resampling, enhancing accessibility by 15% for 5,000 daily users.", 
+            "Utilized key libraries: FastAPI, Streamlit, Hugging Face Transformers, PyTorch, soundfile, librosa." 
+        ], 
+        skills: ["FastAPI", "Streamlit", "Hugging Face Transformers", "PyTorch", "soundfile", "librosa", "Docker", "Full-Stack Development", "MLOps", "Whisper API", "YOLOv5", "NLP", "Speech-to-Text", "Text-to-Speech", "Real-time Systems", "Computer Vision"] 
     },
     { 
-        title: "SMART Predictive Maintenance System", 
+        title: "Hybrid Predictive Maintenance System", 
         interactive_cover: { type: 'maintenance' },
-        media: [ { type: 'image', url: 'https://i.imgur.com/3ZkE8aD.png' }, { type: 'image', url: 'https://i.imgur.com/5uV2pMS.png' } ], 
-        description: "A hybrid AI system combining Deep Learning and Reinforcement Learning to predict equipment failures and recommend optimal maintenance schedules, reducing operational costs.", 
-        details: [ 
-            "Developed a framework integrating Convolutional Neural Networks (CNNs) for anomaly detection and a PPO-based Reinforcement Learning agent for optimal maintenance scheduling, achieving a 30% improvement in prediction accuracy.", 
-            "Utilized SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations) for model interpretability, successfully identifying the top 5 critical factors contributing to equipment breakdowns.", 
-            "Architected a real-time dashboard using Plotly, which facilitated proactive maintenance and reduced estimated operational downtime costs by 20% (estimated $50,000 annual savings)." 
+        media: [ 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg' }, 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg' } // Using hybrid2.jpeg as a secondary image for project modal
         ], 
-        skills: ["Deep Learning (CNNs)", "Reinforcement Learning (PPO)", "SHAP", "LIME", "Plotly", "Python", "Data Analytics", "Anomaly Detection", "TensorFlow"] 
+        description: "Developed and deployed an integrated Hybrid Predictive Maintenance system on Streamlit, combining supervised learning (LSTM) and reinforcement learning for optimal maintenance recommendations.", 
+        details: [ 
+            "Developed and deployed an integrated Hybrid Predictive Maintenance system on **Streamlit**, integrating supervised learning (**LSTM**) and reinforcement learning for optimal maintenance recommendations.", 
+            "Engineered an LSTM-based deep learning model using **TensorFlow/Keras** to predict machine health and Remaining Useful Life (RUL) from synthetic time-series data, achieving a 30% improvement in prediction accuracy.", 
+            "Designed a comprehensive Streamlit multi-page application with a 'Live Dashboard' for real-time monitoring and a 'Historical Explorer' for data analysis.", 
+            "Established a persistent **SQLite database** to log simulation reports, including health metrics and explainability insights (simulated **SHAP/LIME**), reducing operational downtime costs by an estimated 20%, resulting in annual savings of $50,000." 
+        ], 
+        skills: ["Streamlit", "TensorFlow", "Keras", "NumPy", "Pandas", "SQLite3", "Deep Learning (CNNs)", "Reinforcement Learning (PPO)", "SHAP", "LIME", "Plotly", "Python", "Data Analytics", "Anomaly Detection"] 
     },
     { 
-        title: "Customer Churn Prediction System", 
+        title: "Customer Churn Prediction and API Deployment", 
         interactive_cover: { type: 'churn' },
-        media: [ { type: 'image', url: 'https://i.imgur.com/8fH7z9T.png' }, { type: 'image', url: 'https://i.imgur.com/pXv9z4L.png' } ], 
-        description: "An end-to-end classification system designed to identify at-risk customers, featuring advanced data balancing techniques and robust API deployment for real-time predictions.", 
-        details: [ 
-            "Architected and trained a customer churn prediction model using Random Forests and Neural Networks, achieving an F1-score of 0.87 and successfully identifying 75% of churners within a 30-day window.", 
-            "Implemented SMOTE (Synthetic Minority Over-sampling Technique) to effectively rebalance the imbalanced dataset, which significantly boosted the model's recall for the minority (churn) class by 25%.", 
-            "Launched the final model as a high-performance RESTful API using FastAPI and Uvicorn, capable of handling up to 500 requests per second with sub-100ms inference latency, ensuring rapid and scalable predictions." 
+        media: [ 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg' }, 
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg' } // Using churn2.jpeg as a secondary image for project modal
         ], 
-        skills: ["Random Forest", "Neural Networks", "SMOTE", "FastAPI", "Uvicorn", "Scikit-learn", "MLOps", "Model Deployment", "REST API", "Python", "Classification"] 
+        description: "Architected and deployed an integrated Customer Churn Prediction system on Streamlit with a FastAPI backend for model inference, achieving high accuracy and efficient real-time predictions.", 
+        details: [ 
+            "Architected and deployed an integrated Customer Churn Prediction system on **Streamlit** with a **FastAPI** backend for model inference.", 
+            "Developed a robust churn prediction model (F1-score of 0.87) using advanced ML techniques, identifying 75% of potential churners within 30 days.", 
+            "Engineered data preprocessing pipelines with **SMOTE**, increasing model recall for the minority class by 25%.", 
+            "Launched a high-performance RESTful API using **FastAPI and Uvicorn**, achieving sub-100ms inference latency and handling up to 500 requests/second." 
+        ], 
+        skills: ["FastAPI", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "imblearn", "Random Forest", "Neural Networks", "MLOps", "Model Deployment", "REST API", "Python", "Classification"] 
     }
 ];
 
-// New data for Playground section
+// Data for Playground section
 const playgroundAppsData = [
     {
         title: "AI-Powered Customer Churn Prediction",
         description: "An interactive Streamlit application demonstrating a machine learning model that predicts customer churn, allowing users to input customer data and see real-time predictions.",
         url: "https://futureml02-jg9jkjmv3xahqnceylr8eu.streamlit.app/",
-        image: "https://placehold.co/600x400/4c1d95/c4b5fd?text=Churn+Prediction+App" // Placeholder image
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg" // Using provided churn2.jpeg for playground thumbnail
     },
     {
-        title: "E-Com Insight Dashboard",
+        title: "AI-Fueled E-commerce Analytics & Sales Forecasting System", 
         description: "A live Streamlit dashboard providing comprehensive e-commerce analytics, including sales trends, customer segmentation (RFM), and interactive visualizations for business insights.",
         url: "https://futureml01-j2lihzs8qwk6ombkpeczut.streamlit.app/",
-        image: "https://placehold.co/600x400/1e3a8a/93c5fd?text=E-Com+Dashboard+App" // Placeholder image
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg" // Using provided ecommerce2.jpeg for playground thumbnail
     },
     {
-        title: "AI Services Toolkit",
-        description: "Explore a suite of AI models, including sentiment analysis, summarization, and image captioning, all served through a user-friendly interface.",
+        title: "AI Services Toolkit Pro", 
+        description: "Explore a suite of multi-modal AI models, including sentiment analysis, summarization, and image captioning, all served through a user-friendly interface.", 
         url: "https://ai-toolkit-nj89aumds7l6rpjas7486m.streamlit.app/", 
-        image: "https://placehold.co/600x400/8b5cf6/c4b5fd?text=AI+Toolkit+App" // Placeholder image
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg" // Using provided toolkit1.jpeg for playground thumbnail
     },
     {
-        title: "SMART Predictive Maintenance Dashboard (Live)",
-        description: "An interactive Streamlit dashboard showcasing real-time predictive maintenance insights, including anomaly detection and remaining useful life (RUL) predictions for industrial equipment.",
+        title: "Hybrid Predictive Maintenance Dashboard", 
+        description: "An interactive Streamlit dashboard showcasing real-time predictive maintenance insights, including anomaly detection and remaining useful life (RUL) predictions for industrial equipment.", 
         url: "https://smart-predictive-maintenance-en77oylapplyfegbhuzf3fy.streamlit.app/Live_Dashboard",
-        image: "https://placehold.co/600x400/2d2d2d/add8e6?text=Predictive+Maintenance+App" // Placeholder image
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg" // Using provided hybrid2.jpeg for playground thumbnail
     },
     {
         title: "AI-Powered Live Trading System",
-        description: "An interactive Streamlit application demonstrating a deep learning-based trading system with real-time data analysis and risk management.",
+        description: "An interactive Streamlit application demonstrating a deep learning-based trading system with real-time market data, technical indicators, and robust risk management.", 
         url: "https://smart-predictive-maintenance-am3fyapk9yqcujd87tjcux.streamlit.app/", 
-        image: "https://placehold.co/600x400/4a0e7e/c4b5fd?text=Trading+System+App" // Placeholder image
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg" // Using provided stocks2.jpeg for playground thumbnail
     }
 ];
 
 const skillsData = [
-    { title: 'Languages & Frameworks', skills: ['Python', 'SQL', 'FastAPI', 'Flask', 'Data Structures', 'Algorithms'] },
-    { title: 'Machine & Deep Learning', skills: ['Scikit-learn', 'TensorFlow', 'PyTorch', 'CNNs', 'RNNs (LSTMs)', 'Transformers', 'XGBoost', 'GANs'] },
-    { title: 'MLOps & Deployment', skills: ['Docker', 'Kubernetes (basics)', 'Render', 'Heroku', 'Git', 'CI/CD', 'RESTful API'] },
-    { title: 'Big Data & Databases', skills: ['Hadoop', 'Spark', 'Apache Kafka', 'PostgreSQL', 'MySQL', 'MongoDB'] },
-    { title: 'Data Viz & BI', skills: ['Plotly', 'Matplotlib', 'Seaborn', 'Dash', 'Tableau (conceptual)'] },
-    { title: 'Specialized Tools', skills: ['SHAP', 'LIME', 'Prophet', 'Whisper API', 'YOLOv5', 'OpenAI API', 'LLMs', 'Reinforcement Learning'] }
+    { title: 'Programming Languages & Frameworks', skills: ['Python (NumPy, Pandas)', 'SQL', 'FastAPI', 'Flask', 'Data Structures', 'Algorithms'] }, 
+    { title: 'Machine Learning', skills: ['Scikit-learn', 'XGBoost', 'Random Forests', 'SVMs', 'Regression', 'Classification', 'Clustering', 'Feature Engineering', 'Model Evaluation', 'SMOTE', 'Reinforcement Learning'] }, 
+    { title: 'Deep Learning', skills: ['TensorFlow', 'PyTorch', 'Keras', 'CNNs', 'RNNs (LSTMs, GRUs)', 'Transformers', 'Transfer Learning', 'GANs'] }, 
+    { title: 'MLOps & Deployment', skills: ['Docker', 'Kubernetes (basics)', 'Render', 'Heroku', 'Git', 'Uvicorn', 'RESTful API', 'Microservices', 'CI/CD', 'Model Versioning', 'Monitoring', 'Hugging Face Spaces'] }, 
+    { title: 'Big Data & Databases', skills: ['Hadoop', 'Spark', 'Apache Kafka', 'PostgreSQL', 'MySQL', 'SQLAlchemy', 'MongoDB', 'SQLite3'] }, 
+    { title: 'Data Visualization & BI', skills: ['Plotly', 'Matplotlib', 'Seaborn', 'Dash', 'Tableau (conceptual)', 'Streamlit'] }, 
+    { title: 'Specialized Tools', skills: ['SHAP', 'LIME', 'Prophet', 'Whisper API', 'YOLOv5', 'OpenAI API', 'LLMs (ChatGPT)', 'Financial Modeling', 'Monte Carlo Simulation', 'A/B Testing', 'Alpaca API', 'Technical Indicators (MACD, RSI, Bollinger Bands, SMAs)'] } 
 ];
 
 const blogPostsData = [
      { 
         title: "Architecting Intelligence: My Journey in Tech", 
         date: "2025-06-26", 
-        image: "https://images.unsplash.com/photo-1599658880436-c07f3e834169?auto=format&fit=crop&w=1080&q=80", 
-        tags: ["Career", "Reflection", "MLOps"], 
-        content: `<p>Welcome to my corner of the web! I'm Adarsh Divase, an AI and Data Science enthusiast currently pursuing my B.Tech at A. C. Patil College of Engineering. My passion lies not just in understanding data, but in transforming it into intelligent, actionable solutions that can drive real-world impact. This blog is a space for me to share my journey, the projects that excite me, and the lessons I've learned along the way.</p><p>My academic and professional path has been geared towards mastering the full spectrum of the machine learning lifecycle. From constructing resilient data pipelines with <strong>Hadoop and Spark</strong> to deploying scalable microservices with <strong>Python and FastAPI</strong>, I thrive on building robust, end-to-end systems. My internship as a Python Backend Developer was a fantastic playground, allowing me to sharpen my skills in API development, database management with PostgreSQL, and Docker-based deployments, ultimately leading to significant improvements in performance and efficiency.</p><blockquote class="border-l-4 border-indigo-500 pl-4 text-slate-300 italic">"The goal is to turn data into information, and information into insight." - Carly Fiorina. This quote perfectly encapsulates my philosophy.</blockquote><p>Beyond the backend, my core interest is in the models themselves. I've delved into everything from classic predictive analytics, like the customer churn models I built using Random Forests, to the cutting edge of deep learning with <strong>CNNs, LSTMs, and Transformers</strong>. A project I'm particularly proud of is the AI-driven multi-modal assistant, where I integrated OpenAI's Whisper for transcription and YOLOv5 for object detection. It was a thrilling challenge to merge these technologies into a single, cohesive application.</p><p>My work extends to ensuring these intelligent systems are not just built but are also robust, scalable, and maintainable. This involves a strong focus on MLOps principles, including CI/CD pipelines, model versioning, and continuous monitoring. My experience with Docker and platforms like Render and Heroku has been crucial in deploying these complex systems efficiently. I believe that a well-engineered deployment strategy is just as important as the model itself in delivering true business value.</p>`
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg", // Using toolkit.jpeg for this blog post
+        tags: ["Career", "Reflection", "MLOps", "Generative AI"], 
+        content: `<p>Welcome to my corner of the web! I'm Adarsh Divase, an AI and Data Science enthusiast currently pursuing my B.Tech at A. C. Patil College of Engineering. My passion lies not just in understanding data, but in transforming it into intelligent, actionable solutions that can drive real-world impact. This blog is a space for me to share my journey, the projects that excite me, and the lessons I've learned along the way.</p><p>My academic and professional path has been geared towards mastering the full spectrum of the machine learning lifecycle. From constructing resilient data pipelines with <strong>Hadoop and Spark</strong> to deploying scalable microservices with <strong>Python and FastAPI</strong>, I thrive on building robust, end-to-end systems. My internship as a Python Backend Developer was a fantastic playground, allowing me to sharpen my skills in API development, database management with PostgreSQL, and Docker-based deployments, ultimately leading to significant improvements in performance and efficiency.</p><blockquote class="border-l-4 border-indigo-500 pl-4 text-slate-300 italic">"The goal is to turn data into information, and information into insight." - Carly Fiorina. This quote perfectly encapsulates my philosophy.</blockquote><p>Beyond the backend, my core interest is in the models themselves. I've delved into everything from classic predictive analytics, like the customer churn models I built using Random Forests, to the cutting edge of deep learning with <strong>CNNs, LSTMs, and Transformers</strong>. A project I'm particularly proud of is the **AI Services Toolkit Pro (Multi-Modal AI Assistant)**, where I integrated OpenAI's Whisper for transcription and YOLOv5 for object detection. It was a thrilling challenge to merge these technologies into a single, cohesive application.</p><p>My work extends to ensuring these intelligent systems are not just built but are also robust, scalable, and maintainable. This involves a strong focus on **MLOps** principles, including CI/CD pipelines, model versioning, and continuous monitoring. My experience with Docker and platforms like Render and Heroku has been crucial in deploying these complex systems efficiently. I believe that a well-engineered deployment strategy is just as important as the model itself in delivering true business value.</p><p>I'm particularly excited about the advancements in **Generative AI and Large Language Models (LLMs)</strong>, and I've been actively exploring their applications, as demonstrated by my certification in this area. The ability to create new content, synthesize information, and even generate code opens up incredible possibilities for future AI solutions.</p>`
     },
     { 
         title: "Deep Dive: Handling Imbalance in Churn Prediction", 
         date: "2025-06-20", 
-        image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1080&q=80", 
-        tags: ["Deep Dive", "Machine Learning", "Classification"], 
-        content: `<p>One of the most common challenges in classification problems, like customer churn prediction, is dealing with imbalanced datasets. Often, the number of customers who churn (the minority class) is far smaller than those who don't. If left unaddressed, a model can achieve high accuracy simply by predicting the majority class every time, making it useless in practice.</p><p>In my Customer Churn Prediction project, I tackled this head-on. The key was using the <strong>SMOTE (Synthetic Minority Over-sampling TEchnique)</strong> algorithm. Instead of just duplicating existing minority class samples, SMOTE intelligently generates new, synthetic samples that are close to the existing ones in the feature space. This provides a richer, more balanced dataset for the model to train on.</p><p>Here's a conceptual Python snippet of how SMOTE can be integrated into a scikit-learn pipeline:</p><pre><code class="language-python">from imblearn.over_sampling import SMOTE\nfrom imblearn.pipeline import Pipeline\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\n\n# X, y are your features and labels\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Define the model and the SMOTE preprocessor\nmodel = RandomForestClassifier()\nsmote = SMOTE(random_state=42)\n\n# Create a pipeline to apply SMOTE only to the training data\npipeline = Pipeline([('smote', smote), ('classifier', model)])\n\npipeline.fit(X_train, y_train)\n\n# The pipeline handles the resampling internally during fit!\nprint(f"Model Recall: {pipeline.score(X_test, y_test)}")</code></pre><p>By applying SMOTE, I was able to increase the model's recall for the churn class by <strong>25%</strong>. This meant the model became significantly better at its primary job: identifying customers who are actually at risk of leaving. It's a powerful reminder that headline accuracy isn't everything; understanding and addressing the nuances of your data is what leads to truly effective models. This approach was crucial in achieving an F1-score of 0.87 and identifying 75% of churners within a 30-day window, providing actionable insights for retention strategies.</p>`
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg", // Using churn1.jpeg for this blog post
+        tags: ["Deep Dive", "Machine Learning", "Classification", "Data Preprocessing"], 
+        content: `<p>One of the most common challenges in classification problems, like customer churn prediction, is dealing with imbalanced datasets. Often, the number of customers who churn (the minority class) is far smaller than those who don't. If left unaddressed, a model can achieve high accuracy simply by predicting the majority class every time, making it useless in practice.</p><p>In my **Customer Churn Prediction and API Deployment** project, I tackled this head-on. The key was using the **SMOTE (Synthetic Minority Over-sampling TEchnique)** algorithm. Instead of just duplicating existing minority class samples, SMOTE intelligently generates new, synthetic samples that are close to the existing ones in the feature space. This provides a richer, more balanced dataset for the model to train on.</p><p>Here's a conceptual Python snippet of how SMOTE can be integrated into a scikit-learn pipeline:</p><pre><code class="language-python">from imblearn.over_sampling import SMOTE\nfrom imblearn.pipeline import Pipeline\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\n\n# X, y are your features and labels\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Define the model and the SMOTE preprocessor\nmodel = RandomForestClassifier()\nsmote = SMOTE(random_state=42)\n\n# Create a pipeline to apply SMOTE only to the training data\npipeline = Pipeline([('smote', smote), ('classifier', model)])\n\npipeline.fit(X_train, y_train)\n\n# The pipeline handles the resampling internally during fit!\nprint(f"Model Recall: {pipeline.score(X_test, y_test)}")</code></pre><p>By applying SMOTE, I was able to increase the model's recall for the churn class by **25%**. This meant the model became significantly better at its primary job: identifying customers who are actually at risk of leaving. It's a powerful reminder that headline accuracy isn't everything; understanding and addressing the nuances of your data is what leads to truly effective models. This approach was crucial in achieving an F1-score of 0.87 and identifying 75% of churners within a 30-day window, providing actionable insights for retention strategies.</p>`
     },
     {
         title: "The Power of Real-time Data in Trading",
         date: "2025-06-15",
-        image: "https://images.unsplash.com/photo-1590283120015-385078a63584?auto=format&fit=crop&w=1080&q=80",
-        tags: ["Finance", "Real-time Systems", "Data Engineering"],
-        content: `<p>In the fast-paced world of financial trading, real-time data is not just an advantage; it's a necessity. My AI-Powered Trading System project heavily relied on this principle. We built robust data ingestion pipelines using technologies like <strong>Apache Kafka</strong> to process over 10,000 data points per minute.</p><p>This capability was critical for several reasons:</p><ul><li><strong>Timely Decision Making:</strong> Real-time data feeds directly into our LSTM models, allowing for up-to-the-minute market analysis and prediction, boosting decision efficiency by 30%.</li><li><strong>Risk Management:</strong> Integrating live data with risk metrics like VaR and Sortino Ratio ensures that our system can react swiftly to market volatility, helping to lower simulated investment risk by 22%.</li><li><strong>Competitive Edge:</strong> The ability to process and act on data faster than competitors can lead to significant gains in simulated portfolio returns.</li></ul><p>The engineering challenge lay in ensuring low-latency data flow and high throughput. By leveraging distributed streaming platforms, we created a resilient and efficient backbone for our predictive models, proving that robust data engineering is foundational to successful AI applications in finance.</p>`
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg", // Using stocks1.jpeg for this blog post
+        tags: ["Finance", "Real-time Systems", "Data Engineering", "Trading"], 
+        content: `<p>In the fast-paced world of financial trading, real-time data is not just an advantage; it's a necessity. My **AI-Powered Trading System with Risk Analytics** project heavily relied on this principle. We built robust data ingestion pipelines using technologies like **Apache Kafka** to process over 10,000 data points per minute.</p><p>This capability was critical for several reasons:</p><ul><li><strong>Timely Decision Making:</strong> Real-time data feeds directly into our LSTM models, allowing for up-to-the-minute market analysis and prediction, boosting decision efficiency by 30%.</li><li><strong>Risk Management:</strong> Integrating live data with risk metrics like VaR and Sortino Ratio ensures that our system can react swiftly to market volatility, helping to lower simulated investment risk by 22%.</li><li><strong>Competitive Edge:</strong> The ability to process and act on data faster than competitors can lead to significant gains in simulated portfolio returns.</li></ul><p>The engineering challenge lay in ensuring low-latency data flow and high throughput. By leveraging distributed streaming platforms, we created a resilient and efficient backbone for our predictive models, proving that robust data engineering is foundational to successful AI applications in finance. Our integration with the **Alpaca API** further solidified this by providing seamless access to live and historical stock data, enabling real-time bar updates and efficient order submission.</p>`
     },
     {
         title: "Interpretable AI: Beyond the Black Box",
         date: "2025-06-08",
-        image: "https://images.unsplash.com/photo-1581093589118-aa7827806f1d?auto=format&fit=crop&w=1080&q=80",
-        tags: ["AI Ethics", "Explainable AI", "Machine Learning"],
-        content: `<p>As AI models become increasingly complex, especially in critical applications like predictive maintenance, understanding *why* a model makes a certain prediction is as important as the prediction itself. This is where Explainable AI (XAI) comes into play. In my SMART Predictive Maintenance System, I focused on making the hybrid Deep Learning and Reinforcement Learning model transparent using <strong>SHAP and LIME</strong>.</p><p>SHAP (SHapley Additive exPlanations) provides a unified framework for interpreting predictions, assigning an importance value to each feature for a particular prediction. LIME (Local Interpretable Model-agnostic Explanations) explains the predictions of any classifier or regressor by approximating it with a local, interpretable model.</p><p>By integrating these tools, we were able to:</p><ul><li><strong>Identify Critical Factors:</strong> Pinpoint the top 5 factors (e.g., specific sensor readings, operating conditions) that most influenced a prediction of equipment failure.</li><li><strong>Build Trust:</b> Provide maintenance teams with clear reasons behind predicted failures, increasing their trust in the AI system.</li><li><strong>Improve Models:</strong> Insights from SHAP and LIME helped in refining features and model architecture, contributing to the 30% improvement in prediction accuracy.</li></ul><p>This commitment to interpretability ensures that our AI solutions are not just powerful but also actionable and trustworthy, bridging the gap between complex algorithms and real-world operational decisions.</p>`
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg", // Using hybrid1.jpeg for this blog post
+        tags: ["AI Ethics", "Explainable AI", "Machine Learning", "Predictive Maintenance"], 
+        content: `<p>As AI models become increasingly complex, especially in critical applications like predictive maintenance, understanding *why* a model makes a certain prediction is as important as the prediction itself. This is where Explainable AI (XAI) comes into play. In my **Hybrid Predictive Maintenance System**, I focused on making the hybrid Deep Learning and Reinforcement Learning model transparent using **SHAP and LIME**.</p><p>SHAP (SHapley Additive exPlanations) provides a unified framework for interpreting predictions, assigning an importance value to each feature for a particular prediction. LIME (Local Interpretable Model-agnostic Explanations) explains the predictions of any classifier or regressor by approximating it with a local, interpretable model.</p><p>By integrating these tools, we were able to:</p><ul><li><strong>Identify Critical Factors:</strong> Pinpoint the top 5 factors (e.g., specific sensor readings, operating conditions) that most influenced a prediction of equipment failure.</li><li><strong>Build Trust:</b> Provide maintenance teams with clear reasons behind predicted failures, increasing their trust in the AI system.</li><li><strong>Improve Models:</strong> Insights from SHAP and LIME helped in refining features and model architecture, contributing to the 30% improvement in prediction accuracy.</li></ul><p>This commitment to interpretability ensures that our AI solutions are not just powerful but also actionable and trustworthy, bridging the gap between complex algorithms and real-world operational decisions. In the context of the Hybrid Predictive Maintenance System, this was crucial for logging simulation reports and providing actionable insights that led to an estimated 20% reduction in operational downtime costs.</p>` 
+    },
+    {
+        title: "Unlocking Multi-Modal AI: The Toolkit Approach",
+        date: "2025-06-01",
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg", // Using toolkit.jpeg for this blog post
+        tags: ["AI", "Multi-modal AI", "Transformers", "FastAPI", "Streamlit"],
+        content: `<p>Building and deploying state-of-the-art AI models can be complex, especially when dealing with diverse data types like text, speech, and images. My **AI Services Toolkit Pro (Multi-Modal AI Assistant)** project was designed to tackle this challenge head-on by creating a unified platform for various Transformer-based AI capabilities.</p><p>The core idea was to integrate 9 different Transformer pipelines from **Hugging Face**, covering tasks such as sentiment analysis, summarization, image captioning, and more. This allowed us to offer a wide range of AI services from a single, cohesive application.</p><p>Key aspects of the architecture include:</p><ul><li>A robust **FastAPI backend** handling asynchronous operations and leveraging **Pydantic models** for data validation, exposing these AI services via clean `/api` endpoints.</li><li>An intuitive **Streamlit frontend** that provides an interactive user interface for making API calls, viewing historical interactions, and monitoring system status in real-time.</li><li>Advanced features like **Text-to-Speech (TTS)** with dynamic speaker embeddings and **Speech-to-Text (STT)** with automatic audio resampling, significantly enhancing accessibility and user engagement.</li></ul><p>This project demonstrates a full end-to-end MLOps pipeline, from model integration and API development to frontend deployment on platforms like Hugging Face Spaces. It highlights the power of combining specialized AI models into a user-friendly toolkit, making advanced AI capabilities accessible and actionable.</p>`
+    },
+    {
+        title: "Mastering MLOps: From Code to Scalable Production AI",
+        date: "2025-05-28", 
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-mlops.jpeg", // Placeholder for new blog, replace with your image
+        tags: ["MLOps", "Deployment", "Scalability", "DevOps"],
+        content: `<p>In the world of AI, building a powerful model is only half the battle. The true challenge lies in deploying and maintaining these models in production reliably and at scale. This is where **MLOps (Machine Learning Operations)** becomes indispensable. My experience as a Python Backend Developer Intern, and my work on various AI projects, has deeply ingrained the importance of robust MLOps practices.</p><p>MLOps is the engineering discipline that unifies ML system development (Dev) and ML system operation (Ops). It encompasses a range of practices aimed at streamlining the machine learning lifecycle, from data collection and model training to deployment, monitoring, and continuous improvement. Key components include:</p><ul><li>**Continuous Integration/Continuous Delivery (CI/CD):** Automating the process of building, testing, and deploying models ensures rapid iteration and reduces manual errors. My work orchestrating Docker-containerized deployments to **Render and Heroku** significantly reduced deployment cycles by 40%.</li><li>**Model Versioning:** Tracking different versions of models and their associated data allows for reproducibility and rollbacks, crucial for debugging and auditing.</li><li>**Monitoring:** Continuously observing model performance, data drift, and system health in production to identify and address issues promptly.</li><li>**Scalable Infrastructure:** Designing systems that can handle increasing load. Building scalable microservices with **FastAPI and Flask** that improved API response times by 25% and handled over 10,000 daily requests with 99.9% uptime is a testament to this.</li></ul><p>Platforms like **Hugging Face Spaces** further democratize MLOps, providing easy ways to deploy and share models. Mastering these principles ensures that AI solutions are not just innovative prototypes but reliable, high-performing assets that deliver continuous business value.</p>`
+    },
+    {
+        title: "Data Engineering for AI: Building Resilient Data Pipelines",
+        date: "2025-05-20", 
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-data-engineering.jpeg", // Placeholder for new blog, replace with your image
+        tags: ["Data Engineering", "Big Data", "Apache Kafka", "Data Pipelines"],
+        content: `<p>At the heart of every effective AI or Machine Learning system lies a robust and reliable data pipeline. Without clean, accessible, and continuously flowing data, even the most sophisticated models are rendered useless. My academic background and project experience have provided me with profound expertise in building **resilient data engineering** solutions.</p><p>My certifications in Data Engineering (Hadoop & Spark) laid the groundwork for understanding large-scale data processing. Key technologies that are fundamental to modern AI data pipelines include:</p><ul><li>**Apache Hadoop:** For distributed storage and processing of massive datasets, allowing for scalable batch processing.</li><li>**Apache Spark:** A powerful unified analytics engine for large-scale data processing, offering speed and flexibility for tasks like ETL (Extract, Transform, Load).</li><li>**Apache Kafka:** A distributed streaming platform crucial for building real-time data pipelines. In my **AI-Powered Trading System with Risk Analytics**, I established real-time data ingestion pipelines using Apache Kafka to process over 10,000 data points per minute, significantly boosting decision efficiency.</li><li>**SQL and NoSQL Databases:** Proficiently managing databases like **PostgreSQL, MySQL, and MongoDB** for structured and unstructured data storage. My work with **SQLAlchemy ORM** in managing PostgreSQL databases reduced data retrieval time by 15%.</li></ul><p>Building these resilient data pipelines ensures that AI models receive the high-quality, timely data they need to perform effectively, transforming raw data into actionable insights and driving real business impact. This foundational layer is often unseen but is paramount to the success of any AI initiative.</p>`
     }
 ].sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending for recent posts
 
@@ -208,12 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 svgContent = `
                     <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
                         <rect width="300" height="150" fill="#003638"/>
-                        <!-- Imbalanced dots -->
                         <g class="churn-dot-imbalanced">
                             ${[...Array(6)].map((_, i) => `<circle cx="${40 + i * 40}" cy="50" r="5" fill="#008080" class="churn-dot"/>`).join('')}
                             <circle cx="120" cy="100" r="5" fill="#ffbf00" class="churn-dot"/>
                         </g>
-                        <!-- Synthetic dots -->
                         <g class="svg-hidden">
                             <circle cx="100" cy="95" r="5" fill="#ffbf00" class="churn-dot churn-dot-synthetic"/>
                             <circle cx="140" cy="105" r="5" fill="#ffbf00" class="churn-dot churn-dot-synthetic"/>
@@ -423,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resizeHandler = () => { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; mouse.radius = (bgCanvas.height / 120) * (bgCanvas.width / 120); initParticles(); };
     window.addEventListener('resize', resizeHandler);
     window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-    class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); } }
+    class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > the.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > the.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); } }
     function initParticles() { particlesArray = []; let num = (bgCanvas.height * bgCanvas.width) / 9000; for (let i = 0; i < num; i++) { let x = Math.random() * innerWidth; let y = Math.random() * innerHeight; let dx = (Math.random() * .4) - 0.2; let dy = (Math.random() * .4) - 0.2; particlesArray.push(new Particle(x, y, dx, dy)); } }
     function animateParticles() { requestAnimationFrame(animateParticles); ctx.clearRect(0, 0, innerWidth, innerHeight); particlesArray.forEach(p => p.update()); connectParticles(); }
     function connectParticles() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = Math.hypot(particlesArray[a].x - particlesArray[b].x, particlesArray[a].y - particlesArray[b].y); if (distance < 120) { opacityValue = 1 - (distance / 120); ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue * 0.3})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
