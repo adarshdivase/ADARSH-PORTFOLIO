@@ -1,0 +1,21 @@
+{
+  "name": "adarsh-portfolio",
+  "version": "1.0.0",
+  "description": "Adarsh Divase's personal portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [
+    "portfolio",
+    "AI",
+    "Data Science",
+    "Machine Learning"
+  ],
+  "author": "Adarsh Divase",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.x.x"
+  }
+}
