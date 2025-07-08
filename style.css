@@ -6,6 +6,11 @@ body {
     line-height: 1.6;
 }
 
+/* Universal Bolding for strong and b tags */
+strong, b {
+    font-weight: bold !important; /* Ensures text inside <strong> or <b> is always bold */
+}
+
 /* Base Styles for Sections */
 section {
     padding-top: 5rem; /* Add some padding for navigation */
@@ -56,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #4a4a4a;
 }
 
-/* Interactive Cover Animations */
+/* Interactive Cover Animations (still defined, but project cards use static images) */
 .interactive-cover-container {
     width: 100%;
     height: 150px; /* Fixed height for consistency */
@@ -74,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block; /* Ensure SVG fills container */
 }
 
-/* Specific Project Card Animations (on hover) */
+/* Specific Project Card Animations (on hover) - these rules are now mostly for unused SVG covers, but kept */
 .project-card:hover .draw-on-hover {
     stroke-dasharray: 1000;
     stroke-dashoffset: 0;
@@ -326,23 +331,12 @@ canvas {
     margin-bottom: 0.5em;
 }
 
+/*
 .prose-custom strong {
-    color: #e2e8f0; /* slate-200 */
-    font-weight: 600;
+    color: #e2e8f0; // slate-200
+    font-weight: 600; // This specific rule for strong tags within prose might be the issue
 }
-
-.prose-custom a {
-    color: #8b5cf6; /* violet-400 */
-    text-decoration: underline;
-}
-
-.prose-custom blockquote {
-    font-style: italic;
-    color: #94a3b8; /* slate-400 */
-    border-left: 0.25rem solid #6366f1; /* indigo-500 */
-    padding-left: 1rem;
-    margin: 1.5em 0;
-}
+*/
 
 /* Code Snippet Styling */
 .prose-custom pre {
