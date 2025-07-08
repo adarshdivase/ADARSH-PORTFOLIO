@@ -1,3 +1,4 @@
+// FIX: Forced refresh
 // --- DATA ---
 const projectsData = [
     { 
