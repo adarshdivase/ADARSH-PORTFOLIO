@@ -5,8 +5,8 @@ const projectsData = [
         title: "AI-Fueled E-commerce Analytics & Sales Forecasting System", 
         interactive_cover: { type: 'dashboard' },
         media: [ 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg' }, 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg' } 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg)' }, 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg)' } 
         ], 
         description: "An AI-powered platform for e-commerce analytics and sales forecasting, leveraging Facebook Prophet and interactive dashboards to drive revenue strategy and reduce stockouts.", 
         details: [ 
@@ -20,8 +20,8 @@ const projectsData = [
         title: "AI-Powered Trading System with Risk Analytics", 
         interactive_cover: { type: 'trading' },
         media: [ 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg' }, 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg' } 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg)' }, 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg)' } 
         ], 
         description: "A real-time AI-driven algorithmic trading system deployed on Streamlit, providing live market data, technical indicators, and automated trade execution with robust risk management protocols.", 
         details: [ 
@@ -36,8 +36,8 @@ const projectsData = [
         title: "AI Services Toolkit Pro (Multi-Modal AI Assistant)", 
         interactive_cover: { type: 'toolkit' },
         media: [ 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg' }, 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg' } 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg)' }, 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg)' } 
         ], 
         description: "Architected and deployed a comprehensive, integrated Multi-Modal AI Toolkit on Hugging Face Spaces, integrating 9 state-of-the-art Transformer pipelines for diverse AI capabilities.", 
         details: [ 
@@ -53,8 +53,8 @@ const projectsData = [
         title: "Hybrid Predictive Maintenance System", 
         interactive_cover: { type: 'maintenance' },
         media: [ 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg' }, 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg' } 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg)' }, 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg)' } 
         ], 
         description: "Developed and deployed an integrated Hybrid Predictive Maintenance system on Streamlit, combining supervised learning (LSTM) and reinforcement learning for optimal maintenance recommendations.", 
         details: [ 
@@ -69,8 +69,8 @@ const projectsData = [
         title: "Customer Churn Prediction and API Deployment", 
         interactive_cover: { type: 'churn' },
         media: [ 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg' }, 
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg' } 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg)' }, 
+            { type: 'image', url: '[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg)' } 
         ], 
         description: "Architected and deployed an integrated Customer Churn Prediction system on Streamlit with a FastAPI backend for model inference, achieving high accuracy and efficient real-time predictions.", 
         details: [ 
@@ -88,32 +88,32 @@ const playgroundAppsData = [
     {
         title: "AI-Powered Customer Churn Prediction",
         description: "An interactive Streamlit application demonstrating a machine learning model that predicts customer churn, allowing users to input customer data and see real-time predictions.",
-        url: "https://futureml02-jg9jkjmv3xahqnceylr8eu.streamlit.app/",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg" 
+        url: "[https://futureml02-jg9jkjmv3xahqnceylr8eu.streamlit.app/](https://futureml02-jg9jkjmv3xahqnceylr8eu.streamlit.app/)",
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg)" 
     },
     {
         title: "AI-Fueled E-commerce Analytics & Sales Forecasting System", 
         description: "A live Streamlit dashboard providing comprehensive e-commerce analytics, including sales trends, customer segmentation (RFM), and interactive visualizations for business insights.",
-        url: "https://futureml01-j2lihzs8qwk6ombkpeczut.streamlit.app/",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg" 
+        url: "[https://futureml01-j2lihzs8qwk6ombkpeczut.streamlit.app/](https://futureml01-j2lihzs8qwk6ombkpeczut.streamlit.app/)",
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg)" 
     },
     {
         title: "AI Services Toolkit Pro", 
         description: "Explore a suite of multi-modal AI models, including sentiment analysis, summarization, and image captioning, all served through a user-friendly interface.", 
-        url: "https://ai-toolkit-nj89aumds7l6rpjas7486m.streamlit.app/", 
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg" 
+        url: "[https://ai-toolkit-nj89aumds7l6rpjas7486m.streamlit.app/](https://ai-toolkit-nj89aumds7l6rpjas7486m.streamlit.app/)", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg)" 
     },
     {
         title: "Hybrid Predictive Maintenance Dashboard", 
         description: "An interactive Streamlit dashboard showcasing real-time predictive maintenance insights, including anomaly detection and remaining useful life (RUL) predictions for industrial equipment.", 
-        url: "https://smart-predictive-maintenance-en77oylapplyfegbhuzf3fy.streamlit.app/Live_Dashboard",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg" 
+        url: "[https://smart-predictive-maintenance-en77oylapplyfegbhuzf3fy.streamlit.app/Live_Dashboard](https://smart-predictive-maintenance-en77oylapplyfegbhuzf3fy.streamlit.app/Live_Dashboard)",
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg)" 
     },
     {
         title: "AI-Powered Live Trading System",
         description: "An interactive Streamlit application demonstrating a deep learning-based trading system with real-time market data, technical indicators, and robust risk management.", 
-        url: "https://smart-predictive-maintenance-am3fyapk9yqcujd87tjcux.streamlit.app/", 
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg" 
+        url: "[https://smart-predictive-maintenance-am3fyapk9yqcujd87tjcux.streamlit.app/](https://smart-predictive-maintenance-am3fyapk9yqcujd87tjcux.streamlit.app/)", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg)" 
     }
 ];
 
@@ -131,50 +131,50 @@ const blogPostsData = [
      { 
         title: "Architecting Intelligence: My Journey in Tech", 
         date: "2025-06-26", 
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg)", 
         tags: ["Career", "Reflection", "MLOps", "Generative AI"], 
         content: `<p>Welcome to my corner of the web! I'm Adarsh Divase, an AI and Data Science enthusiast currently pursuing my B.Tech at A. C. Patil College of Engineering. My passion lies not just in understanding data, but in transforming it into intelligent, actionable solutions that can drive real-world impact. This blog is a space for me to share my journey, the projects that excite me, and the lessons I've learned along the way.</p><p>My academic and professional path has been geared towards mastering the full spectrum of the machine learning lifecycle. From constructing resilient data pipelines with <strong>Hadoop and Spark</strong> to deploying scalable microservices with <strong>Python and FastAPI</strong>, I thrive on building robust, end-to-end systems. My internship as a Python Backend Developer was a fantastic playground, allowing me to sharpen my skills in API development, database management with PostgreSQL, and Docker-based deployments, ultimately leading to significant improvements in performance and efficiency.</p><blockquote class="border-l-4 border-indigo-500 pl-4 text-slate-300 italic">"The goal is to turn data into information, and information into insight." - Carly Fiorina. This quote perfectly encapsulates my philosophy.</blockquote><p>Beyond the backend, my core interest is in the models themselves. I've delved into everything from classic predictive analytics, like the customer churn models I built using Random Forests, to the cutting edge of deep learning with <strong>CNNs, LSTMs, and Transformers</strong>. A project I'm particularly proud of is the **AI Services Toolkit Pro (Multi-Modal AI Assistant)**, where I integrated OpenAI's Whisper for transcription and YOLOv5 for object detection. It was a thrilling challenge to merge these technologies into a single, cohesive application.</p><p>My work extends to ensuring these intelligent systems are not just built but are also robust, scalable, and maintainable. This involves a strong focus on **MLOps** principles, including CI/CD pipelines, model versioning, and continuous monitoring. My experience with Docker and platforms like Render and Heroku has been crucial in deploying these complex systems efficiently. I believe that a well-engineered deployment strategy is just as important as the model itself in delivering true business value.</p><p>I'm particularly excited about the advancements in **Generative AI and Large Language Models (LLMs)</strong>, and I've been actively exploring their applications, as demonstrated by my certification in this area. The ability to create new content, synthesize information, and even generate code opens up incredible possibilities for future AI solutions.</p>`
     },
     { 
         title: "Deep Dive: Handling Imbalance in Churn Prediction", 
         date: "2025-06-20", 
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg)", 
         tags: ["Deep Dive", "Machine Learning", "Classification", "Data Preprocessing"], 
         content: `<p>One of the most common challenges in classification problems, like customer churn prediction, is dealing with imbalanced datasets. Often, the number of customers who churn (the minority class) is far smaller than those who don't. If left unaddressed, a model can achieve high accuracy simply by predicting the majority class every time, making it useless in practice.</p><p>Here's a conceptual Python snippet of how SMOTE can be integrated into a scikit-learn pipeline:</p><pre><code class="language-python">from imblearn.over_sampling import SMOTE\nfrom imblearn.pipeline import Pipeline\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\n\n# X, y are your features and labels\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Define the model and the SMOTE preprocessor\nmodel = RandomForestClassifier()\nsmote = SMOTE(random_state=42)\n\n# Create a pipeline to apply SMOTE only to the training data\npipeline = Pipeline([('smote', smote), ('classifier', model)])\n\npipeline.fit(X_train, y_train)\n\n# The pipeline handles the resampling internally during fit!\nprint(f"Model Recall: {pipeline.score(X_test, y_test)}")</code></pre><p>By applying SMOTE, I was able to increase the model's recall for the churn class by **25%**. This meant the model became significantly better at its primary job: identifying customers who are actually at risk of leaving. It's a powerful reminder that headline accuracy isn't everything; understanding and addressing the nuances of your data is what leads to truly effective models. This approach was crucial in achieving an F1-score of 0.87 and identifying 75% of churners within a 30-day window, providing actionable insights for retention strategies.</p>`
     },
-    {
-        title: "The Power of Real-time Data in Trading",
-        date: "2025-06-15",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg",
-        tags: ["Finance", "Real-time Systems", "Data Engineering", "Trading"],
+    { 
+        title: "The Power of Real-time Data in Trading", 
+        date: "2025-06-15", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg)", 
+        tags: ["Finance", "Real-time Systems", "Data Engineering", "Trading"], 
         content: `<p>In the fast-paced world of financial trading, real-time data is not just an advantage; it's a necessity. My **AI-Powered Trading System with Risk Analytics** project heavily relied on this principle. We built robust data ingestion pipelines using technologies like **Apache Kafka** to process over 10,000 data points per minute.</p><p>This capability was critical for several reasons:</p><ul><li><strong>Timely Decision Making:</strong> Real-time data feeds directly into our LSTM models, allowing for up-to-the-minute market analysis and prediction, boosting decision efficiency by 30%.</li><li><strong>Risk Management:</strong> Integrating live data with risk metrics like VaR and Sortino Ratio ensures that our system can react swiftly to market volatility, helping to lower simulated investment risk by 22%.</li><li><strong>Competitive Edge:</strong> The ability to process and act on data faster than competitors can lead to significant gains in simulated portfolio returns.</li></ul><p>The engineering challenge lay in ensuring low-latency data flow and high throughput. By leveraging distributed streaming platforms, we created a resilient and efficient backbone for our predictive models, proving that robust data engineering is foundational to successful AI applications in finance. Our integration with the **Alpaca API** further solidified this by providing seamless access to live and historical stock data, enabling real-time bar updates and efficient order submission.</p>`
     },
-    {
-        title: "Interpretable AI: Beyond the Black Box",
-        date: "2025-06-08",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg",
-        tags: ["AI Ethics", "Explainable AI", "Machine Learning", "Predictive Maintenance"],
+    { 
+        title: "Interpretable AI: Beyond the Black Box", 
+        date: "2025-06-08", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg)", 
+        tags: ["AI Ethics", "Explainable AI", "Machine Learning", "Predictive Maintenance"], 
         content: `<p>As AI models become increasingly complex, especially in critical applications like predictive maintenance, understanding *why* a model makes a certain prediction is as important as the prediction itself. This is where Explainable AI (XAI) comes into play. In my **Hybrid Predictive Maintenance System**, I focused on making the hybrid Deep Learning and Reinforcement Learning model transparent using **SHAP and LIME**.</p><p>By integrating these tools, we were able to:</p><ul><li><strong>Identify Critical Factors:</strong> Pinpoint the top 5 factors (e.g., specific sensor readings, operating conditions) that most influenced a prediction of equipment failure.</li><li><strong>Build Trust:</strong> Provide maintenance teams with clear reasons behind predicted failures, increasing their trust in the AI system.</li><li><strong>Improve Models:</strong> Insights from SHAP and LIME helped in refining features and model architecture, contributing to the 30% improvement in prediction accuracy.</li></ul><p>This commitment to interpretability ensures that our AI solutions are not just powerful but also actionable and trustworthy, bridging the gap between complex algorithms and real-world operational decisions. In the context of the Hybrid Predictive Maintenance System, this was crucial for logging simulation reports and providing actionable insights that led to an estimated 20% reduction in operational downtime costs.</p>`
     },
-    {
-        title: "Unlocking Multi-Modal AI: The Toolkit Approach",
-        date: "2025-06-01",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg",
-        tags: ["AI", "Multi-modal AI", "Transformers", "FastAPI", "Streamlit"],
-        content: `<p>Building and deploying state-of-the-art AI models can be complex, especially when dealing with diverse data types like text, speech, and images. My **AI Services Toolkit Pro (Multi-Modal AI Assistant)** project was designed to tackle this challenge head-on by creating a unified platform for various Transformer-based AI capabilities.</p><p>Key aspects of the architecture include:</p><ul><li>A robust **FastAPI backend** handling asynchronous operations and leveraging **Pydantic models** for data validation, exposing these AI services via clean ` / api` endpoints.</li><li>An intuitive **Streamlit frontend** that provides an interactive user interface for making API calls, viewing historical interactions, and monitoring system status in real-time.</li><li>Advanced features like **Text-to-Speech (TTS)** with dynamic speaker embeddings and Speech-to-Text (STT) with automatic audio resampling, significantly enhancing accessibility and user engagement.</li></ul><p>This project demonstrates a full end-to-end MLOps pipeline, from model integration and API development to frontend deployment on platforms like Hugging Face Spaces. It highlights the power of combining specialized AI models into a user-friendly toolkit, making advanced AI capabilities accessible and actionable.</p>`
+    { 
+        title: "Unlocking Multi-Modal AI: The Toolkit Approach", 
+        date: "2025-06-01", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg)", 
+        tags: ["AI", "Multi-modal AI", "Transformers", "FastAPI", "Streamlit"], 
+        content: `<p>Building and deploying state-of-the-art AI models can be complex, especially when dealing with diverse data types like text, speech, and images. My **AI Services Toolkit Pro (Multi-Modal AI Assistant)** project was designed to tackle this challenge head-on by creating a unified platform for various Transformer-based AI capabilities.</p><p>Key aspects of the architecture include:</p><ul><li>A robust **FastAPI backend** handling asynchronous operations and leveraging **Pydantic models** for data validation, exposed via clean ` / api` endpoints.</li><li>An intuitive **Streamlit frontend** that provides an interactive user interface for making API calls, viewing historical interactions, and monitoring system status in real-time.</li><li>Advanced features like **Text-to-Speech (TTS)** with dynamic speaker embeddings and Speech-to-Text (STT) with automatic audio resampling, significantly enhancing accessibility and user engagement.</li></ul><p>This project demonstrates a full end-to-end MLOps pipeline, from model integration and API development to frontend deployment on platforms like Hugging Face Spaces. It highlights the power of combining specialized AI models into a user-friendly toolkit, making advanced AI capabilities accessible and actionable.</p>`
     },
-    {
-        title: "Mastering MLOps: From Code to Scalable Production AI",
-        date: "2025-05-28",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-mlops.jpeg",
-        tags: ["MLOps", "Deployment", "Scalability", "DevOps"],
+    { 
+        title: "Mastering MLOps: From Code to Scalable Production AI", 
+        date: "2025-05-28", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-mlops.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-mlops.jpeg)", 
+        tags: ["MLOps", "Deployment", "Scalability", "DevOps"], 
         content: `<p>In the world of AI, building a powerful model is only half the battle. The true challenge lies in deploying and maintaining these models in production reliably and at scale. This is where **MLOps (Machine Learning Operations)** becomes indispensable. My experience as a Python Backend Developer Intern, and my work on various AI projects, has deeply ingrained the importance of robust MLOps practices.</p><p>MLOps is the engineering discipline that unifies ML system development (Dev) and ML system operation (Ops). It encompasses a range of practices aimed at streamlining the machine learning lifecycle, from data collection and model training to deployment, monitoring, and continuous improvement. Key components include:</p><ul><li>**Continuous Integration/Continuous Delivery (CI/CD):** Automating the process of building, testing, and deploying models ensures rapid iteration and reduces manual errors. My work orchestrating Docker-containerized deployments to **Render and Heroku** significantly reduced deployment cycles by 40%.</li><li>**Model Versioning:** Tracking different versions of models and their associated data allows for reproducibility and rollbacks, crucial for debugging and auditing.</li><li>**Monitoring:** Continuously observing model performance, data drift, and system health in production to identify and address issues promptly.</li><li>**Scalable Infrastructure:** Designing systems that can handle increasing load. Building scalable microservices with **FastAPI and Flask** that improved API response times by 25% and handled over 10,000 daily requests with 99.9% uptime is a testament to this.</li></ul><p>Platforms like **Hugging Face Spaces** further democratize MLOps, providing easy ways to deploy and share models. Mastering these principles ensures that AI solutions are not just innovative prototypes but reliable, high-performing assets that deliver continuous business value.</p>`
     },
-    {
-        title: "Data Engineering for AI: Building Resilient Data Pipelines",
-        date: "2025-05-20",
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-data-engineering.jpeg",
-        tags: ["Data Engineering", "Big Data", "Apache Kafka", "Data Pipelines"],
+    { 
+        title: "Data Engineering for AI: Building Resilient Data Pipelines", 
+        date: "2025-05-20", 
+        image: "[https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-data-engineering.jpeg](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/blog-data-engineering.jpeg)", 
+        tags: ["Data Engineering", "Big Data", "Apache Kafka", "Data Pipelines"], 
         content: `<p>At the heart of every effective AI or Machine Learning system lies a robust and reliable data pipeline. Without clean, accessible, and continuously flowing data, even the most sophisticated models are rendered useless. My academic background and project experience have provided me with profound expertise in building **resilient data engineering** solutions.</p><p>Key technologies that are fundamental to modern AI data pipelines include:</p><ul><li>**Apache Hadoop:** For distributed storage and processing of massive datasets, allowing for scalable batch processing.</li><li>**Apache Spark:** A powerful unified analytics engine for large-scale data processing, offering speed and flexibility for tasks like ETL (Extract, Transform, Load).</li><li>**Apache Kafka:** A distributed streaming platform crucial for building real-time data pipelines. In my **AI-Powered Trading System with Risk Analytics**, I established real-time data ingestion pipelines using Apache Kafka to process over 10,000 data points per minute, significantly boosting decision efficiency.</li><li>**SQL and NoSQL Databases:** Proficiently managing databases like **PostgreSQL, MySQL, and MongoDB** for structured and unstructured data storage. My work with **SQLAlchemy ORM** in managing PostgreSQL databases reduced data retrieval time by 15%.</li></ul><p>Building these resilient data pipelines ensures that AI models receive the high-quality, timely data they need to perform effectively, transforming raw data into actionable insights and driving real business impact. This foundational layer is often unseen but is paramount to the success of any AI initiative.</p>`
     }
 ].sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending for recent posts
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (type) {
             case 'dashboard':
                 svgContent = `
-                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="bg-gray-900">
                         <defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
                         <rect width="300" height="150" fill="#0a192f"/>
                         <path d="M20,130 C50,20 80,110 140,80 S200,40 280,60" stroke="#a78bfa" stroke-width="1" class="svg-hidden draw-on-hover"/>
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'trading':
                 svgContent = `
-                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="bg-gray-900">
                         <rect width="300" height="150" fill="#161a1d"/>
                         <path d="M30 110 L 80 40 L 130 80 L 180 60 L 230 90 L 280 30" stroke="#4f46e5" stroke-width="2" class="draw-on-hover"/>
                         <g class="svg-hidden">
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'toolkit':
                  svgContent = `
-                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="bg-gray-900">
                         <rect width="300" height="150" fill="#111827"/>
                         <defs><filter id="toolkit-glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
                         <g class="toolkit-glow">
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'maintenance':
                 svgContent = `
-                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="bg-gray-900">
                         <rect width="300" height="150" fill="#2d2d2d"/>
                         <g class="pm-gear" style="transform-origin: 80px 75px;">
                             <circle cx="80" cy="75" r="30" fill="none" stroke="#add8e6" stroke-width="4" stroke-dasharray="5 5"/>
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'churn':
                 svgContent = `
-                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="bg-gray-900">
                         <rect width="300" height="150" fill="#003638"/>
                         <g class="churn-dot-imbalanced">
                             ${[...Array(6)].map((_, i) => `<circle cx="${40 + i * 40}" cy="50" r="5" fill="#008080" class="churn-dot"/>`).join('')}
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const appCard = document.createElement('div');
             appCard.className = "card-bg rounded-2xl flex flex-col overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer";
             appCard.innerHTML = `
-                <img src="${app.image}" alt="${app.title}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1b4b/c4b5fd?text=App+Image';">
+                <img src="${app.image}" alt="${app.title}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='[https://placehold.co/600x400/1e1b4b/c4b5fd?text=App+Image](https://placehold.co/600x400/1e1b4b/c4b5fd?text=App+Image)';">
                 <div class="p-6 flex flex-col flex-grow">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">${app.title}</h3>
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="mt-auto pt-4">
                         <a href="${app.url}" target="_blank" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
                             Launch App
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block ml-1 -mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" class="inline-block ml-1 -mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                         </a>
                     </div>
                 </div>
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resizeHandler = () => { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; mouse.radius = (bgCanvas.height / 120) * (bgCanvas.width / 120); initParticles(); };
     window.addEventListener('resize', resizeHandler);
     window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-    class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > the.size * 10) the.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); } } // The original problem line with 'the.size' and 'the.y' was here in the unminified code!
+    class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); } } // FIX: Corrected 'the.size' to 'this.size' and 'the.y' to 'this.y'
     function initParticles() { particlesArray = []; let num = (bgCanvas.height * bgCanvas.width) / 9000; for (let i = 0; i < num; i++) { let x = Math.random() * innerWidth; let y = Math.random() * innerHeight; let dx = (Math.random() * .4) - 0.2; let dy = (Math.random() * .4) - 0.2; particlesArray.push(new Particle(x, y, dx, dy)); } }
     function animateParticles() { requestAnimationFrame(animateParticles); ctx.clearRect(0, 0, innerWidth, innerHeight); particlesArray.forEach(p => p.update()); connectParticles(); }
     function connectParticles() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = Math.hypot(particlesArray[a].x - particlesArray[b].x, particlesArray[a].y - particlesArray[b].y); if (distance < 120) { opacityValue = 1 - (distance / 120); ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue * 0.3})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
@@ -471,3 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateParticles();
     console.log("Adarsh's Portfolio script loaded and executed!"); // Added for verification
 });
+You are providing the `script.js` content again, and it **still contains the critical typo** that causes the `tC is not defined` error:
+
+```javascript
+if (mouse.y > this.y && this.y > the.size * 10) the.y -= 5;
