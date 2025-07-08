@@ -4,299 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adarsh Divase - AI & Data Science Portfolio</title>
-    <!-- Tailwind CSS CDN (remains external for simplicity) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (remains external) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Highlight.js for code snippets styles (remains external) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     
-    <!-- Link to your custom stylesheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="antialiased">
-    <!-- Animated Background -->
-    <div class="animated-background">
-        <canvas id="bg-canvas"></canvas>
-    </div>
-
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-black/30 backdrop-blur-md border-b border-slate-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white">Adarsh Divase</a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="text-slate-300 hover:text-white transition-colors duration-300">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-white transition-colors duration-300">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-white transition-colors duration-300">Projects</a>
-                <a href="#playground" class="text-slate-300 hover:text-white transition-colors duration-300">Playground</a>
-                <a href="#skills" class="text-slate-300 hover:text-white transition-colors duration-300">Skills</a>
-                <a href="#blog" class="text-slate-300 hover:text-white transition-colors duration-300">Blog</a>
-                <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
-            <a href="#experience" class="block py-2 text-slate-300 hover:text-white">Experience</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-white">Projects</a>
-            <a href="#playground" class="block py-2 text-slate-300 hover:text-white">Playground</a>
-            <a href="#skills" class="block py-2 text-slate-300 hover:text-white">Skills</a>
-            <a href="#blog" class="block py-2 text-slate-300 hover:text-white">Blog</a>
-            <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact</a>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6">
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Adarsh Divase</h1>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="text-glow" id="role-text"></span></h2>
-                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8">Analytical AI & Data Science professional architecting innovative solutions and driving business impact with cutting-edge technology.</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#projects" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">View My Work</a>
-                    <a href="https://github.com/adarshdivase" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <h2 class="section-title text-center mb-12">About Me</h2>
-            <div class="grid md:grid-cols-5 gap-12 items-start">
-                <div class="md:col-span-3 card-bg p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4">Summary</h3>
-                    <p class="text-slate-300 leading-relaxed">Profound expertise in predictive modeling, deep learning architectures, scalable MLOps, and robust API deployment. Proven leader in optimizing end-to-end Machine Learning pipelines, from resilient data engineering to cutting-edge generative AI solutions. Proficient across Python, TensorFlow, PyTorch, SQL, AWS, Hadoop, and Spark. Seeking to architect innovative solutions and drive significant business impact within a dynamic environment.</p>
-                </div>
-                <div class="md:col-span-2 space-y-8">
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
-                        <p class="font-semibold text-indigo-300">B.Tech in AI & Data Science</p>
-                        <p class="text-slate-400">A. C. Patil College of Engineering</p>
-                        <p class="text-slate-500">Expected Graduation: 2025 | GPA: 8.7</p>
-                    </div>
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Certifications</h3>
-                        <ul class="list-none space-y-2">
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> AWS Certified Solutions Architect</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Data Engineering (Hadoop & Spark)</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Mastering Generative AI & ChatGPT</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title text-center mb-12">Experience</h2>
-            <div class="relative max-w-3xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
-                <div class="relative mb-8">
-                    <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full mt-1.5 ring-8 ring-gray-900"></div>
-                    <div class="ml-auto md:ml-0 md:w-[45%] md:mr-[5%] card-bg p-6 rounded-2xl shadow-lg">
-                        <time class="text-sm font-semibold text-indigo-400">Oct 2024 - Mar 2025</time>
-                        <h3 class="text-xl font-bold text-white mt-1">Python Backend Developer Intern</h3>
-                        <p class="text-slate-400 mb-4">NDTR Reflection Engineers (Remote)</p>
-                        <ul class="list-none space-y-2 text-slate-300 text-sm">
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Built scalable microservices (Python, FastAPI, Flask), improving API response times by 25% and handling over 10,000 daily requests with 99.9% uptime.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Managed PostgreSQL databases via SQLAlchemy ORM, reducing data retrieval time by 15%.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Implemented JWT-based authentication for over 50 API endpoints, significantly enhancing security. Integrated SendGrid (over 1,000 transactional emails/day) and Razorpay (monthly transactions exceeding $5,000).</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Orchestrated Docker-containerized deployments to Render and Heroku, reducing deployment cycles by 40%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="section-title text-center mb-12">Projects Showcase</h2>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- Playground Section -->
-        <section id="playground" class="py-20">
-            <h2 class="section-title text-center mb-12">Playground: Live Demos</h2>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 text-center">Explore interactive applications I've built and deployed, showcasing practical AI and data science solutions.</p>
-            <div id="playground-apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Streamlit apps will be dynamically loaded here -->
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="section-title text-center mb-12">Technical Skills</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- ENHANCED BLOG SECTION -->
-        <section id="blog" class="py-20">
-            <div class="text-center mb-16">
-                <h2 class="section-title">From My Blog</h2>
-                <p class="mt-4 text-lg text-slate-400">Insights on AI, data, and my development journey.</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Blog Posts Feed -->
-                <div class="lg:col-span-2">
-                    <div class="flex flex-wrap gap-3 mb-8" id="blog-filters">
-                        <!-- Filter tags will be inserted here -->
-                    </div>
-                    <div class="space-y-12" id="blog-posts-container">
-                        <!-- Blog posts will be inserted here -->
-                    </div>
-                </div>
-                <!-- Blog Sidebar -->
-                <aside class="lg:col-span-1 space-y-12">
-                    <div id="testimonials">
-                        <h3 class="text-2xl font-bold text-white mb-6">What Others Say</h3>
-                        <div class="space-y-6">
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"Adarsh's ability to quickly grasp complex systems and deliver efficient backend solutions was impressive..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Project Manager, NDTR</p>
-                            </div>
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"A dedicated student with a clear passion for AI... Adarsh consistently demonstrates a deep understanding..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Professor, ACPCOE</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="recent-posts">
-                        <h3 class="text-2xl font-bold text-white mb-6">Recent Posts</h3>
-                        <div class="space-y-6" id="recent-posts-container">
-                            <!-- Recent posts will be inserted here -->
-                        </div>
-                    </div>
-                    <div id="q-a">
-                        <h3 class="text-2xl font-bold text-white mb-6">Ask Me Anything!</h3>
-                        <div class="card-bg p-8 rounded-2xl">
-                            <form id="comment-form" class="comment-form space-y-4">
-                                <input type="text" id="comment-name" placeholder="Your Name & Company" class="w-full p-3 rounded-lg text-white" required>
-                                <textarea id="comment-text" rows="4" placeholder="Your question..." class="w-full p-3 rounded-lg text-white" required></textarea>
-                                <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div id="poll">
-                         <h3 class="text-2xl font-bold text-white mb-6">Quick Poll</h3>
-                         <div class="card-bg p-8 rounded-2xl">
-                             <p class="font-semibold mb-4">What AI topic interests you most?</p>
-                             <div id="poll-options" class="space-y-3">
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Generative AI & LLMs</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Computer Vision</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">MLOps & Deployment</button>
-                            </div>
-                             <p id="poll-feedback" class="text-green-400 mt-4 font-semibold hidden">Thanks for your vote!</p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="max-w-3xl mx-auto text-center card-bg p-8 md:p-12 rounded-2xl">
-                <h2 class="section-title mb-4">Get In Touch</h2>
-                <p class="text-slate-400 mb-8">I'm currently seeking new opportunities and am open to collaboration. Feel free to reach out.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <a href="mailto:divaseadarsh608@gmail.com" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">divaseadarsh608@gmail.com</a>
-                    <a href="tel:8451918440" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">8451918440</a>
-                    <a href="#" id="download-resume" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">Download Resume</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-8 text-slate-500 border-t border-slate-800">
-        <p>&copy; 2024 Adarsh Divase. All rights reserved.</p>
-    </footer>
-
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content card-bg w-11/12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto"></div>
-    </div>
-
-    <!-- Link to your custom JavaScript file -->
-    <script src="script.js"></script>
-    <!-- Highlight.js initialization (after custom script, as it's used in blog content) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-</body>
-</html>
-```
-You've provided a new `index.html` file. I see some significant changes in this version, particularly within the `<head>` section and the inline `<style>` block.
-
-The `script.js:163 Uncaught ReferenceError: api is not defined` error you're seeing is directly related to the content of your `script.js` file. However, the `index.html` you just provided also has issues that will affect how the page renders and how scripts might run.
-
-Let's address both the `index.html` and the `script.js` to ensure a clean and functional deployment.
-
----
-
-### **Problem in the Provided `index.html`:**
-
-The `index.html` you just sent contains a massive amount of CSS code directly within a `<style>` tag. This CSS code is actually what was in your `style.css` file previously, *plus* a lot of additional animation and utility classes.
-
-**This is problematic because:**
-1.  **Duplicate CSS:** You're linking to `style.css` AND putting a huge amount of CSS inline. This is inefficient and can cause conflicts.
-2.  **Overly Complex Inline CSS:** Embedding this much CSS directly in HTML is not best practice for maintainability.
-3.  **Potential for Conflicts:** The inline CSS might override or conflict with the `style.css` file.
-
----
-
-### **Problem in `script.js` (Still the `api is not defined` error):**
-
-The error `script.js:163 Uncaught ReferenceError: api is not defined` means that the `script.js` file currently being loaded by your Vercel site is **still not the corrected version** that I provided in my previous responses. The corrected version does not have this error on line 163.
-
-This is the core reason for "no data" showing up.
-
----
-
-### **Solution: A Clean Start with Corrected Files**
-
-We need to ensure that the `index.html`, `style.css`, and `script.js` files are all the correct, separate, and latest versions.
-
-**Here are the three files you need to use. Please replace your local files with these exact contents.**
-
----
-
-### **File 1: `index.html` (Main Portfolio Page - Cleaned)**
-
-This version is clean, links to external CSS and JS, and has the correct structure.
-
-
-```html
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adarsh Divase - AI & Data Science Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Highlight.js for code snippets styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    
-    <!-- Link to your custom stylesheet -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Favicon (optional, but good practice) -->
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
 </head>
 <body class="antialiased">
-    <!-- Animated Background -->
     <div class="animated-background">
         <canvas id="bg-canvas"></canvas>
     </div>
 
-    <!-- Header & Navigation -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-black/30 backdrop-blur-md border-b border-slate-800">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white">Adarsh Divase</a>
@@ -325,7 +47,6 @@ This version is clean, links to external CSS and JS, and has the correct structu
     </header>
 
     <main class="container mx-auto px-6">
-        <!-- Hero Section -->
         <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
             <div class="max-w-4xl">
                 <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Adarsh Divase</h1>
@@ -338,7 +59,6 @@ This version is clean, links to external CSS and JS, and has the correct structu
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-20">
             <h2 class="section-title text-center mb-12">About Me</h2>
             <div class="grid md:grid-cols-5 gap-12 items-start">
@@ -365,7 +85,6 @@ This version is clean, links to external CSS and JS, and has the correct structu
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="py-20">
             <h2 class="section-title text-center mb-12">Experience</h2>
             <div class="relative max-w-3xl mx-auto">
@@ -387,28 +106,23 @@ This version is clean, links to external CSS and JS, and has the correct structu
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="py-20">
             <h2 class="section-title text-center mb-12">Projects Showcase</h2>
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
-        <!-- Playground Section -->
         <section id="playground" class="py-20">
             <h2 class="section-title text-center mb-12">Playground: Live Demos</h2>
             <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 text-center">Explore interactive applications I've built and deployed, showcasing practical AI and data science solutions.</p>
             <div id="playground-apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Streamlit apps will be dynamically loaded here -->
-            </div>
+                </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="py-20">
             <h2 class="section-title text-center mb-12">Technical Skills</h2>
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
-        <!-- ENHANCED BLOG SECTION -->
         <section id="blog" class="py-20">
             <div class="text-center mb-16">
                 <h2 class="section-title">From My Blog</h2>
@@ -416,16 +130,12 @@ This version is clean, links to external CSS and JS, and has the correct structu
             </div>
             
             <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Blog Posts Feed -->
                 <div class="lg:col-span-2">
                     <div class="flex flex-wrap gap-3 mb-8" id="blog-filters">
-                        <!-- Filter tags will be inserted here -->
-                    </div>
+                        </div>
                     <div class="space-y-12" id="blog-posts-container">
-                        <!-- Blog posts will be inserted here -->
-                    </div>
+                        </div>
                 </div>
-                <!-- Blog Sidebar -->
                 <aside class="lg:col-span-1 space-y-12">
                     <div id="testimonials">
                         <h3 class="text-2xl font-bold text-white mb-6">What Others Say</h3>
@@ -443,8 +153,7 @@ This version is clean, links to external CSS and JS, and has the correct structu
                     <div id="recent-posts">
                         <h3 class="text-2xl font-bold text-white mb-6">Recent Posts</h3>
                         <div class="space-y-6" id="recent-posts-container">
-                            <!-- Recent posts will be inserted here -->
-                        </div>
+                            </div>
                     </div>
                     <div id="q-a">
                         <h3 class="text-2xl font-bold text-white mb-6">Ask Me Anything!</h3>
@@ -472,7 +181,6 @@ This version is clean, links to external CSS and JS, and has the correct structu
             </div>
         </section>
         
-        <!-- Contact Section -->
         <section id="contact" class="py-20">
             <div class="max-w-3xl mx-auto text-center card-bg p-8 md:p-12 rounded-2xl">
                 <h2 class="section-title mb-4">Get In Touch</h2>
@@ -490,516 +198,11 @@ This version is clean, links to external CSS and JS, and has the correct structu
         <p>&copy; 2024 Adarsh Divase. All rights reserved.</p>
     </footer>
 
-    <!-- Project Modal -->
     <div id="project-modal" class="modal">
         <div class="modal-content card-bg w-11/12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto"></div>
     </div>
 
-    <!-- Link to your custom JavaScript file -->
     <script src="script.js"></script>
-    <!-- Highlight.js initialization (after custom script, as it's used in blog content) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-</body>
-</html>
-```
-You're absolutely right! I see the `index.html` file you just provided, and it's quite different from the one we were previously working with. This new `index.html` has a lot of CSS directly embedded within a `<style>` tag, and it's also missing the Google Fonts link that was in the original.
-
-This explains why the site isn't rendering correctly and why you're still seeing the `api is not defined` error. The combination of an outdated `script.js` and this new `index.html` (which has CSS where HTML should be, and also has a different structure for the CSS) is causing the problem.
-
-We need to ensure you have the **correct, separate, and latest versions of all three files** (`index.html`, `style.css`, and `script.js`) on your local machine, and then push them.
-
----
-
-### **Here are the three files you need to use. Please replace your local files with these exact contents.**
-
----
-
-### **File 1: `index.html` (Main Portfolio Page - Corrected & Cleaned)**
-
-This is the correct HTML structure, linking to external CSS and JS.
-
-
-```html
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adarsh Divase - AI & Data Science Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Highlight.js for code snippets styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    
-    <!-- Link to your custom stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Favicon (optional, but good practice) -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
-</head>
-<body class="antialiased">
-    <!-- Animated Background -->
-    <div class="animated-background">
-        <canvas id="bg-canvas"></canvas>
-    </div>
-
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-black/30 backdrop-blur-md border-b border-slate-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white">Adarsh Divase</a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="text-slate-300 hover:text-white transition-colors duration-300">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-white transition-colors duration-300">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-white transition-colors duration-300">Projects</a>
-                <a href="#playground" class="text-slate-300 hover:text-white transition-colors duration-300">Playground</a>
-                <a href="#skills" class="text-slate-300 hover:text-white transition-colors duration-300">Skills</a>
-                <a href="#blog" class="text-slate-300 hover:text-white transition-colors duration-300">Blog</a>
-                <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
-            <a href="#experience" class="block py-2 text-slate-300 hover:text-white">Experience</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-white">Projects</a>
-            <a href="#playground" class="block py-2 text-slate-300 hover:text-white">Playground</a>
-            <a href="#skills" class="block py-2 text-slate-300 hover:text-white">Skills</a>
-            <a href="#blog" class="block py-2 text-slate-300 hover:text-white">Blog</a>
-            <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact</a>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6">
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Adarsh Divase</h1>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="text-glow" id="role-text"></span></h2>
-                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8">Analytical AI & Data Science professional architecting innovative solutions and driving business impact with cutting-edge technology.</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#projects" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">View My Work</a>
-                    <a href="https://github.com/adarshdivase" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <h2 class="section-title text-center mb-12">About Me</h2>
-            <div class="grid md:grid-cols-5 gap-12 items-start">
-                <div class="md:col-span-3 card-bg p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4">Summary</h3>
-                    <p class="text-slate-300 leading-relaxed">Profound expertise in predictive modeling, deep learning architectures, scalable MLOps, and robust API deployment. Proven leader in optimizing end-to-end Machine Learning pipelines, from resilient data engineering to cutting-edge generative AI solutions. Proficient across Python, TensorFlow, PyTorch, SQL, AWS, Hadoop, and Spark. Seeking to architect innovative solutions and drive significant business impact within a dynamic environment.</p>
-                </div>
-                <div class="md:col-span-2 space-y-8">
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
-                        <p class="font-semibold text-indigo-300">B.Tech in AI & Data Science</p>
-                        <p class="text-slate-400">A. C. Patil College of Engineering</p>
-                        <p class="text-slate-500">Expected Graduation: 2025 | GPA: 8.7</p>
-                    </div>
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Certifications</h3>
-                        <ul class="list-none space-y-2">
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> AWS Certified Solutions Architect</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Data Engineering (Hadoop & Spark)</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Mastering Generative AI & ChatGPT</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title text-center mb-12">Experience</h2>
-            <div class="relative max-w-3xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
-                <div class="relative mb-8">
-                    <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full mt-1.5 ring-8 ring-gray-900"></div>
-                    <div class="ml-auto md:ml-0 md:w-[45%] md:mr-[5%] card-bg p-6 rounded-2xl shadow-lg">
-                        <time class="text-sm font-semibold text-indigo-400">Oct 2024 - Mar 2025</time>
-                        <h3 class="text-xl font-bold text-white mt-1">Python Backend Developer Intern</h3>
-                        <p class="text-slate-400 mb-4">NDTR Reflection Engineers (Remote)</p>
-                        <ul class="list-none space-y-2 text-slate-300 text-sm">
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Built scalable microservices (Python, FastAPI, Flask), improving API response times by 25% and handling over 10,000 daily requests with 99.9% uptime.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Managed PostgreSQL databases via SQLAlchemy ORM, reducing data retrieval time by 15%.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Implemented JWT-based authentication for over 50 API endpoints, significantly enhancing security. Integrated SendGrid (over 1,000 transactional emails/day) and Razorpay (monthly transactions exceeding $5,000).</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Orchestrated Docker-containerized deployments to Render and Heroku, reducing deployment cycles by 40%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="section-title text-center mb-12">Projects Showcase</h2>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- Playground Section -->
-        <section id="playground" class="py-20">
-            <h2 class="section-title text-center mb-12">Playground: Live Demos</h2>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 text-center">Explore interactive applications I've built and deployed, showcasing practical AI and data science solutions.</p>
-            <div id="playground-apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Streamlit apps will be dynamically loaded here -->
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="section-title text-center mb-12">Technical Skills</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- ENHANCED BLOG SECTION -->
-        <section id="blog" class="py-20">
-            <div class="text-center mb-16">
-                <h2 class="section-title">From My Blog</h2>
-                <p class="mt-4 text-lg text-slate-400">Insights on AI, data, and my development journey.</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Blog Posts Feed -->
-                <div class="lg:col-span-2">
-                    <div class="flex flex-wrap gap-3 mb-8" id="blog-filters">
-                        <!-- Filter tags will be inserted here -->
-                    </div>
-                    <div class="space-y-12" id="blog-posts-container">
-                        <!-- Blog posts will be inserted here -->
-                    </div>
-                </div>
-                <!-- Blog Sidebar -->
-                <aside class="lg:col-span-1 space-y-12">
-                    <div id="testimonials">
-                        <h3 class="text-2xl font-bold text-white mb-6">What Others Say</h3>
-                        <div class="space-y-6">
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"Adarsh's ability to quickly grasp complex systems and deliver efficient backend solutions was impressive..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Project Manager, NDTR</p>
-                            </div>
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"A dedicated student with a clear passion for AI... Adarsh consistently demonstrates a deep understanding..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Professor, ACPCOE</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="recent-posts">
-                        <h3 class="text-2xl font-bold text-white mb-6">Recent Posts</h3>
-                        <div class="space-y-6" id="recent-posts-container">
-                            <!-- Recent posts will be inserted here -->
-                        </div>
-                    </div>
-                    <div id="q-a">
-                        <h3 class="text-2xl font-bold text-white mb-6">Ask Me Anything!</h3>
-                        <div class="card-bg p-8 rounded-2xl">
-                            <form id="comment-form" class="comment-form space-y-4">
-                                <input type="text" id="comment-name" placeholder="Your Name & Company" class="w-full p-3 rounded-lg text-white" required>
-                                <textarea id="comment-text" rows="4" placeholder="Your question..." class="w-full p-3 rounded-lg text-white" required></textarea>
-                                <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div id="poll">
-                         <h3 class="text-2xl font-bold text-white mb-6">Quick Poll</h3>
-                         <div class="card-bg p-8 rounded-2xl">
-                             <p class="font-semibold mb-4">What AI topic interests you most?</p>
-                             <div id="poll-options" class="space-y-3">
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Generative AI & LLMs</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Computer Vision</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">MLOps & Deployment</button>
-                            </div>
-                             <p id="poll-feedback" class="text-green-400 mt-4 font-semibold hidden">Thanks for your vote!</p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="max-w-3xl mx-auto text-center card-bg p-8 md:p-12 rounded-2xl">
-                <h2 class="section-title mb-4">Get In Touch</h2>
-                <p class="text-slate-400 mb-8">I'm currently seeking new opportunities and am open to collaboration. Feel free to reach out.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <a href="mailto:divaseadarsh608@gmail.com" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">divaseadarsh608@gmail.com</a>
-                    <a href="tel:8451918440" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">8451918440</a>
-                    <a href="#" id="download-resume" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">Download Resume</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-8 text-slate-500 border-t border-slate-800">
-        <p>&copy; 2024 Adarsh Divase. All rights reserved.</p>
-    </footer>
-
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content card-bg w-11/12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto"></div>
-    </div>
-
-    <!-- Link to your custom JavaScript file -->
-    <script src="script.js"></script>
-    <!-- Highlight.js initialization (after custom script, as it's used in blog content) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-</body>
-</html>
-```
-You're absolutely right! I see the `index.html` file you just provided, and it's quite different from the one we were previously working with. This new `index.html` has a massive amount of CSS code directly embedded within a `<style>` tag, and it's also missing the Google Fonts link that was in the original.
-
-This explains why the site isn't rendering correctly and why you're still seeing the `api is not defined` error. The combination of an outdated `script.js` and this new `index.html` (which has CSS where HTML should be, and also has a different structure for the CSS) is causing the problem.
-
-We need to ensure you have the **correct, separate, and latest versions of all three files** (`index.html`, `style.css`, and `script.js`) on your local machine, and then push them.
-
----
-
-### **Here are the three files you need to use. Please replace your local files with these exact contents.**
-
----
-
-### **File 1: `index.html` (Main Portfolio Page - Corrected & Cleaned)**
-
-This is the correct HTML structure, linking to external CSS and JS.
-
-
-```html
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adarsh Divase - AI & Data Science Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Highlight.js for code snippets styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    
-    <!-- Link to your custom stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Favicon (optional, but good practice) -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
-</head>
-<body class="antialiased">
-    <!-- Animated Background -->
-    <div class="animated-background">
-        <canvas id="bg-canvas"></canvas>
-    </div>
-
-    <!-- Header & Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-black/30 backdrop-blur-md border-b border-slate-800">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white">Adarsh Divase</a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#about" class="text-slate-300 hover:text-white transition-colors duration-300">About</a>
-                <a href="#experience" class="text-slate-300 hover:text-white transition-colors duration-300">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-white transition-colors duration-300">Projects</a>
-                <a href="#playground" class="text-slate-300 hover:text-white transition-colors duration-300">Playground</a>
-                <a href="#skills" class="text-slate-300 hover:text-white transition-colors duration-300">Skills</a>
-                <a href="#blog" class="text-slate-300 hover:text-white transition-colors duration-300">Blog</a>
-                <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
-            <a href="#experience" class="block py-2 text-slate-300 hover:text-white">Experience</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-white">Projects</a>
-            <a href="#playground" class="block py-2 text-slate-300 hover:text-white">Playground</a>
-            <a href="#skills" class="block py-2 text-slate-300 hover:text-white">Skills</a>
-            <a href="#blog" class="block py-2 text-slate-300 hover:text-white">Blog</a>
-            <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact</a>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6">
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
-            <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">Adarsh Divase</h1>
-                <h2 class="text-3xl md:text-5xl font-bold mb-6"><span class="text-glow" id="role-text"></span></h2>
-                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8">Analytical AI & Data Science professional architecting innovative solutions and driving business impact with cutting-edge technology.</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#projects" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">View My Work</a>
-                    <a href="https://github.com/adarshdivase" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105 duration-300">GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20">
-            <h2 class="section-title text-center mb-12">About Me</h2>
-            <div class="grid md:grid-cols-5 gap-12 items-start">
-                <div class="md:col-span-3 card-bg p-8 rounded-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-4">Summary</h3>
-                    <p class="text-slate-300 leading-relaxed">Profound expertise in predictive modeling, deep learning architectures, scalable MLOps, and robust API deployment. Proven leader in optimizing end-to-end Machine Learning pipelines, from resilient data engineering to cutting-edge generative AI solutions. Proficient across Python, TensorFlow, PyTorch, SQL, AWS, Hadoop, and Spark. Seeking to architect innovative solutions and drive significant business impact within a dynamic environment.</p>
-                </div>
-                <div class="md:col-span-2 space-y-8">
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
-                        <p class="font-semibold text-indigo-300">B.Tech in AI & Data Science</p>
-                        <p class="text-slate-400">A. C. Patil College of Engineering</p>
-                        <p class="text-slate-500">Expected Graduation: 2025 | GPA: 8.7</p>
-                    </div>
-                    <div class="card-bg p-6 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-4">Certifications</h3>
-                        <ul class="list-none space-y-2">
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> AWS Certified Solutions Architect</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Data Engineering (Hadoop & Spark)</li>
-                           <li class="flex items-start"><span class="text-indigo-400 mr-2">✦</span> Mastering Generative AI & ChatGPT</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title text-center mb-12">Experience</h2>
-            <div class="relative max-w-3xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
-                <div class="relative mb-8">
-                    <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full mt-1.5 ring-8 ring-gray-900"></div>
-                    <div class="ml-auto md:ml-0 md:w-[45%] md:mr-[5%] card-bg p-6 rounded-2xl shadow-lg">
-                        <time class="text-sm font-semibold text-indigo-400">Oct 2024 - Mar 2025</time>
-                        <h3 class="text-xl font-bold text-white mt-1">Python Backend Developer Intern</h3>
-                        <p class="text-slate-400 mb-4">NDTR Reflection Engineers (Remote)</p>
-                        <ul class="list-none space-y-2 text-slate-300 text-sm">
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Built scalable microservices (Python, FastAPI, Flask), improving API response times by 25% and handling over 10,000 daily requests with 99.9% uptime.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Managed PostgreSQL databases via SQLAlchemy ORM, reducing data retrieval time by 15%.</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Implemented JWT-based authentication for over 50 API endpoints, significantly enhancing security. Integrated SendGrid (over 1,000 transactional emails/day) and Razorpay (monthly transactions exceeding $5,000).</li>
-                            <li class="flex items-start"><span class="text-indigo-400 mr-2">✓</span>Orchestrated Docker-containerized deployments to Render and Heroku, reducing deployment cycles by 40%.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <h2 class="section-title text-center mb-12">Projects Showcase</h2>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- Playground Section -->
-        <section id="playground" class="py-20">
-            <h2 class="section-title text-center mb-12">Playground: Live Demos</h2>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 text-center">Explore interactive applications I've built and deployed, showcasing practical AI and data science solutions.</p>
-            <div id="playground-apps-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Streamlit apps will be dynamically loaded here -->
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <h2 class="section-title text-center mb-12">Technical Skills</h2>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </section>
-
-        <!-- ENHANCED BLOG SECTION -->
-        <section id="blog" class="py-20">
-            <div class="text-center mb-16">
-                <h2 class="section-title">From My Blog</h2>
-                <p class="mt-4 text-lg text-slate-400">Insights on AI, data, and my development journey.</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Blog Posts Feed -->
-                <div class="lg:col-span-2">
-                    <div class="flex flex-wrap gap-3 mb-8" id="blog-filters">
-                        <!-- Filter tags will be inserted here -->
-                    </div>
-                    <div class="space-y-12" id="blog-posts-container">
-                        <!-- Blog posts will be inserted here -->
-                    </div>
-                </div>
-                <!-- Blog Sidebar -->
-                <aside class="lg:col-span-1 space-y-12">
-                    <div id="testimonials">
-                        <h3 class="text-2xl font-bold text-white mb-6">What Others Say</h3>
-                        <div class="space-y-6">
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"Adarsh's ability to quickly grasp complex systems and deliver efficient backend solutions was impressive..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Project Manager, NDTR</p>
-                            </div>
-                            <div class="card-bg p-6 rounded-2xl">
-                                <p class="text-slate-300 italic">"A dedicated student with a clear passion for AI... Adarsh consistently demonstrates a deep understanding..."</p>
-                                <p class="text-right font-bold text-indigo-300 mt-4">- Professor, ACPCOE</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="recent-posts">
-                        <h3 class="text-2xl font-bold text-white mb-6">Recent Posts</h3>
-                        <div class="space-y-6" id="recent-posts-container">
-                            <!-- Recent posts will be inserted here -->
-                        </div>
-                    </div>
-                    <div id="q-a">
-                        <h3 class="text-2xl font-bold text-white mb-6">Ask Me Anything!</h3>
-                        <div class="card-bg p-8 rounded-2xl">
-                            <form id="comment-form" class="comment-form space-y-4">
-                                <input type="text" id="comment-name" placeholder="Your Name & Company" class="w-full p-3 rounded-lg text-white" required>
-                                <textarea id="comment-text" rows="4" placeholder="Your question..." class="w-full p-3 rounded-lg text-white" required></textarea>
-                                <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div id="poll">
-                         <h3 class="text-2xl font-bold text-white mb-6">Quick Poll</h3>
-                         <div class="card-bg p-8 rounded-2xl">
-                             <p class="font-semibold mb-4">What AI topic interests you most?</p>
-                             <div id="poll-options" class="space-y-3">
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Generative AI & LLMs</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">Computer Vision</button>
-                                <button class="poll-option text-left w-full p-3 rounded-lg border-2 border-slate-700 hover:border-indigo-500 transition-colors">MLOps & Deployment</button>
-                            </div>
-                             <p id="poll-feedback" class="text-green-400 mt-4 font-semibold hidden">Thanks for your vote!</p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="max-w-3xl mx-auto text-center card-bg p-8 md:p-12 rounded-2xl">
-                <h2 class="section-title mb-4">Get In Touch</h2>
-                <p class="text-slate-400 mb-8">I'm currently seeking new opportunities and am open to collaboration. Feel free to reach out.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <a href="mailto:divaseadarsh608@gmail.com" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">divaseadarsh608@gmail.com</a>
-                    <a href="tel:8451918440" class="font-medium text-lg text-indigo-300 hover:text-indigo-400 transition-colors">8451918440</a>
-                    <a href="#" id="download-resume" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 duration-300">Download Resume</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-8 text-slate-500 border-t border-slate-800">
-        <p>&copy; 2024 Adarsh Divase. All rights reserved.</p>
-    </footer>
-
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content card-bg w-11/12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl relative max-h-[90vh] overflow-y-auto"></div>
-    </div>
-
-    <!-- Link to your custom JavaScript file -->
-    <script src="script.js"></script>
-    <!-- Highlight.js initialization (after custom script, as it's used in blog content) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </body>
 </html>
