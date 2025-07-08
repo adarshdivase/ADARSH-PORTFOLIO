@@ -128,7 +128,7 @@ const blogPostsData = [
     {   
         title: "Crafting My Digital Footprint: A Technical Deep Dive into Portfolio Development",   
         date: "2025-07-08", // Current Date
-        image: "https://placehold.co/600x400/1e1b4b/c4b5fd?text=Portfolio+Build+Blog", // <<-- REPLACE THIS URL WITH YOUR ACTUAL IMAGE FOR THIS BLOG POST!
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/Build-Your-Portfolio.png", // Updated with your provided image!
         tags: ["Portfolio", "Web Development", "MLOps", "Journey", "Frontend", "Backend"],   
         content: `
             <p>The journey of building a personal portfolio is far more than just compiling past projects; it's a technical deep dive into system architecture, deployment pipelines, and user experience design. This platform itself stands as a testament to my capabilities, a living showcase of the principles I advocate for in AI and Data Science. My primary motivation was to create a dynamic, engaging space that extends beyond static résumés, providing interactive demonstrations and tangible insights into my technical thought process.</p>
