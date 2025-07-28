@@ -161,7 +161,7 @@ const blogPostsData = [
     {
         title: "Crafting My Digital Footprint: A Technical Deep Dive into Portfolio Development",
         date: "2025-07-28", // Updated to current date
-        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/Build-Your-Portfolio.png", // Updated with your provided image!
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/Build-Your-Portfolio.png",
         tags: ["Portfolio", "Web Development", "MLOps", "Journey", "Frontend", "Backend"],
         content: `
                 <p>The journey of building a personal portfolio is far more than just compiling past projects; it's a technical deep dive into system architecture, deployment pipelines, and user experience design. This platform itself stands as a testament to my capabilities, a living showcase of the principles I advocate for in AI and Data Science. My primary motivation was to create a dynamic, engaging space that extends beyond static résumés, providing interactive demonstrations and tangible insights into my technical thought process.</p>
@@ -287,11 +287,7 @@ const blogPostsData = [
 document.addEventListener('DOMContentLoaded', () => {
     // Function to create interactive covers (NO LONGER USED FOR PROJECT CARDS DIRECTLY, but kept as a fallback/example if needed elsewhere)
     const createInteractiveCover = (project) => {
-        // This function is still defined but the projectsData no longer uses it for the main card display.
-        // The project card will now directly use the first image from its 'media' array.
-        // This function would only be called if a project explicitly had interactive_cover defined,
-        // which we've removed for the main project display.
-        const { type } = project.interactive_cover || {}; // Handle case where interactive_cover might not exist
+        const { type } = project.interactive_cover || {}; 
         let svgContent = '';
         switch (type) {
             case 'dashboard':
