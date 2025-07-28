@@ -1,3 +1,5 @@
+// Final Updated Script - July 28, 2025
+
 // --- DATA ---
 const projectsData = [
     {
@@ -18,9 +20,8 @@ const projectsData = [
     },
     {
         title: "AI-Fueled E-commerce Analytics & Sales Forecasting System",
-        // interactive_cover: { type: 'dashboard' }, // REMOVED: using first image from media array instead
         media: [
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg' }, // New cover image
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce1.jpeg' },
             { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/ecommerce2.jpeg' }
         ],
         description: "An AI-powered platform for e-commerce analytics and sales forecasting, leveraging Facebook Prophet and interactive dashboards to drive revenue strategy and reduce stockouts.",
@@ -36,9 +37,8 @@ const projectsData = [
     },
     {
         title: "AI-Powered Trading System with Risk Analytics",
-        // interactive_cover: { type: 'trading' }, // REMOVED: using first image from media array instead
         media: [
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg' }, // New cover image
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks1.jpeg' },
             { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/stocks2.jpeg' }
         ],
         description: "A real-time AI-driven algorithmic trading system deployed on Streamlit, providing live market data, technical indicators, and automated trade execution with robust risk management protocols.",
@@ -56,9 +56,8 @@ const projectsData = [
     },
     {
         title: "AI Services Toolkit Pro (Multi-Modal AI Assistant)",
-        // interactive_cover: { type: 'toolkit' }, // REMOVED: using first image from media array instead
         media: [
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg' }, // New cover image
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit.jpeg' },
             { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/toolkit1.jpeg' }
         ],
         description: "Architected and deployed a comprehensive, integrated Multi-Modal AI Toolkit on Hugging Face Spaces, integrating 9 state-of-the-art Transformer pipelines for diverse AI capabilities.",
@@ -74,9 +73,8 @@ const projectsData = [
     },
     {
         title: "Hybrid Predictive Maintenance System",
-        // interactive_cover: { type: 'maintenance' }, // REMOVED: using first image from media array instead
         media: [
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg' }, // New cover image
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid1.jpeg' },
             { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/hybrid2.jpeg' }
         ],
         description: "Developed and deployed an integrated Hybrid Predictive Maintenance system on Streamlit, combining supervised learning (LSTM) and reinforcement learning for optimal maintenance recommendations.",
@@ -93,9 +91,8 @@ const projectsData = [
     },
     {
         title: "Customer Churn Prediction and API Deployment",
-        // interactive_cover: { type: 'churn' }, // REMOVED: using first image from media array instead
         media: [
-            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg' }, // New cover image
+            { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn1.jpeg' },
             { type: 'image', url: 'https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/churn2.jpeg' }
         ],
         description: "Architected and deployed an integrated Customer Churn Prediction system on Streamlit with a FastAPI backend for model inference, achieving high accuracy and efficient real-time predictions.",
@@ -112,6 +109,12 @@ const projectsData = [
 ];
 
 const playgroundAppsData = [
+    {
+        title: "Enterprise RAG Chatbot Demo",
+        description: "An interactive demo of the RAG chatbot. Upload your own documents or use the default knowledge base to ask questions and get context-aware answers from the AI.",
+        url: "https://rag-chatbot-roan-eight.vercel.app/",
+        image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/rag2.jpeg"
+    },
     {
         title: "AI-Powered Customer Churn Prediction",
         description: "An interactive Streamlit application demonstrating a machine learning model that predicts customer churn, allowing users to input customer data and see real-time predictions.",
@@ -157,7 +160,7 @@ const skillsData = [
 const blogPostsData = [
     {
         title: "Crafting My Digital Footprint: A Technical Deep Dive into Portfolio Development",
-        date: "2025-07-28", // Current Date
+        date: "2025-07-28", // Updated to current date
         image: "https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/images/Build-Your-Portfolio.png", // Updated with your provided image!
         tags: ["Portfolio", "Web Development", "MLOps", "Journey", "Frontend", "Backend"],
         content: `
@@ -367,8 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </svg>`;
                 break;
             default:
-                // If no interactive_cover type is matched or provided, it would fall back to nothing here.
-                // However, the project cards are now designed to just use the first 'media' image.
                 svgContent = `<div class="w-full h-full bg-gray-800 flex items-center justify-center"><p class="text-slate-400">Project Image Placeholder</p></div>`;
         }
         return `<div class="interactive-cover-container">${svgContent}</div>`;
@@ -449,6 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.openModal = (projectIndex) => {
         const project = projectsData[projectIndex];
         let galleryHtml = `<div id="media-viewer" class="mb-4 rounded-lg overflow-hidden bg-black"></div><div id="thumbnail-strip" class="flex gap-2 justify-center flex-wrap"></div>`;
+        // This regex removes the [span_...](...) markers from the details before rendering
         modalContent.innerHTML = `<button class="absolute top-4 right-6 text-slate-400 hover:text-white text-3xl z-10" onclick="closeModal()">&times;</button>${galleryHtml}<div class="px-1 mt-6"><h2 class="text-3xl font-bold text-white mb-2">${project.title}</h2><p class="text-indigo-300 mb-6">${project.description}</p><h4 class="text-lg font-semibold text-white mb-2">Key Achievements:</h4><ul class="list-none space-y-2 mb-6">${project.details.map(detail => `<li class="flex items-start text-slate-300"><span class="text-indigo-400 mr-3 mt-1">▪</span><div class="flex-1">${detail.replace(/\[span_\d+\]\((start_span|end_span)\)/g, '')}</div></li>`).join('')}</ul><h4 class="text-lg font-semibold text-white mb-3">Technologies Used:</h4><div class="flex flex-wrap gap-2">${project.skills.map(skill => `<span class="tag rounded-md px-3 py-1 text-sm">${skill}</span>`).join('')}</div></div>`;
         populateGallery(projectIndex);
         modal.style.display = 'flex';
@@ -507,8 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             blogPostsContainer.appendChild(article);
         });
-        // hljs.highlightAll(); // Highlight code snippets (even if no code, still good practice)
-
+        
         // Add event listeners for "Read More" buttons
         document.querySelectorAll('.read-more-btn').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -573,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const resizeHandler = () => { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; mouse.radius = (bgCanvas.height / 120) * (bgCanvas.width / 120); initParticles(); };
         window.addEventListener('resize', resizeHandler);
         window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
-        class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (mouse.x !== null && Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); } }
+        class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; if (mouse.x !== null) { let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } } this.x += this.directionX; this.y += this.directionY; this.draw(); } }
         function initParticles() { particlesArray = []; let num = (bgCanvas.height * bgCanvas.width) / 9000; for (let i = 0; i < num; i++) { let x = Math.random() * innerWidth; let y = Math.random() * innerHeight; let dx = (Math.random() * .4) - 0.2; let dy = (Math.random() * .4) - 0.2; particlesArray.push(new Particle(x, y, dx, dy)); } }
         function animateParticles() { requestAnimationFrame(animateParticles); ctx.clearRect(0, 0, innerWidth, innerHeight); particlesArray.forEach(p => p.update()); connectParticles(); }
         function connectParticles() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = Math.hypot(particlesArray[a].x - particlesArray[b].x, particlesArray[a].y - particlesArray[b].y); if (distance < 120) { opacityValue = 1 - (distance / 120); ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue * 0.3})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
