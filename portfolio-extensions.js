@@ -1,6 +1,9 @@
 const RESUME_PDF = 'Adivaseresume.pdf';
 const CONTACT_EMAIL = 'divaseadarsh608@gmail.com';
-const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+
+// 1. Open https://web3forms.com  2. Enter divaseadarsh608@gmail.com  3. Paste the access key from your email below:
+const WEB3FORMS_ACCESS_KEY = 'fa7c57c1-8653-4553-aebc-7cc02bebe1ab';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 const experiences = [
     {
@@ -268,36 +271,56 @@ function getSortedWorkProjects() {
     return workProjects.slice().sort((a, b) => a.rank - b.rank);
 }
 
-async function submitPortfolioForm(formData, options = {}) {
-    formData.append('_captcha', 'false');
-    formData.append('_template', 'table');
-    if (options.autoresponse) {
-        formData.append('_autoresponse', options.autoresponse);
+async function submitPortfolioForm({ name, email, subject, message, fromName }) {
+    if (!WEB3FORMS_ACCESS_KEY) {
+        return {
+            isSuccess: false,
+            payload: {
+                message: 'Add your Web3Forms access key in portfolio-extensions.js (free at web3forms.com).'
+            },
+            status: 0
+        };
     }
 
-    const response = await fetch(FORMSUBMIT_ENDPOINT, {
+    const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' }
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name,
+            email,
+            subject,
+            message,
+            from_name: fromName || 'Adarsh Portfolio',
+            botcheck: ''
+        })
     });
 
     let payload = {};
     try {
         payload = await response.json();
     } catch {
-        payload = {};
+        payload = { message: 'Invalid response from mail service.' };
     }
 
-    const isSuccess = response.ok && (payload.success === true || payload.success === 'true' || response.status === 200);
+    const isSuccess = response.ok && payload.success === true;
     return { isSuccess, payload, status: response.status };
 }
 
-function setContactFormStatus(message, isError = false) {
-    const statusEl = document.getElementById('contact-form-status');
+function setFormStatus(elementId, message, isError = false) {
+    const statusEl = document.getElementById(elementId);
     if (!statusEl) return;
     statusEl.textContent = message;
     statusEl.classList.remove('hidden', 'contact-status-success', 'contact-status-error');
     statusEl.classList.add(isError ? 'contact-status-error' : 'contact-status-success');
+}
+
+function setContactFormStatus(message, isError = false) {
+    setFormStatus('contact-form-status', message, isError);
+}
+
+function setAmaFormStatus(message, isError = false) {
+    setFormStatus('ama-form-status', message, isError);
 }
 
 function showToast(message) {
@@ -603,30 +626,35 @@ function initForms() {
     if (commentForm) {
         commentForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            const honey = document.getElementById('ama-honey');
+            if (honey && honey.value.trim()) return;
+
             const name = document.getElementById('comment-name').value.trim();
+            const email = document.getElementById('comment-email').value.trim();
             const text = document.getElementById('comment-text').value.trim();
             const submitBtn = commentForm.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             const originalHTML = submitBtn.innerHTML;
             submitBtn.textContent = 'Sending...';
 
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('message', text);
-            formData.append('_subject', `Portfolio AMA Question from ${name}`);
-
-            submitPortfolioForm(formData, {
-                autoresponse: 'Thanks for your question! Adarsh will review it and get back to you soon.'
+            submitPortfolioForm({
+                name,
+                email,
+                subject: `Portfolio AMA Question from ${name}`,
+                message: text,
+                fromName: 'Portfolio — Ask Me Anything'
             })
-                .then(({ isSuccess }) => {
+                .then(({ isSuccess, payload }) => {
                     if (isSuccess) {
+                        setAmaFormStatus('Question sent! It was delivered to Adarsh\'s inbox.', false);
                         showToast('Question sent successfully!');
                         commentForm.reset();
                     } else {
-                        showToast('Could not send. Please email divaseadarsh608@gmail.com directly.');
+                        const hint = payload?.message ? ` ${payload.message}` : '';
+                        setAmaFormStatus(`Could not send.${hint} Email divaseadarsh608@gmail.com directly.`, true);
                     }
                 })
-                .catch(() => showToast('Network error. Please try again.'))
+                .catch(() => setAmaFormStatus('Network error. Please try again or email divaseadarsh608@gmail.com.', true))
                 .finally(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalHTML;
@@ -650,23 +678,21 @@ function initForms() {
             const originalHTML = submitBtn.innerHTML;
             submitBtn.textContent = 'Sending...';
 
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('_replyto', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
-            formData.append('_subject', `Portfolio Contact: ${subject}`);
-            formData.append('_autoresponse', `Hi ${name}, thanks for reaching out! I received your message and will get back to you shortly.`);
-
             try {
-                const { isSuccess } = await submitPortfolioForm(formData);
+                const { isSuccess, payload } = await submitPortfolioForm({
+                    name,
+                    email,
+                    subject: `Portfolio Contact: ${subject}`,
+                    message: `Subject: ${subject}\n\n${message}`,
+                    fromName: 'Portfolio — Get In Touch'
+                });
                 if (isSuccess) {
-                    setContactFormStatus('Message delivered successfully. You should receive a confirmation email shortly.', false);
+                    setContactFormStatus('Message delivered to divaseadarsh608@gmail.com. Thank you!', false);
                     showToast('Message sent!');
                     contactForm.reset();
                 } else {
-                    setContactFormStatus('Delivery failed. Please email divaseadarsh608@gmail.com directly.', true);
+                    const hint = payload?.message ? ` ${payload.message}` : '';
+                    setContactFormStatus(`Delivery failed.${hint} Please email divaseadarsh608@gmail.com directly.`, true);
                 }
             } catch {
                 setContactFormStatus('Network error. Please check your connection or email directly.', true);
@@ -685,6 +711,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderExperienceTimeline();
     renderProductionSystems();
+    renderTechnicalNotes();
+    renderNotesQuickLinks();
     initForms();
     initResumeViewer();
 
