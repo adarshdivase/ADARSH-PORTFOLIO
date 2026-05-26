@@ -1,1589 +1,585 @@
-// --- DATA MODELS ---
+// Final Updated Script - July 28, 2025
 
-const RESUME_PDF = 'Adivaseresume.pdf';
-const CONTACT_EMAIL = 'divaseadarsh608@gmail.com';
-const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
-
-const experiences = [
+// --- DATA ---
+const projectsData = [
     {
-        period: 'Sep 2025 - Present',
-        role: 'AI Full Stack Developer',
-        company: 'Allwave AV Systems Pvt Ltd',
-        location: 'Mumbai, Maharashtra',
-        highlights: [
-            'AI Full Stack Developer shipping <strong>6 production platforms</strong>—TypeScript/React, Python/FastAPI, AWS Amplify Gen 2, App Runner, Cognito, DynamoDB, SES, Lambda, Gemini, LangChain RAG, and AVIXA engineering tooling.',
-            'Own architecture through deployment: CDK backends, ECR/CodeBuild CI/CD, GraphQL/AppSync schemas, multi-tenant RBAC, secrets rotation, CloudWatch/CloudTrail debugging, and India compliance (GST, MSME, Tally XML).',
-            'Full technical breakdown of each system is in <a href="#production-systems" class="text-cyan-400 hover:text-cyan-300 font-semibold">Production Systems</a> below—architecture, AWS infra, and APIs per product.'
-        ]
+        title: "Enterprise RAG Chatbot",
+        media: [
+            { type: 'image', url: 'images/rag1.jpeg' },
+            { type: 'image', url: 'images/rag2.jpeg' }
+        ],
+        description: "A production-ready RAG chatbot using LangChain, Gemini Pro, and ChromaDB for context-aware, document-grounded question answering.",
+        details: [
+            "Architected a full-stack RAG application using <strong>LangChain</strong> to orchestrate the retrieval and generation pipeline with <strong>Google's Gemini Pro</strong> model for both embeddings and text generation.",
+            "Developed a robust <strong>FastAPI backend</strong> with Pydantic for data validation, featuring endpoints for chat, system health, and a crucial <strong>/reindex_kb</strong> endpoint to reload knowledge base documents in real-time.",
+            "Engineered a flexible data ingestion module supporting multiple document formats (including <strong>.pdf, .docx, and .csv</strong>) and implemented <strong>ChromaDB</strong> as the local vector store for efficient semantic search.",
+            "Implemented <strong>in-memory conversational memory</strong> to provide session-based context, enabling more natural and coherent follow-up questions from the user, with real-time source attribution for answers.",
+            "Designed a clean, mobile-responsive user interface with <strong>TailwindCSS</strong> for a modern chat experience and ensured production-readiness with a fully <strong>containerized Docker environment</strong> for the backend service."
+        ],
+        skills: ["RAG", "LangChain", "Gemini Pro", "ChromaDB", "FastAPI", "TailwindCSS", "Docker", "Pydantic", "Vector Databases", "NLP", "REST API", "Google Generative AI"]
     },
     {
-        period: 'Dec 2024 - Present',
-        role: 'Python Backend Developer Intern',
-        company: 'Aceminds Digital Pvt Ltd',
-        location: 'Pune, Maharashtra',
-        highlights: [
-            'Designed and maintained high-performance API endpoints using <strong>FastAPI</strong> and <strong>Flask</strong>, integrating machine learning and deep learning pipelines into production services.',
-            'Collaborated with front-end engineers to deploy responsive, production-ready interfaces connected to model inference backends.',
-            'Architected scalable database schemas and optimized complex queries, achieving a <strong>15% reduction in data retrieval times</strong>.'
-        ]
+        title: "AI-Fueled E-commerce Analytics & Sales Forecasting System",
+        media: [
+            { type: 'image', url: 'images/ecommerce1.jpeg' },
+            { type: 'image', url: 'images/ecommerce2.jpeg' }
+        ],
+        description: "An AI-powered platform for e-commerce analytics and sales forecasting, leveraging Facebook Prophet and interactive dashboards to drive revenue strategy and reduce stockouts.",
+        details: [
+            "Developed an analytics system that connects to an *optimized SQLite3 database* (ecommerce.db) with settings like PRAGMA journal_mode=WAL for better concurrency and a PRAGMA cache_size=-2000 (2MB cache) to store temporary tables in memory (PRAGMA temp_store=MEMORY). The database schema includes a sales table with order_id, customer_id, product_id, purchase_date, amount, product_category, payment_method, and shipping_country, along with a product_inventory table.",
+            "Features a data generation module capable of creating *realistic historical data* for 60 days, simulating 50 customers per day, and incorporating seasonal patterns such as a weekday_factor (1.0 for weekdays, 0.7 for weekends) and hour_factors (e.g., 'morning': 0.8, 'afternoon': 1.2, 'evening': 1.5, 'night': 0.5). It generates 10 diverse products including 'Laptop' (priced at $1200), 'Smartphone' ($800), 'Headphones' ($200), 'T-shirt' ($30), 'Jeans' ($80), 'Sneakers' ($120), 'Coffee Maker' ($150), 'Backpack' ($50), 'Watch' ($300), and 'Tablet' ($600).",
+            "Generates *comprehensive sales metrics* including total_revenue, average_order_value, total_orders, unique_customers, and identifies the top 5 products by revenue, as well as daily_trends for orders and revenue. For example, 'Laptop' is identified as a top product with significant revenue. This data is cached for 5 minutes (cache_timeout=300) using lru_cache to enhance performance.",
+            "Performs *advanced RFM (Recency, Frequency, Monetary) analysis* by calculating additional metrics like avg_order_value, category_diversity (count of distinct product categories), and active_months (count of distinct months with purchases). Customer segmentation is performed using *K-Means clustering* with 4 defined clusters on recency, frequency, and monetary scores after applying percentile scores (1-5).",
+            "Creates an interactive *Plotly dashboard* with a make_subplots layout (rows=3, cols=2, height=1200, width=1200). The dashboard includes a 'Daily Revenue Trend' (line chart), 'Customer Segments' (pie chart, e.g., showing 39.9% in one segment), 'Top Products by Revenue' (bar chart), 'Payment Method Distribution' (pie chart, e.g., 25.3% for one method), 'Hourly Sales Pattern' (line chart) based on strftime('%H', purchase_date), and 'Geographic Distribution' (bar chart) based on shipping_country.",
+            "Forecasts future sales for 30 periods using the *Facebook Prophet* model, configured with yearly_seasonality=True, weekly_seasonality=True, daily_seasonality=True, and specific prior scales for changepoint (0.05), seasonality (10), and holidays (10). The forecast includes ds (date), yhat (predicted value), yhat_lower, and yhat_upper for confidence intervals."
+        ],
+        skills: ["Streamlit", "Prophet", "Pandas", "NumPy", "Plotly Express", "Data Engineering", "Business Intelligence", "Predictive Analytics", "SQLite3", "Scikit-learn (KMeans)"]
+    },
+    {
+        title: "AI-Powered Trading System with Risk Analytics",
+        media: [
+            { type: 'image', url: 'images/stocks1.jpeg' },
+            { type: 'image', url: 'images/stocks2.jpeg' }
+        ],
+        description: "A real-time AI-driven algorithmic trading system deployed on Streamlit, providing live market data, technical indicators, and automated trade execution with robust risk management protocols.",
+        details: [
+            "The system initializes with a default set of symbols including 'BTC-USD', 'ETH-USD', 'AAPL', and 'GOOGL', and an initial_capital of $100,000.0. The system logs its initialization with the specified symbols.",
+            "Fetches historical market data for all specified symbols using yfinance, requesting a period='60d' and interval='1h' to provide granular data for indicator calculations. Data fetching progress is logged for each symbol, including warnings if no data is received.",
+            "Calculates a comprehensive set of *technical indicators* including SMA (20-period and 50-period), EMA (12-period and 26-period), MACD (MACD line, Signal line, and Histogram), RSI (14-period), and Bollinger Bands (Middle, Upper with +2*std, and Lower with -2*std). This process includes error handling for robustness.",
+            "Generates trading signals based on combined conditions: a strong buy signal (value 1) when RSI < 30 and Close < BB_Lower, and a strong sell signal (value -1) when RSI > 70 and Close > BB_Upper. Additional signals (value +/- 0.5) are derived from MACD crossovers (e.g., MACD > MACD_Signal) with price confirmation against SMA_20.",
+            "Implements an EnhancedRiskManager with configurable parameters such as confidence_level (0.95), max_position_size (0.2), and max_drawdown_limit (0.15). It calculates base risk metrics including VaR (np.percentile(returns, (1 - confidence_level)*100)), CVaR, Sharpe Ratio (returns.mean() / returns.std() * np.sqrt(252)), and Max Drawdown. Enhanced metrics like Sortino Ratio, Downside Risk, Calmar Ratio, and Omega Ratio are also computed.",
+            "Features an AdvancedVisualizationEngine to create rich graphical reports. This includes a *correlation heatmap* of asset returns (zmin=-1, zmax=1, colorscale='RdBu'), which dynamically includes the generation date. For instance, it correctly identifies an AAPL-GOOGL correlation of 0.354 and a BTC-USD/ETH-USD correlation of 0.775.",
+            "Generates a *performance dashboard* using plotly.subplots.make_subplots with a rows=2, cols=2 layout, height=1000, and width=1200. This dashboard displays 'Cumulative Returns', 'Risk Metrics' (bar charts for Sharpe, Sortino, Calmar ratios using px.colors.qualitative.Set3), 'Daily Returns Distribution' (histograms with 50 bins), and 'Rolling Volatility (20-day)' plots.",
+            "Provides a detailed text report (_generate_text_report) summarizing risk analysis for each asset. For example, for BTC-USD, it reports a Sharpe Ratio of 0.036, Sortino Ratio of 0.035, Maximum Drawdown of -16.15%, Value at Risk (95%) of -0.88%, Conditional VaR of -1.47%, Calmar Ratio of 0.021, and Omega Ratio of 1.007."
+        ],
+        skills: ["Streamlit", "NumPy", "Pandas", "PyTorch", "Scikit-learn", "Plotly", "Alpaca API", "Technical Indicators (MACD, RSI, Bollinger Bands, SMAs)", "Financial Analytics", "VaR", "Monte Carlo Simulation", "Real-Time Systems", "Quantitative Finance", "Time Series Forecasting", "Yfinance"]
+    },
+    {
+        title: "AI Services Toolkit Pro (Multi-Modal AI Assistant)",
+        media: [
+            { type: 'image', url: 'images/toolkit.jpeg' },
+            { type: 'image', url: 'images/toolkit1.jpeg' }
+        ],
+        description: "Architected and deployed a comprehensive, integrated Multi-Modal AI Toolkit on Hugging Face Spaces, integrating 9 state-of-the-art Transformer pipelines for diverse AI capabilities.",
+        details: [
+            "Features a robust application configuration (Config dataclass) with VERSION: \"1.0\", LAST_UPDATED: \"2025-02-10 18:22:33\", and flags for ENABLE_CUDA and ENABLE_TENSORRT. Key processing parameters include MAX_BATCH_SIZE: 32, MIN_BATCH_SIZE: 1, MEMORY_THRESHOLD: 0.85 (for CUDA memory optimization), CHUNK_SIZE: 640 (for image processing), MIN_CONFIDENCE: 0.25, NMS_THRESHOLD: 0.45, WHISPER_CHUNK_SIZE: 1024, and WHISPER_OVERLAP: 256. The default ONNX path is yolov5s.onnx.",
+            "Includes a CUDAManager for enhanced CUDA resource management, utilizing cuda.Stream() for concurrent operations and torch.cuda.amp.GradScaler for mixed-precision training (if CUDA is enabled). It actively optimizes GPU memory by clearing the cache and collecting garbage when current_memory exceeds the MEMORY_THRESHOLD, logging the memory optimization process (e.g., 'Memory optimized Usage: 0.20%'). The system logs CUDA availability (e.g., 'CUDA Available: True') and the number/names of detected GPUs (e.g., 'GPU 0: NVIDIA A100-SXM4-40GB').",
+            "Integrates *YOLOv5* for object detection, with a function to export_yolo_to_onnx() that loads yolov5s from ultralytics/yolov5, exports it to the specified ONNX path, and verifies the model. The TensorRTYOLO class then builds a TensorRT optimized engine from this ONNX model, configuring an optimization_profile to support dynamic batch sizes (min_shape=1, opt_shape=16, max_shape=32). It uses cuda.mem_alloc for efficient input/output memory allocation on GPU.",
+            "Implements MultiGPUWhisper for audio processing, loading a 'tiny' Whisper model. If NUM_GPUS > 1, it utilizes torch.nn.DataParallel for parallel processing across GPUs. It processes audio by splitting it into chunks and asynchronously processing each chunk on a dedicated GPU device (cuda:i) before merging the results.",
+            "Developed as a *FastAPI* application (title=\"Advanced ML Processor\", version=config.VERSION, description=\"Optimized ML processing with YOLO and Whisper\") with CORSMiddleware configured to allow all origins, credentials, methods, and headers. It exposes a /process-images endpoint that handles multiple UploadFile inputs for image inference and a /ws/audio WebSocket endpoint utilizing fastapi-websocket-pubsub for real-time audio transcription feedback and results streaming.",
+            "An enhanced /health endpoint provides detailed system status, including gpu_info (device ID, name, memory used/total in MB, utilization in percent), memory_stats (recent usage, last cleanup timestamp, current threshold), and confirms if tensorrt_enabled and multi_gpu_enabled are true. It also reports the status and configuration of the 'yolo' and 'whisper' models, e.g., 'yolo' status: 'loaded', 'onnx_path': 'yolov5s.onnx', 'batch_size': 32."
+        ],
+        skills: ["FastAPI", "Streamlit", "Hugging Face Transformers", "PyTorch", "soundfile", "librosa", "Docker", "Full-Stack Development", "MLOps", "Whisper API", "YOLOv5", "NLP", "Speech-to-Text", "Text-to-Speech", "Real-Time Systems", "Computer Vision", "TensorRT", "ONNX", "CUDA", "WebSockets"]
+    },
+    {
+        title: "Hybrid Predictive Maintenance System",
+        media: [
+            { type: 'image', url: 'images/hybrid1.jpeg' },
+            { type: 'image', url: 'images/hybrid2.jpeg' }
+        ],
+        description: "Developed and deployed an integrated Hybrid Predictive Maintenance system on Streamlit, combining supervised learning (LSTM) and reinforcement learning for optimal maintenance recommendations.",
+        details: [
+            "The system is configured via SupervisedConfig, AdvancedRLConfig, and HybridSystemConfig dataclasses. Key parameters include: sequence_length=100, feature_dim=18 (though later context implies 10 features, 18 is from config) for supervised learning; state_dim=4, action_dim=4, hidden_units=256, learning_rate=0.0001, gamma=0.99, lambda_gae=0.95, clip_ratio=0.2, critic_loss_coef=0.5, entropy_coef=0.01, max_grad_norm=0.5, num_agents=4, batch_size=64, update_epochs=10, reward_scale=1.0 for RL; and update_interval=3600 seconds, prediction_horizon=24 hours, confidence_threshold=0.8, max_concurrent_predictions=10, alert_threshold=0.7, cost_threshold=50000, max_history_size=10000, visualization_enabled=True, report_format=\"detailed\" for the hybrid system.",
+            "Generates synthetic data for training with num_samples=1000 and feature_dim=10. The features include vibration, temperature, pressure, current, voltage, rpm, oil_level, humidity, acoustic, and magnetic_field. The data generation simulates health_score, failure_prob, and rul as targets based on sine waves and random walks.",
+            "Employs a *Multi-Agent PPO (Proximal Policy Optimization)* system, with PPOActorCritic networks for each of the 4 agents. The actor-critic network uses shared dense layers with 'relu' activation, policy layers ending in 'softmax' for action distribution, and value layers ending in a single dense unit. It selects actions using tf.random.categorical for training and tf.argmax for inference.",
+            "Features a RewardModel with configurable cost_weights for maintenance (1.0), failure (10.0), and downtime (5.0). It defines specific maintenance costs (e.g., action 0: $0.0, action 1: $100.0, action 2: $500.0, action 3: $1000.0) and downtime costs (e.g., action 0: $0.0, action 1: $2.0, action 2: $4.0, action 3: $8.0).",
+            "Predicts machine health metrics (health_score, failure_prob, rul) from sensor data, with an example output for a monitored machine (Machine 0) showing a health score of 0.612, failure probability of 0.388, and RUL of 61.2. The prediction for a given machine also includes a maintenance action (e.g., Action: 1 for Machine 0) and a value estimate (e.g., 0.057 for Machine 0).",
+            "Incorporates an ExplainabilityModule (conceptualized with *SHAP and LIME*) that provides insights into predictions by highlighting top contributing factors based on randomly generated importance scores in the example. For Machine 0, the top factors are magnetic_field: 0.258, temperature: 0.182, and humidity: 0.157.",
+            "Visualizes results through Matplotlib/Seaborn plots for 'Health Metrics', 'Maintenance Decisions' (scatterplot), 'Maintenance Costs' (line plot), and 'Feature Importance' (bar plot). These visualizations are saved to the model_checkpoint_dir (e.g., /content/hybrid_checkpoints/visualization_0.png). The system also saves final metrics to system_metrics.json."
+        ],
+        skills: ["Streamlit", "TensorFlow", "Keras", "NumPy", "Pandas", "SQLite3", "Deep Learning", "Reinforcement Learning (PPO)", "SHAP", "LIME", "Plotly", "Python", "Data Analytics", "Anomaly Detection", "Multi-Agent Systems"]
+    },
+    {
+        title: "Customer Churn Prediction and API Deployment",
+        media: [
+            { type: 'image', url: 'images/churn1.jpeg' },
+            { type: 'image', url: 'images/churn2.jpeg' }
+        ],
+        description: "Architected and deployed an integrated Customer Churn Prediction system on Streamlit with a FastAPI backend for model inference, achieving high accuracy and efficient real-time predictions.",
+        details: [
+            "Generates a synthetic customer churn dataset containing n_samples=2000 entries, with features such as age, gender, income, contract_type, monthly_charges, total_services, contacts_count, and complaints_count. Churn probability is engineered based on rules like 0.1 * (age > 50), 0.2 * (monthly_charges > 100), 0.3 * (total_services < 2), and 0.2 * (complaints_count > 2).",
+            "Performs robust data preprocessing using ColumnTransformer to apply StandardScaler for numerical features (age, income, monthly_charges, total_services, contacts_count, complaints_count) and OneHotEncoder (with handle_unknown=\"ignore\" and sparse_output=False) for categorical features (gender, contract_type).",
+            "Addresses class imbalance by applying *SMOTE (Synthetic Minority Over-sampling Technique)* with random_state=42 to the processed data before splitting into training and testing sets (test_size=0.2).",
+            "Trains and evaluates two distinct machine learning models: a *Random Forest Classifier* (n_estimators=100, random_state=42) and a *Neural Network* built with *TensorFlow/Keras*. The Neural Network architecture includes Dense(64, activation='relu'), BatchNormalization(), Dropout(0.3), Dense(32, activation='relu'), and a final Dense(1, activation='sigmoid') layer. It's compiled with Adam(0.001) optimizer, binary_crossentropy loss, and trained for 50 epochs with a batch size of 32.",
+            "Evaluates model performance comprehensively, calculating rf_accuracy and nn_accuracy on the test set (e.g., Random Forest Accuracy: 0.9416, Neural Network Accuracy: 0.9500 in example output). Visualizations generated and saved to the churn_project/ directory include 'Feature Importances' (e.g., 'monthly_charges' 0.23, 'total_services' 0.21, 'income' 0.17), 'Confusion Matrices' for both models, 'ROC Curves Comparison' with AUC scores (e.g., Random Forest AUC=0.949, Neural Network AUC=0.957), and an 'Impact of Classification Threshold on Different Metrics' (accuracy, precision, recall, f1 for thresholds 0.1 to 0.9).",
+            "Deploys a high-performance *RESTful API* using *FastAPI* and *Uvicorn*, served at http://localhost:8000/predict/. The /predict/ endpoint accepts PredictionInput (a Pydantic model with features as a dictionary) and returns timestamp, user (e.g., '03ADY'), random_forest_prediction, neural_network_prediction, and their respective probabilities (rf_probability, nn_probability). Example test cases (high_risk_customer, low_risk_customer, medium_risk_customer) with detailed feature sets are included to demonstrate API functionality and are visualized in a 'Churn Predictions by Model and Customer Profile' bar chart. All test results are saved to api_test_results.json."
+        ],
+        skills: ["FastAPI", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "imblearn (SMOTE)", "Random Forest", "Neural Networks", "MLOps", "Model Deployment", "REST API", "Python", "Classification", "TensorFlow", "Uvicorn"]
     }
 ];
 
-const workProjects = [
+const playgroundAppsData = [
     {
-        id: 'hiro',
-        title: 'HiRo',
-        subtitle: 'AI HR Platform — Multi-Tenant Recruitment, Onboarding & Email Automation',
-        company: 'Allwave AV Systems',
-        period: 'Sep 2025 – Present',
-        liveUrl: null,
-        description: 'Production multi-tenant HR platform: recruitment pipelines, employee onboarding, workflow/standalone email automation, AI chatbot (Gemini), and per-user corporate email—fully deployed on AWS with GitHub → CodeBuild → ECR → App Runner CI/CD.',
-        tags: ['Python', 'FastAPI', 'TypeScript', 'App Runner', 'Cognito', 'SES', 'DynamoDB', 'Gemini', 'CodeBuild', 'ECR'],
-        stack: 'Python 3 · FastAPI · AWS App Runner · Amazon Cognito · SES · DynamoDB · Google Gemini · CodeBuild · ECR · CloudWatch · AWS CLI',
-        architecture: [
-            'Multi-tenant data model with DynamoDB-backed email templates, activity logs, and HR workflow state.',
-            'FastAPI services behind App Runner with health checks, env-based config, and containerized deploys from ECR.',
-            'Split automation engine: workflow-triggered sequences vs standalone campaign sends with template preview.',
-            'Gemini-powered HR chatbot integrated into compose/send flows with configurable API keys and model routing.'
-        ],
-        infrastructure: [
-            'CI/CD: GitHub → AWS CodeBuild → ECR image push → App Runner service update.',
-            'Cognito user pools for auth; SES domain verification for production deliverability (corporate domains).',
-            'CloudWatch logs + curl/AWS CLI runbooks for production debugging and template-sync incidents.'
-        ],
-        apis: [
-            'REST APIs for recruitment, onboarding, email compose/send, template CRUD, and chatbot inference.',
-            'DynamoDB sync endpoints for template versioning and UTC-normalized activity timestamps.'
-        ],
-        highlights: [
-            '7+ branded HTML email templates; per-user SES sending after domain verification.',
-            'Fixed production blockers: DynamoDB template sync, compose UI, preview rendering, Gemini config.',
-            'Implemented workflow vs standalone automation paths with auditable send logs.',
-            'Production hardening: API key rotation discipline, env secrets outside Git, App Runner redeploys.'
-        ],
-        impact: [
-            'Centralized HR operations for hiring, onboarding, and automated candidate communication.',
-            'Enterprise-grade email deliverability with verified domains and repeatable CI/CD releases.'
-        ]
+        title: "Enterprise RAG Chatbot Demo",
+        description: "An interactive demo of the RAG chatbot. Upload your own documents or use the default knowledge base to ask questions and get context-aware answers from the AI.",
+        url: "https://rag-chatbot-roan-eight.vercel.app/",
+        image: "images/rag2.jpeg"
     },
     {
-        id: 'nexo',
-        title: 'Nexo',
-        subtitle: 'AV Programmer Assistant — BOQ Parse, Q&A & Programming Guides',
-        company: 'Allwave AV Systems · Programming AI repo',
-        period: 'Sep 2025 – Present',
-        liveUrl: 'https://nexo.allwaveav.com',
-        description: 'TypeScript/React production app for AV programmers (Crestron, Extron, CUE, AMX, QSC, Biamp, Control4). Hybrid structured form + free-text → Gemini → code, troubleshooting docs, and full BOQ-guided programming guides. Deployed on AWS App Runner with Cognito invite-only access.',
-        tags: ['TypeScript', 'React', 'Vite', 'Node.js', 'App Runner', 'Cognito', 'DynamoDB', 'S3', 'Gemini', 'XLSX'],
-        stack: 'TypeScript · React 18 · Vite · Tailwind · Node.js HTTP API · @google/genai · AWS App Runner · Cognito · DynamoDB · S3 · mammoth · xlsx',
-        architecture: [
-            'Dual UX: Quick Ask (generate / troubleshoot / document modes) + BOQ Guided Flow (parse → questions → guide).',
-            'BoqGuidedFlow: Excel/Word/text import → /api/boq/parse → line-item validation → /api/boq/questions → /api/boq/guide.',
-            'Structured prompts for platform, task type, site/network/audio/video/lighting handover fields.',
-            'Team snippets + per-user history stored in DynamoDB (PK userId, SK timestamp); admin provisioning UI.'
-        ],
-        infrastructure: [
-            'AWS App Runner service with ECR images, env secrets for GEMINI_API_KEY, health endpoint /api/health.',
-            'Cognito invite-only pools; ADMIN group RBAC restored via CLI + admin UI after production incidents.',
-            'Lambda-ready backend modules: backend/ask, history, snippets with API Gateway authorizer pattern.',
-            'Incident response: traced key exposure (App Runner env, local artifacts), rotated keys, confirmed clean Git.'
-        ],
-        apis: [
-            'POST /api/ask — Gemini inference with mode-specific system prompts (generate, troubleshoot, document).',
-            'POST /api/boq/parse · /api/boq/questions · /api/boq/guide — multi-step BOQ programming pipeline.',
-            'GET/DELETE /api/history · GET/POST /api/snippets — persisted programmer session data.'
-        ],
-        highlights: [
-            'react-markdown + syntax highlighter for deployment-ready control code output.',
-            'BOQ parsers handle .xlsx/.xls/.docx with column detection (qty, rate, particulars, item code).',
-            'Debugged 502 on /api/boq/questions: CloudTrail + Envoy headers → App Runner 120s vs long Gemini jobs.',
-            'Secrets Manager / env-only API keys; no client-side Gemini exposure in production builds.'
-        ],
-        impact: [
-            'Live at nexo.allwaveav.com — reduces BOQ-to-code cycle time for Allwave programming teams.',
-            'Single pane for Crestron/Extron/QSC-style deliverables with auditable history and team snippets.'
-        ]
+        title: "AI-Powered Customer Churn Prediction",
+        description: "An interactive Streamlit application demonstrating a machine learning model that predicts customer churn, allowing users to input customer data and see real-time predictions.",
+        url: "https://futureml02-jg9jkjmv3xahqnceylr8eu.streamlit.app/",
+        image: "images/churn2.jpeg"
     },
     {
-        id: 'bingo',
-        title: 'BINGO',
-        subtitle: 'Bill of Quantities Intelligent Next-Gen Optimizer v2.1',
-        company: 'Allwave AV Systems · BINGO-main repo',
-        period: 'Sep 2025 – Present',
-        liveUrl: null,
-        description: 'AVIXA CTS-D compliant AI BOQ platform: questionnaire-driven generation, 2000+ curated AV products, Ask BINGO RAG assistant, brand enforcement, schematic/CAD export (DXF/Stardraw), and scheduled SES reporting—built on AWS Amplify Gen 2 + TypeScript.',
-        tags: ['TypeScript', 'React', 'Amplify Gen 2', 'CDK', 'DynamoDB', 'Cognito', 'Gemini', 'RAG', 'SES', 'DXF'],
-        stack: 'TypeScript 5 · React 18 · Vite · AWS Amplify Gen 2 · aws-cdk-lib · DynamoDB · AppSync GraphQL · Cognito · Lambda · SES · Gemini 2.5 Pro · Zod · ExcelJS · jsPDF',
-        architecture: [
-            'Amplify Gen 2 backend: auth, GraphQL data models, 8+ Lambda functions (gemini-proxy, job starter/worker/status, weekly-report, send-proposal, bootstrap-admin, user-profile, sync-user-access).',
-            'Ask BINGO RAG (ragService.ts): vector + legacy DB search, IndexedDB cache (bingo-rag-cache), exact-model matching, web fallback.',
-            'geminiService.ts: AV consultant system prompts, BOQ refinement, product DB grounding, size/category query routing.',
-            'AVIXA engines: DMD viewing distance, ACE audio coverage, VIP camera FOV; brand prefs per component class.',
-            'CAD pipeline: signal flow, rack elevations, Stardraw symbols, DXF export with 27+ layers and cable/equipment schedules.'
-        ],
-        infrastructure: [
-            'EventBridge cron: weekly SES activity reports (Friday 13:00 UTC) to it@allwaveav.com, projects@allwaveav.com.',
-            'IAM-scoped SES send permissions; DynamoDB ActivityLog scans for audit analytics.',
-            'Cognito groups + bootstrap-admin Lambda for secure admin onboarding (no public API keys on client).',
-            'Async Gemini job queue pattern to avoid API Gateway timeouts on large BOQ generations.'
-        ],
-        apis: [
-            'AppSync GraphQL for products, BOQs, users, activity logs, proposals.',
-            'Lambda-backed Gemini proxy and long-running job status polling endpoints.',
-            'Client services: productService, activityLogService, userManagementService, askBingoService.'
-        ],
-        highlights: [
-            'Database-first sourcing with web price estimation and automatic equipment dimension retrieval.',
-            'Natural-language BOQ edits (“add 2 more speakers”) with strict brand enforcement per category.',
-            'ExcelJS + jsPDF + docx export paths for client-ready proposals.',
-            'deploy:secure PowerShell script + Cognito group sync automation (sync-cognito-groups.mjs).'
-        ],
-        impact: [
-            'Transforms presales BOQ work from multi-day manual effort to AVIXA-validated, export-ready packages.',
-            'Enterprise audit trail and RBAC for global integrator deployments.'
-        ]
+        title: "AI-Fueled E-commerce Analytics & Sales Forecasting System",
+        description: "A live Streamlit dashboard providing comprehensive e-commerce analytics, including sales trends, customer segmentation (RFM), and interactive visualizations for business insights.",
+        url: "https://futureml01-j2lihzs8qwk6ombkpeczut.streamlit.app/",
+        image: "images/ecommerce2.jpeg"
     },
     {
-        id: 'pronto',
-        title: 'PRONTO',
-        subtitle: 'Allwave Support Brain — RAG, Jira, Voice & Ticket Automation',
-        company: 'Allwave AV Systems · Support-Chatbot-main repo',
-        period: 'Sep 2025 – Present',
-        liveUrl: 'https://pronto.allwaveav.com',
-        description: 'Enterprise FastAPI + React support platform: FAISS RAG over internal KB, LangChain + Gemini chains, live Jira ticket intelligence, Hindi/English voice I/O, image/schematic analysis, admin analytics, JWT approval workflow, and one-click AI solutions posted back to Jira.',
-        tags: ['Python', 'FastAPI', 'TypeScript', 'React', 'FAISS', 'LangChain', 'Gemini', 'Jira', 'Lambda', 'boto3'],
-        stack: 'Python 3.10+ · FastAPI · Uvicorn · LangChain · langchain-google-genai · FAISS · React · Vite · Gemini · Jira REST · boto3 · PyJWT · bcrypt · AWS Lambda · Amplify',
-        architecture: [
-            'Lazy-loaded RAGEngine + JiraService + EscalationService to survive Lambda cold-start INIT limits.',
-            'FAISS vector index (local + S3 sync path) with document ingestion from data/ knowledge base folder.',
-            'SupportWorkflow state machine: smart chat, ticket analysis, apply-solution, feedback loops.',
-            'ADF (Atlassian Document Format) parser for rich Jira comment extraction and AI summary generation.',
-            'Frontend: React + axios + react-markdown/remark-gfm; admin dashboards, ticket pagination, real-time alerts.'
-        ],
-        infrastructure: [
-            'AWS Lambda handler (lambda_handler.py) + API Gateway; FAISS index hydration from S3 on cold start.',
-            'Amplify-hosted frontend with VITE_API_URL → API Gateway prod stage; CORS for pronto.allwaveav.com.',
-            'JWT auth router with admin approval gate; bcrypt password hashing; multi-device login via host IP proxy pattern.',
-            'BackgroundTasks for long Jira comment posts and streaming responses where applicable.'
-        ],
-        apis: [
-            'Smart chat, image chat, ticket chat, escalation, feedback, analytics overview endpoints.',
-            'Jira: paginated ticket fetch, AI analysis comments prefixed [PRONTO - AI Analysis], customer send-back.',
-            'KB rebuild, health checks, webhook handlers, schematic generation routes.',
-            'Voice input/output pipelines for Hindi and English field support.'
-        ],
-        highlights: [
-            'LangChain ChatPromptTemplate chains with Gemini for AV-domain system instructions.',
-            'Browser notifications for high-priority tickets; conversation persistence with search.',
-            'Production debugging across Lambda INIT timeouts, S3 KB sync, and cross-laptop dev networking.',
-            'Email service templates for password reset and onboarding (PRONTO-branded HTML).'
-        ],
-        impact: [
-            'Live at pronto.allwaveav.com — accelerates L1/L2 AV support with grounded, Jira-integrated AI.',
-            'Reduces mean-time-to-resolution via automated ticket commentary and RAG-cited answers.'
-        ]
+        title: "AI Services Toolkit Pro",
+        description: "Explore a suite of multi-modal AI models, including sentiment analysis, summarization, and image captioning, all served through a user-friendly interface.",
+        url: "https://ai-toolkit-nj89aumds7l6rpjas7486m.streamlit.app/",
+        image: "images/toolkit1.jpeg"
     },
     {
-        id: 'av-inventory',
-        title: 'AV Inventory Ops',
-        subtitle: 'Administrative AI — GST / MSME / Tally Compliance & 36-Table Ops Backend',
-        company: 'Allwave AV Systems · Admisntrative AI repo',
-        period: 'Sep 2025 – Present',
-        liveUrl: null,
-        description: 'Version 5.0 AV integration inventory & operations platform (ap-south-1): Amplify Gen 2 CDK backend with 36 DynamoDB tables, 19 Lambda functions, AppSync GraphQL, OpenSearch, WAF, 22 SES templates, and React 18 TypeScript PWA frontend with Gemini floating assistant.',
-        tags: ['TypeScript', 'Amplify Gen 2', 'GraphQL', 'DynamoDB', 'Lambda', 'CDK', 'SES', 'OpenSearch', 'Playwright'],
-        stack: 'TypeScript 5.7 · Amplify Gen 2 · aws-cdk-lib · AppSync · DynamoDB (36 tables) · 19× Lambda · Cognito · S3 · SES/SESv2 · SNS · EventBridge · Scheduler · Secrets Manager · OpenSearch · React PWA · TanStack Query',
-        architecture: [
-            'GraphQL schema: ProductMaster, UnitRecord (8 GSIs), GRN, DeliveryChallan, invoices, POs, BOQUpload, AMC, ServiceTicket, vendors, clients, projects, HSN DB, audit logs, chat sessions, FY counters, etc.',
-            'Lambdas: alert-engine, reminder-dispatcher, invoice-scheduler, payment-reminder-sender, msme-compliance-checker, boq-parser, chatbot-handler, tally-export-generator, forex-rate-fetcher, depreciation-engine, hsn-validator, fy-rollover, tds-auto-creator, warranty-alert-monthly, amc-renewal-checker, daily-digest, client-portal-handler, user-admin.',
-            'shared/ TS utilities: FY logic, GSTIN regex, HSN codes, invoice numbering, Tally XML generation.',
-            'Frontend: shadcn/Radix UI, react-hook-form + Zod, TanStack Table/Virtual, Recharts, html5-qrcode, Cmd+K palette, session idle monitor, Playwright E2E.'
-        ],
-        infrastructure: [
-            'All tables: PITR + encryption at rest + deletion protection; WAF on public endpoints.',
-            'Secrets Manager for Gemini + ExchangeRate-API keys; SES production access with DKIM/SPF/DMARC.',
-            'Scheduled jobs: FY rollover (Apr 1 IST), monthly TDS, warranty alerts, AMC renewal, daily digest.',
-            'Vitest unit tests (backend) + Playwright mock/live E2E modes on frontend.'
-        ],
-        apis: [
-            'AppSync GraphQL CRUD across inventory, billing, procurement, compliance, and portal modules.',
-            'On-demand Lambda invocations documented in Postman collection (av-inventory.postman_collection.json).',
-            'Client portal token handlers and Tally XML export generators for finance handoff.'
-        ],
-        highlights: [
-            'India compliance: MSMED Act 2006, GSTIN validation, e-Way Bill alignment, Udyam certificate storage on S3.',
-            'BOQ parser Lambda + floating Gemini chatbot widget on every major screen.',
-            '22 SES HTML templates built via scripts/build-ses-templates.ts; nodemailer fallbacks.',
-            'Zustand + TanStack Query for performant tables across thousands of unit records.'
-        ],
-        impact: [
-            'Replaces fragmented spreadsheets with a single auditable ops system for Allwave back-office teams.',
-            'Finance-ready exports and automated compliance schedulers reduce manual GST/MSME risk.'
-        ]
+        title: "Hybrid Predictive Maintenance Dashboard",
+        description: "An interactive Streamlit dashboard showcasing real-time predictive maintenance insights, including anomaly detection and remaining useful life (RUL) predictions for industrial equipment.",
+        url: "https://smart-predictive-maintenance-en77oylapplyfegbhuzf3fy.streamlit.app/Live_Dashboard",
+        image: "images/hybrid2.jpeg"
     },
     {
-        id: 'ez-configurator',
-        title: 'EZ Configurator',
-        subtitle: 'ALLWAVE Omni-Configurator — 3D AVIXA Physics & Gemini Auto-Design API',
-        company: 'Allwave AV Systems · alwave-configurator repo',
-        period: 'Sep 2025 – Present',
-        liveUrl: null,
-        description: 'Professional AV room design studio: React-Three-Fiber 3D engine with real acoustic/display physics, 42-SKU catalog (14 brands), Gemini-powered /api/chat and /api/auto-design Express backend, and PDF handover packs with GST BOQ.',
-        tags: ['JavaScript', 'React', 'Three.js', 'R3F', 'Vite', 'Express', 'Gemini', 'AVIXA', 'Zustand'],
-        stack: 'React 18 · Vite · Three.js · @react-three/fiber · @react-three/drei · postprocessing · Zustand · Tailwind · Express · @google/generative-ai · jsPDF · html2canvas · Framer Motion',
-        architecture: [
-            'engines/physics.js: DISCAS viewing distance, SPL Lp = Lw − 20log₁₀(r) − 11, Sabine RT60, PAG/NAG feedback, cable distance limits (HDMI, HDBaseT, USB, Dante, AVoIP).',
-            'store/useStore.js global state; data/products.js 42 SKUs; catalog build/validate scripts for classification QA.',
-            '3D scene: PBR wall materials (6 absorption coefficients), snap-to-surface device placement, SSAO/Bloom/Vignette.',
-            'server/index.mjs: secure Gemini key storage, POST /api/chat, POST /api/auto-design for AI room proposals.'
-        ],
-        infrastructure: [
-            'Split frontend (Vite dev server) + Node Express AI API (port 8787) for UAT and secure key isolation.',
-            'Gemini auto-design error codes surfaced to UI; CORS-enabled local and deployed API patterns.',
-            'PDF export pipeline: compliance report, BOQ with GST line items, IP addressing scheme tables.'
-        ],
-        apis: [
-            'GET /health — service health for EZ Configurator AI sidecar.',
-            'POST /api/chat — conversational AV design assistant.',
-            'POST /api/auto-design — automated room layout/equipment proposals from constraints.'
-        ],
-        highlights: [
-            'Floor legibility heatmaps (green/yellow/red) and pass/fail AVIXA badges per display.',
-            'Framer Motion UI transitions; remark-gfm markdown for AI design narratives.',
-            'npm run catalog:build && catalog:validate for product taxonomy integrity.',
-            'Module 8 PDF handover: compliance + BOQ + network scheme in one export pack.'
-        ],
-        impact: [
-            'Lets presales engineers validate designs with physics-backed evidence before hardware is ordered.',
-            'Bridges sales visualization and engineering sign-off without leaving the browser.'
-        ]
+        title: "AI-Powered Live Trading System",
+        description: "An interactive Streamlit application demonstrating a deep learning-based trading system with real-time market data, technical indicators, and robust risk management.",
+        url: "https://smart-predictive-maintenance-am3fyapk9yqcujd87tjcux.streamlit.app/",
+        image: "images/stocks2.jpeg"
     }
 ];
 
-const projects = [
-    {
-        title: "Algorithmic Trading & Reinforcement Learning",
-        subtitle: "High-Frequency Strategy Optimization",
-        description: "Implemented a Deep Q-Network (DQN) agent to automate trade execution in simulated forex markets. Designed custom rewards to penalize drawdowns and integrated live transaction fees. Achieved a backtested 12% Sharpe ratio improvement over basic momentum baselines.",
-        tags: ["Reinforcement Learning", "Python", "Backtesting", "Fintech"],
-        github: "https://github.com/adarshdivase",
-        details: {
-            problem: "Retail automated trading algorithms rely on hand-crafted heuristic rules (like MACD or RSI cross-overs). These rule-based systems struggle to adapt dynamically to regime shifts, leading to high drawdowns during volatile market transitions.",
-            solution: "Designed and built an end-to-end Deep Reinforcement Learning pipeline featuring a Double Deep Q-Network (DDQN) agent in PyTorch. The environment represents price series as spatial patterns using 1D convolutional feature extractors.",
-            architecture: [
-                "Custom OpenAI Gym environment supporting real-time transaction fee modeling, slippage, and spread latency.",
-                "Neural Network: Dual-headed (Dueling) 1D CNN + LSTM architecture to extract both high-frequency localized movements and long-term macro trends.",
-                "Prioritized Experience Replay (PER) to prioritize learning from tail-risk events and high-reward trade windows.",
-                "Epsilon-greedy exploration schedule decayed exponentially based on real-time rolling Sharpe ratios."
-            ],
-            results: [
-                "Achieved an annualized return of 18.4% on out-of-sample backtests with a max drawdown of just 6.2%.",
-                "Demonstrated a 12% improvement in Sharpe Ratio over standard moving-average crossover strategies.",
-                "Agent successfully learned to 'sit out' (hold cash) during flat, highly compressed range markets to avoid transaction fee bleed."
-            ],
-            codeSnippet: `class DQNAgent(nn.Module):
-    def __init__(self, state_dim, action_dim):
-        super(DQNAgent, self).__init__()
-        self.feature_extractor = nn.Sequential(
-            nn.Conv1d(in_channels=state_dim, out_channels=32, kernel_size=3),
-            nn.ReLU(),
-            nn.Flatten()
-        )
-        self.value_head = nn.Linear(32, 1)
-        self.advantage_head = nn.Linear(32, action_dim)
-
-    def forward(self, state):
-        features = self.feature_extractor(state)
-        values = self.value_head(features)
-        advantages = self.advantage_head(features)
-        return values + (advantages - advantages.mean(dim=-1, keepdim=True))`
-        }
-    },
-    {
-        title: "Predictive Maintenance System for Industrial Assets",
-        subtitle: "IIoT Sensor Streaming Pipeline & Failure Forecasting",
-        description: "Built an end-to-end anomaly detection pipeline for multi-axis CNC machines using LSTM autoencoders. Engineered features from raw high-frequency vibrations and thermal sensors, forecasting tool wear failures up to 24 hours in advance.",
-        tags: ["Anomaly Detection", "LSTMs", "IIoT", "Kafka", "Docker"],
-        github: "https://github.com/adarshdivase",
-        details: {
-            problem: "Unscheduled downtime in heavy manufacturing facilities costs operators thousands of dollars per hour. Traditional preventative maintenance schedules rely on static calendars rather than actual machine wear signals.",
-            solution: "Created an IIoT pipeline that ingests raw vibration and temperature streams, cleans telemetry via streaming processing, and runs an LSTM Autoencoder to compute a reconstruction error (anomaly score) indicating equipment degradation.",
-            architecture: [
-                "Raw data streaming modeled using Apache Kafka to buffer high-frequency tri-axial accelerometer inputs.",
-                "Inference Engine: LSTM Autoencoder deployed inside a lightweight Docker container, tracking reconstruction error over a sliding window.",
-                "Database: InfluxDB time-series database optimized for high-volume sensor writes, integrated with Grafana alerts."
-            ],
-            results: [
-                "Forecasted critical bearing failure events 24 hours in advance with a 92% precision score.",
-                "Reduced false-alarm rates by 35% compared to static threshold alerting by implementing dynamic rolling z-scores.",
-                "Maintained inference latencies below 15ms per sensor window."
-            ],
-            codeSnippet: `def compute_reconstruction_error(model, sequence):
-    # Input sequence shape: (batch_size, sequence_length, features)
-    reconstructed = model.predict(sequence)
-    mse = np.mean(np.square(sequence - reconstructed), axis=(1, 2))
-    return mse`
-        }
-    },
-    {
-        title: "User Churn Analytics Pipeline",
-        subtitle: "SaaS Operational Optimization Engine",
-        description: "Constructed an automated analytics pipeline predicting customer churn for a subscription platform. Integrated an XGBoost classification backend with SHAP interpretability layers, enabling marketing teams to trigger targeted retention campaigns.",
-        tags: ["XGBoost", "SHAP", "Feature Store", "FastAPI"],
-        github: "https://github.com/adarshdivase",
-        details: {
-            problem: "Subscription platforms struggle with high customer acquisition costs. Without pre-emptive identification of accounts displaying signs of disengagement, retention campaigns are reactively sent too late.",
-            solution: "Built a production-ready batch churn prediction engine that continuously scores users based on usage telemetry, customer support ticket frequency, and payment histories.",
-            architecture: [
-                "Feature Store: DBT transformations on Snowflake data warehouse to build aggregated user-profile feature sets.",
-                "Model: Tuned XGBoost classifier with custom hyperparameter optimizations and class-imbalance weight tunings.",
-                "Interpretability: Integrated SHAP library to compute localized explanation values for each predicted customer score, showing EXACTLY why the system suspects churn."
-            ],
-            results: [
-                "Improved customer retention rates by 8% within the first 60 days of deploying the model predictions to CRM campaigns.",
-                "Model achieved an Area Under the ROC Curve (AUC-ROC) of 0.89 on validation datasets.",
-                "Delivered explanation vectors allowing support reps to see specific user disengagement metrics."
-            ],
-            codeSnippet: `import xgboost as xgb
-import shap
-
-def train_and_explain(X_train, y_train, X_val):
-    model = xgb.XGBClassifier(scale_pos_weight=9.5, max_depth=6, learning_rate=0.05)
-    model.fit(X_train, y_train)
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(X_val)
-    return model, shap_values`
-        }
-    },
-    {
-        title: 'E-commerce Sales Forecasting & Analytics',
-        subtitle: 'Prophet-Based Revenue & Inventory Intelligence',
-        description: 'End-to-end retail analytics platform using Facebook Prophet for demand forecasting, seasonal decomposition, and stockout risk alerts—driving smarter replenishment and revenue planning.',
-        tags: ['Prophet', 'Time Series', 'Pandas', 'Streamlit'],
-        github: 'https://github.com/adarshdivase',
-        details: {
-            problem: 'E-commerce teams struggle to align inventory with volatile demand spikes, leading to stockouts and lost revenue.',
-            solution: 'Built an automated forecasting pipeline with Prophet, holiday regressors, and interactive Streamlit dashboards for category-level sales projections.',
-            architecture: [
-                'ETL layer cleaning SKU-level sales, promotions, and stock history.',
-                'Prophet models tuned per product family with cross-validation for horizon accuracy.',
-                'Alerting module flagging SKUs at risk of stockout within a 14-day window.'
-            ],
-            results: [
-                'Improved forecast accuracy on seasonal categories versus naive baselines.',
-                'Enabled proactive replenishment decisions and reduced emergency procurement cycles.',
-                'Delivered executive-ready visual summaries for merchandising stakeholders.'
-            ],
-            codeSnippet: `from prophet import Prophet
-
-def forecast_series(df):
-    model = Prophet(yearly_seasonality=True, weekly_seasonality=True)
-    model.fit(df)
-    future = model.make_future_dataframe(periods=30)
-    return model.predict(future)`
-        }
-    },
-    {
-        title: 'AI-Powered Trading System with Risk Analytics',
-        subtitle: 'Real-Time Signals, Risk Controls & Backtesting',
-        description: 'Algorithmic trading stack combining technical indicators, position sizing rules, and drawdown guardrails—with live risk dashboards and backtested performance analytics.',
-        tags: ['Fintech', 'Alpaca API', 'Risk Mgmt', 'Python'],
-        github: 'https://github.com/adarshdivase',
-        details: {
-            problem: 'Retail trading strategies often lack systematic risk controls and reproducible evaluation across market regimes.',
-            solution: 'Engineered a modular trading engine with signal generation, portfolio risk limits, and performance attribution using historical and paper-trading workflows.',
-            architecture: [
-                'Signal engine: MACD, RSI, Bollinger Bands, and custom momentum filters.',
-                'Risk module: max position size, stop-loss, and portfolio heat caps.',
-                'Backtesting harness with transaction costs and slippage modeling.'
-            ],
-            results: [
-                'Validated strategy robustness across bull, bear, and sideways regimes.',
-                'Reduced maximum drawdown versus uncontrolled signal-only baselines.',
-                'Produced audit-ready trade logs and risk metric reports.'
-            ],
-            codeSnippet: `def position_size(equity, risk_pct, stop_distance):
-    risk_capital = equity * risk_pct
-    return max(1, int(risk_capital / stop_distance))`
-        }
-    },
-    {
-        title: 'AI Services Toolkit Pro',
-        subtitle: 'Multi-Modal AI Assistant Platform',
-        description: 'Unified toolkit delivering NLP, computer vision, speech-to-text, and text-to-speech capabilities behind a single Streamlit interface with modular service routing.',
-        tags: ['LLMs', 'Computer Vision', 'NLP', 'Streamlit'],
-        github: 'https://github.com/adarshdivase',
-        details: {
-            problem: 'Teams need one interface to experiment with multiple AI modalities without rebuilding integrations for each use case.',
-            solution: 'Created a plug-in architecture wrapping Hugging Face, OpenAI, and local inference backends behind consistent API contracts and UI panels.',
-            architecture: [
-                'Service router dispatching requests to NLP, vision, and audio pipelines.',
-                'Shared auth, logging, and configuration layer for model endpoints.',
-                'Streamlit front-end with upload widgets and live response previews.'
-            ],
-            results: [
-                'Cut prototyping time for new AI demos from days to hours.',
-                'Standardized error handling and latency monitoring across services.',
-                'Enabled rapid stakeholder demos for text, image, and voice workflows.'
-            ],
-            codeSnippet: `def route_request(task, payload):
-    handlers = {"nlp": nlp_service, "vision": cv_service, "audio": stt_service}
-    return handlers[task].run(payload)`
-        }
-    },
-    {
-        title: 'Hybrid Predictive Maintenance System',
-        subtitle: 'Supervised ML + Reinforcement Learning for Asset Health',
-        description: 'Hybrid maintenance recommender combining failure classifiers with RL-based scheduling to minimize downtime and optimize service windows for industrial equipment.',
-        tags: ['Reinforcement Learning', 'Scikit-learn', 'IIoT', 'MLOps'],
-        github: 'https://github.com/adarshdivase',
-        details: {
-            problem: 'Static maintenance calendars ignore real-time degradation signals and lead to either premature service or unexpected failures.',
-            solution: 'Coupled supervised failure probability models with an RL agent that learns cost-aware maintenance policies from simulated operational states.',
-            architecture: [
-                'Feature pipeline from vibration, temperature, and runtime telemetry.',
-                'Gradient-boosted classifier estimating failure risk scores.',
-                'RL policy optimizing maintenance actions under cost and uptime constraints.'
-            ],
-            results: [
-                'Balanced maintenance spend with improved equipment availability targets.',
-                'Outperformed fixed-interval scheduling in simulation benchmarks.',
-                'Generated interpretable maintenance recommendations for operations teams.'
-            ],
-            codeSnippet: `def maintenance_reward(uptime_gain, service_cost, failure_penalty):
-    return uptime_gain - service_cost - failure_penalty`
-        }
-    },
-    {
-        title: 'Customer Churn API (MLOps Deployment)',
-        subtitle: 'Production FastAPI + Model Serving',
-        description: 'High-accuracy churn classifier exposed via FastAPI with Dockerized deployment, health checks, and SHAP-based explanations for CRM-ready retention workflows.',
-        tags: ['FastAPI', 'Docker', 'SHAP', 'MLOps'],
-        github: 'https://github.com/adarshdivase',
-        details: {
-            problem: 'Data science models often stall in notebooks without a reliable path to production inference and monitoring.',
-            solution: 'Packaged an XGBoost churn model inside a containerized FastAPI service with versioning, input validation, and explanation endpoints.',
-            architecture: [
-                'REST API: /predict, /explain, and /health routes.',
-                'Docker image with pinned dependencies and model artifact loading on startup.',
-                'SHAP explanations returned alongside probability scores for CRM integration.'
-            ],
-            results: [
-                'Achieved strong validation AUC with sub-100ms inference on batch requests.',
-                'Enabled marketing teams to trigger campaigns with reason codes per account.',
-                'Demonstrated end-to-end MLOps from training notebook to deployable API.'
-            ],
-            codeSnippet: `@app.post("/predict")
-def predict(features: ChurnFeatures):
-    vector = preprocess(features)
-    prob = model.predict_proba([vector])[0][1]
-    return {"churn_probability": float(prob)}`
-        }
-    }
+const skillsData = [
+    { title: 'Languages & Core', skills: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'FastAPI', 'Flask', 'Node.js', 'Express'] },
+    { title: 'AWS Cloud & Serverless', skills: ['Amplify Gen 2', 'CDK', 'Lambda', 'App Runner', 'DynamoDB', 'Cognito', 'SES', 'S3', 'ECR', 'CodeBuild', 'EventBridge', 'CloudWatch'] },
+    { title: 'Frontend & 3D', skills: ['React 18', 'Vite', 'Tailwind CSS', 'Three.js', 'React-Three-Fiber', 'Zustand', 'TanStack Query', 'shadcn/Radix UI'] },
+    { title: 'Generative AI & RAG', skills: ['Google Gemini', 'LangChain', 'FAISS', 'OpenAI API', 'Hugging Face', 'Prompt Engineering', 'RAG Pipelines'] },
+    { title: 'Programming Languages & Frameworks', skills: ['Python (NumPy, Pandas)', 'SQL', 'FastAPI', 'Flask', 'Data Structures', 'Algorithms'] },
+    { title: 'Machine Learning', skills: ['Scikit-learn', 'XGBoost', 'Random Forests', 'SVMs', 'Regression', 'Classification', 'Clustering', 'Feature Engineering', 'Model Evaluation', 'SMOTE', 'Reinforcement Learning'] },
+    { title: 'Deep Learning', skills: ['TensorFlow', 'PyTorch', 'Keras', 'CNNs', 'RNNs (LSTMs, GRUs)', 'Transformers', 'Transfer Learning', 'GANs'] },
+    { title: 'MLOps & Deployment', skills: ['Docker', 'Kubernetes (basics)', 'Render', 'Heroku', 'Git', 'Uvicorn', 'RESTful API', 'Microservices', 'CI/CD', 'Model Versioning', 'Monitoring', 'Hugging Face Spaces'] },
+    { title: 'Big Data & Databases', skills: ['Hadoop', 'Spark', 'Apache Kafka', 'PostgreSQL', 'MySQL', 'SQLAlchemy', 'MongoDB', 'SQLite3'] },
+    { title: 'Data Visualization & BI', skills: ['Plotly', 'Matplotlib', 'Seaborn', 'Dash', 'Tableau (conceptual)', 'Streamlit'] },
+    { title: 'Specialized Tools', skills: ['SHAP', 'LIME', 'Prophet', 'Whisper API', 'YOLOv5', 'OpenAI API', 'LLMs (ChatGPT)', 'Financial Modeling', 'Monte Carlo Simulation', 'A/B Testing', 'Alpaca API', 'Technical Indicators (MACD, RSI, Bollinger Bands, SMAs)'] }
 ];
 
-const playgroundApps = [
+const blogPostsData = [
     {
-        title: "RAG Document Intelligence",
-        subtitle: "PDF Querying Engine",
-        description: "Upload a research paper, extract text embeddings using SentenceTransformers, and query the content with vector similarity search mapped to a local LLM context window.",
-        demoUrl: "https://adarshdivase.github.io/rag-demo/",
-        tags: ["Vector Search", "Transformers", "NLP"]
-    },
-    {
-        title: "Anomaly Inspector",
-        subtitle: "Live Telemetry Scanner",
-        description: "Generate synthetic sensor telemetry, inject random spikes or drift anomalies, and test real-time sliding window reconstruction classifiers inside your browser.",
-        demoUrl: "https://adarshdivase.github.io/anomaly-demo/",
-        tags: ["WebML", "Time Series", "D3.js"]
-    },
-    {
-        title: "Interactive Deep Neural Net",
-        subtitle: "Visual Classifier Playground",
-        description: "Configure layer weights, learning rates, and activations. Visualize live decision boundaries adjusting in real-time to fit non-linear dataset patterns.",
-        demoUrl: "https://adarshdivase.github.io/neural-network-demo/",
-        tags: ["Machine Learning", "Neural Networks", "Data Vis"]
-    }
-];
-
-const skills = [
-    {
-        category: "Languages & Core Engineering",
-        items: [
-            { name: "Python (FastAPI, async, OOP)", level: 94 },
-            { name: "TypeScript & JavaScript (ES2022+)", level: 92 },
-            { name: "SQL & NoSQL Data Modeling", level: 88 },
-            { name: "Git, GitHub & Code Review Workflows", level: 90 },
-            { name: "REST API Design & GraphQL (AppSync)", level: 88 }
-        ]
-    },
-    {
-        category: "Frontend & UI Engineering",
-        items: [
-            { name: "React 18 (Hooks, Router, Context)", level: 93 },
-            { name: "Vite, Tailwind CSS & Responsive UI", level: 92 },
-            { name: "Three.js & React-Three-Fiber (3D)", level: 85 },
-            { name: "Zustand, TanStack Query/Table", level: 86 },
-            { name: "shadcn/Radix UI & react-hook-form + Zod", level: 84 }
-        ]
-    },
-    {
-        category: "AWS Cloud & Serverless",
-        items: [
-            { name: "AWS Amplify Gen 2 & CDK (aws-cdk-lib)", level: 90 },
-            { name: "Lambda, API Gateway & App Runner", level: 91 },
-            { name: "DynamoDB (GSIs, PITR, access patterns)", level: 90 },
-            { name: "Cognito, IAM, SES, SNS, S3, Secrets Manager", level: 89 },
-            { name: "EventBridge, CloudWatch, CloudTrail, ECR, CodeBuild", level: 87 }
-        ]
-    },
-    {
-        category: "Generative AI, RAG & LLM Ops",
-        items: [
-            { name: "Google Gemini API (@google/genai)", level: 93 },
-            { name: "RAG, FAISS & LangChain Pipelines", level: 90 },
-            { name: "Prompt Engineering & System Instructions", level: 92 },
-            { name: "OpenAI API & Hugging Face Transformers", level: 85 },
-            { name: "Long-running AI Jobs & Timeout Mitigation", level: 88 }
-        ]
-    },
-    {
-        category: "Backend, Integrations & DevOps",
-        items: [
-            { name: "FastAPI, Uvicorn, Flask & Node/Express", level: 91 },
-            { name: "JWT, bcrypt & Role-Based Access Control", level: 88 },
-            { name: "Jira REST & Atlassian ADF Parsing", level: 86 },
-            { name: "Docker, CI/CD & Production Incident Response", level: 87 },
-            { name: "Playwright E2E & Vitest Unit Testing", level: 82 }
-        ]
-    },
-    {
-        category: "Machine Learning & Data Science",
-        items: [
-            { name: "PyTorch, TensorFlow & Scikit-Learn", level: 90 },
-            { name: "XGBoost, SHAP, LIME & Model Explainability", level: 88 },
-            { name: "Reinforcement Learning (DQN, PPO)", level: 80 },
-            { name: "Pandas, NumPy, Prophet & Time Series", level: 92 },
-            { name: "Kafka, ETL & Feature Pipelines", level: 78 }
-        ]
-    },
-    {
-        category: "AV Domain & Enterprise Tooling",
-        items: [
-            { name: "AVIXA Standards (DMD, ACE, DISCAS, SPL)", level: 90 },
-            { name: "BOQ/CAD/DXF & Stardraw Symbol Pipelines", level: 88 },
-            { name: "Crestron, Extron, QSC, Biamp Programming Context", level: 87 },
-            { name: "India GST, HSN, MSME & Tally XML Export", level: 86 },
-            { name: "ExcelJS, jsPDF, mammoth, xlsx Document I/O", level: 89 }
-        ]
-    },
-    {
-        category: "Deployment & Observability",
-        items: [
-            { name: "Vercel, Render & Static Site Hosting", level: 84 },
-            { name: "GitHub Actions & Amplify Hosting/CDN", level: 86 },
-            { name: "OpenSearch & Structured Logging", level: 80 },
-            { name: "WAF, CORS & Multi-Origin Production Config", level: 85 },
-            { name: "Streamlit, Plotly & Recharts Dashboards", level: 88 }
-        ]
-    }
-];
-
-const blogPosts = [
-    {
-        id: "backtesting-reinforcement-learning",
-        title: "Demystifying Reinforcement Learning in Live Financial Markets",
-        date: "May 10, 2026",
-        tag: "Reinforcement Learning",
-        excerpt: "Why model-free reinforcement learning algorithms struggle in non-stationary reward landscapes, and how we can architect robust sensory abstractions to mitigate market regime drift.",
+        title: "Crafting My Digital Footprint: A Technical Deep Dive into Portfolio Development",
+        date: "2025-07-28", // Updated to current date
+        image: "images/Build-Your-Portfolio.png",
+        tags: ["Portfolio", "Web Development", "MLOps", "Journey", "Frontend", "Backend"],
         content: `
-            <div class="prose-custom">
-                <p>Applying model-free reinforcement learning algorithms like Double DQN or PPO directly to raw financial price series is a recipe for rapid capital depletion. Financial markets are notorious for their non-stationary behavior, meaning the statistical properties of the price data drift over time, rendering historical patterns obsolete.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">The Challenge of Non-Stationarity</h3>
-                <p>When an agent is trained in a simulated regime, it learns policy pathways designed for that specific set of market conditions (e.g. low-volatility bullish uptrend). When the market shifts into a high-volatility sideways churn, the reward outputs decay. In ML terms, the environmental state transitions (s_t -> s_{t+1}) violate the Markov property because hidden macro variables dictate these shifts.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">Architectual Strategies for Mitigation</h3>
-                <p>To build RL agents that survive regime transitions, we must apply three key design patterns:</p>
+                <p>The journey of building a personal portfolio is far more than just compiling past projects; it's a technical deep dive into system architecture, deployment pipelines, and user experience design. This platform itself stands as a testament to my capabilities, a living showcase of the principles I advocate for in AI and Data Science. My primary motivation was to create a dynamic, engaging space that extends beyond static résumés, providing interactive demonstrations and tangible insights into my technical thought process.</p>
+                <p>From a foundational perspective, the entire application is architected around a robust web development stack. HTML provides the semantic structure, ensuring accessibility and search engine optimization. CSS, augmented by the utility-first framework <strong>Tailwind CSS</strong>, enables rapid and consistent styling, allowing for a highly responsive and aesthetically pleasing user interface across various devices. The dynamic and interactive elements that bring this portfolio to life are powered by pure <strong>JavaScript</strong>, demonstrating proficiency in client-side scripting and DOM manipulation.</p>
+                <p>A key design consideration was the seamless integration of various data sources and interactive components. Project details, skill sets, and blog content are managed programmatically within JavaScript arrays, facilitating easy updates and a consistent data structure. Features like the dynamic typing animation on the hero section and the interactive modal for project details were meticulously implemented to enhance user engagement and provide a polished experience. The background particle animation, while seemingly simple, involves canvas manipulation to create a visually appealing, low-resource effect.</p>
+                <p>Beyond the immediate user interface, the deployment strategy for this portfolio embodies critical <strong>MLOps principles</strong>. The entire codebase is version-controlled using <strong>Git</strong> and hosted on <strong>GitHub</strong>, providing a robust system for tracking changes, collaborating (even if just with myself!), and maintaining a history of development. The selection of <strong>Vercel</strong> for continuous deployment streamlined the integration process significantly. Every commit to the \`main\` branch of the GitHub repository automatically triggers a new build and deployment on Vercel, demonstrating a practical application of CI/CD pipelines. This automation ensures that updates are delivered swiftly and reliably to the live environment, reflecting the agile development methodologies I apply to more complex AI systems.</p>
+                <p>This portfolio’s development journey, while focused on showcasing Machine Learning and Data Science, also served as an invaluable learning experience in full-stack web development and robust deployment practices. It reinforced the understanding that a successful technical project encompasses not just sophisticated algorithms or data models, but also the resilient infrastructure, meticulous deployment strategies, and intuitive user interfaces that bring those innovations to life.</p>
+        `
+    },
+    {
+        title: "Architecting Intelligence: My Journey in Tech",
+        date: "2025-06-26",
+        image: "images/toolkit.jpeg",
+        tags: ["Career", "Reflection", "MLOps", "Generative AI"],
+        content: `
+                <p>Welcome to my digital sanctuary, a space where I articulate my journey as an AI and Data Science enthusiast. My pursuit of a B.Tech at A. C. Patil College of Engineering has been a crucible for mastering the theoretical underpinnings of intelligent systems. However, my true passion transcends mere comprehension; it lies in the architecting and deployment of intelligent, actionable solutions that yield tangible, real-world impact. This platform serves as a chronicle of my exploration, the ambitious projects that ignite my curiosity, and the invaluable lessons gleaned from each technical endeavor.</p>
+                <p>My academic trajectory and professional engagements have been rigorously focused on acquiring mastery across the entire machine learning lifecycle. This encompasses the meticulous construction of resilient data pipelines, leveraging distributed computing paradigms such as <strong>Hadoop and Spark</strong>, to the strategic deployment of scalable microservices powered by <strong>Python and FastAPI</strong>. My objective consistently revolves around engineering robust, end-to-end systems that are not only performant but also maintainable and extensible.</p>
+                <blockquote class="border-l-4 border-indigo-500 pl-4 text-slate-300 italic">"The goal is to turn data into information, and information into insight." - Carly Fiorina. This profound statement encapsulates the very essence of my philosophical approach to data science and artificial intelligence.</blockquote>
+                <p>Beyond the foundational backend infrastructure, my core intellectual curiosity resides in the intricate dynamics of the models themselves. I have immersed myself in a diverse spectrum of machine learning paradigms, ranging from conventional predictive analytics, such as the customer churn models meticulously constructed using <strong>Random Forests</strong>, to the avant-garde frontiers of deep learning, incorporating architectures like <strong>Convolutional Neural Networks (CNNs)</strong>, <strong>Long Short-Term Memory (LSTMs)</strong>, and <strong>Transformers</strong>. A project that I hold in particularly high esteem is the <strong>AI Services Toolkit Pro (Multi-Modal AI Assistant)</strong>, a complex integration where I synergized OpenAI's Whisper for state-of-the-art transcription capabilities with YOLOv5 for real-time object detection. The technical challenge of seamlessly merging these disparate yet powerful technologies into a singular, cohesive, and user-centric application was exhilarating and deeply rewarding.</p>
+                <p>My commitment extends beyond mere model development to ensuring that these intelligent systems are not only robustly engineered but also demonstrably scalable and inherently maintainable. This necessitates a stringent adherence to <strong>MLOps</strong> principles, encompassing the meticulous implementation of Continuous Integration/Continuous Deployment (CI/CD) pipelines, comprehensive model versioning strategies, and diligent continuous monitoring protocols. My hands-on experience with <strong>Docker</strong> and platform-as-a-service providers like <strong>Render and Heroku</strong> has been pivotal in facilitating the efficient deployment of these intrinsically complex systems. It is my unwavering conviction that a meticulously engineered deployment strategy is as critically important as the predictive or generative power of the model itself in delivering tangible business value.</p>
+                <p>I am particularly enthused by the rapid advancements in <strong>Generative AI and Large Language Models (LLMs)</strong>, and I have proactively engaged in exploring their transformative applications, as evidenced by my specialized certification in this cutting-edge domain. The inherent capacity of these technologies to autonomously create novel content, synthesize vast quantities of information, and even generate executable code unlocks an unprecedented array of possibilities for the next generation of AI solutions, and I am eager to contribute to their evolution.</p>
+        `
+    },
+    {
+        title: "Deep Dive: Handling Imbalance in Churn Prediction",
+        date: "2025-06-20",
+        image: "images/churn1.jpeg",
+        tags: ["Deep Dive", "Machine Learning", "Classification", "Data Preprocessing"],
+        content: `
+                <p>One of the most pervasive and insidious challenges encountered in real-world classification problems, such as the critical task of customer churn prediction, is the inherent presence of severely imbalanced datasets. In such scenarios, the proportion of the minority class – for instance, customers who actually churn – is disproportionately small compared to the majority class (non-churning customers). Left unaddressed, this severe class imbalance can lead to a highly deceptive model that achieves a superficially high accuracy by merely predicting the dominant class for every instance, rendering it practically useless for identifying the crucial events of interest.</p>
+                <p>In my <strong>Customer Churn Prediction and API Deployment</strong> project, I confronted this challenge directly and systematically. The linchpin of my approach was the strategic application of the <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> algorithm. Unlike simplistic oversampling methods that merely duplicate existing minority class samples, SMOTE operates by intelligently generating new, synthetic samples. These synthetic data points are created by interpolating between existing minority class instances and their k-nearest neighbors in the feature space. This sophisticated generative approach effectively mitigates overfitting to specific minority samples and provides a richer, more diverse, and crucially, more balanced dataset for the machine learning model to effectively train on.</p>
+                <p>The impact of this data re-balancing was profound and quantitatively significant. By meticulously applying SMOTE within the data preprocessing pipeline, I achieved a <strong>demonstrable increase of 25% in the model's recall for the churn class</strong>. This enhancement was not just a statistical improvement; it directly translated into the model becoming substantially more adept at its primary strategic objective: accurately identifying customers who are genuinely at risk of attrition. This heightened ability to detect potential churners proactively within a 30-day window allowed for the timely deployment of targeted retention strategies, moving from reactive mitigation to proactive customer engagement.</p>
+                <p>This experience served as a powerful testament to a fundamental principle in machine learning: headline accuracy is rarely the sole arbiter of a model's real-world utility. A nuanced understanding of data characteristics and the strategic application of advanced preprocessing techniques are paramount to developing truly effective and impactful models. The combination of data engineering rigor and algorithmic selection was instrumental in achieving an F1-score of 0.87, signifying a robust balance between precision and recall, and enabling the identification of 75% of high-risk churners, thereby providing actionable intelligence for business stakeholders.</p>
+        `
+    },
+    {
+        title: "The Power of Real-time Data in Trading",
+        date: "2025-06-15",
+        image: "images/stocks1.jpeg",
+        tags: ["Finance", "Real-time Systems", "Data Engineering", "Trading"],
+        content: `
+                <p>In the high-octane and perpetually evolving domain of financial trading, the acquisition and judicious utilization of real-time data transcend mere advantage; it constitutes an absolute strategic imperative. My <strong>AI-Powered Trading System with Risk Analytics</strong> project was meticulously engineered around this fundamental principle, demanding the construction of highly robust and ultra-low latency data ingestion pipelines. We leveraged distributed streaming technologies, notably <strong>Apache Kafka</strong>, to process an astounding throughput of <strong>over 10,000 data points per minute</strong>, ensuring immediate availability of market intelligence.</p>
+                <p>This unparalleled real-time data processing capability was foundational and critical for several interconnected reasons:</p>
                 <ul>
-                    <li><strong>Fourier & Wavelet Transforms:</strong> Rather than feeding raw prices or standard moving averages, decompose price windows into frequency components to capture cyclic momentum independently of scale.</li>
-                    <li><strong>Dynamic Reward Rescaling:</strong> Implement rolling z-score scaling on transaction payoffs. This forces the agent's gradients to focus on relative performance rather than nominal currency values.</li>
-                    <li><strong>Stochastic Regularization:</strong> Apply dropout to the recurrent LSTM network blocks to prevent the agent from over-indexing on localized sequences.</li>
+                    <li><strong>Timely Decision Optimization:</strong> The instantaneous data feeds were directly channeled into our sophisticated LSTM (Long Short-Term Memory) models. This architectural design facilitated up-to-the-minute market analysis and predictive modeling, directly boosting the efficiency of trading decisions by a remarkable <strong>30%</strong>. The ability to react and strategize within milliseconds is paramount in volatile markets.</li>
+                    <li><strong>Dynamic Risk Mitigation:</strong> The seamless integration of live market data with crucial risk metrics, such as Value-at-Risk (VaR) and Sortino Ratio, empowered our system to react with unparalleled swiftness and precision to market volatility and unforeseen events. This proactive risk management approach was quantitatively demonstrated to lower simulated investment risk by <strong>22%</strong>, safeguarding capital and optimizing portfolio stability.</li>
+                    <li><strong>Sustained Competitive Superiority:</strong> In algorithmic trading, the capacity to process, analyze, and act upon market data faster than competitors translates directly into a formidable competitive edge. This accelerated data-to-action cycle consistently contributed to significant gains in simulated portfolio returns, capitalizing on ephemeral market inefficiencies.</li>
                 </ul>
-            </div>
+                <p>The paramount engineering challenge revolved around guaranteeing minimal data latency and maximizing throughput while maintaining data integrity. By architecting a solution around distributed streaming platforms, we successfully established a resilient, highly efficient, and fault-tolerant backbone for our intricate predictive models. This project unequivocally demonstrated that superior data engineering is not merely supportive but absolutely foundational to the successful implementation and sustained performance of advanced AI applications within the demanding landscape of quantitative finance. Our strategic integration with the <strong>Alpaca API</strong> further solidified this capability by providing streamlined and robust access to both historical and real-time stock data, enabling granular bar updates and facilitating seamless, high-frequency order submissions directly to trading venues.</p>
         `
     },
     {
-        id: "lstm-autoencoders-anomaly",
-        title: "Architecting LSTM Autoencoders for IIoT Anomaly Detection",
-        date: "Apr 28, 2026",
-        tag: "Anomaly Detection",
-        excerpt: "An architectural guide to deploying autoencoders for high-frequency sensor telemetry. Discover strategies for tuning sequence windows and choosing reconstruction error thresholds.",
+        title: "Interpretable AI: Beyond the Black Box",
+        date: "2025-06-08",
+        image: "images/hybrid1.jpeg",
+        tags: ["AI Ethics", "Explainable AI", "Machine Learning", "Predictive Maintenance"],
         content: `
-            <div class="prose-custom">
-                <p>Industrial assets like CNC spindles and wind turbine bearings produce high-frequency vibration streams that standard threshold alerts cannot analyze. LSTM Autoencoders offer a powerful solution: they learn the normal operating signature of a machine and flag deviations before a physical failure occurs.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">The Autoencoder Mechanism</h3>
-                <p>An autoencoder is trained exclusively on normal, non-anomalous operational data. It compresses a sliding time-series window into a low-dimensional bottleneck representation (encoder) and then attempts to reconstruct the original input (decoder). Because the network has never seen failure sequences, its reconstruction error increases dramatically when abnormal wear signals are present.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">Key Hyperparameter Tradeoffs</h3>
+                <p>As Artificial Intelligence models escalate in complexity, particularly within mission-critical applications such as predictive maintenance, comprehending the underlying rationale for a model's prediction becomes as strategically vital as the prediction itself. This paradigm defines the burgeoning field of Explainable AI (XAI). In my <strong>Hybrid Predictive Maintenance System</strong>, a core design objective was to demystify the inherently complex interplay of Deep Learning and Reinforcement Learning, rendering the model's decisions transparent and actionable through the strategic application of <strong>SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations)</strong>.</p>
+                <p>SHAP offers a unified, game-theoretic framework for interpreting predictions, systematically assigning an importance value (Shapley value) to each input feature for a given prediction. This provides a global understanding of feature importance while maintaining local fidelity to individual predictions. Complementarily, LIME excels at explaining the predictions of any classifier or regressor by constructing a simpler, locally faithful, interpretable model around the specific instance to be explained. The synergistic application of these two techniques provides a multi-faceted view of model behavior, addressing both individual decision-making and overall model characteristics.</p>
                 <ul>
-                    <li><strong>Sequence Length:</strong> Too short (e.g., 10 steps) and the model cannot capture cyclic vibrations; too long (e.g., 500 steps) and the reconstruction gradients vanish, or latency rises. We found a sequence window of 64 to 128 steps represents the sweet spot for tri-axial vibration telemetry.</li>
-                    <li><strong>Bottleneck Size:</strong> Restricting the bottleneck forces the network to learn generalized features rather than memorizing noise.</li>
+                    <li><strong>Precision in Anomaly Attribution:</strong> We were able to precisely identify and quantify the top 5 influential factors (e.g., specific sensor readings, operational parameters, environmental conditions) that most significantly contributed to a predicted equipment anomaly or impending failure. This granular insight transforms a mere "failure alert" into actionable diagnostic intelligence.</li>
+                    <li><strong>Cultivating Stakeholder Trust:</strong> Providing maintenance teams and operational managers with clear, human-understandable justifications behind predicted failures dramatically increased their confidence and trust in the AI system. This transparency is indispensable for fostering adoption and leveraging AI for critical operational decisions.</li>
+                    <li><strong>Iterative Model Enhancement:</strong> The insights derived from SHAP and LIME analyses were not just for reporting; they served as invaluable feedback loops for refining feature engineering strategies and optimizing the underlying model architecture. This iterative refinement process directly contributed to the <strong>30% improvement in prediction accuracy</strong>, underscoring the reciprocal relationship between interpretability and model performance.</li>
                 </ul>
-            </div>
+                <p>This unwavering commitment to interpretability ensures that our AI solutions are not merely powerful computational tools but are also actionable, trustworthy, and deeply integrated into operational workflows, effectively bridging the inherent gap between complex algorithms and the pragmatic demands of real-world industrial decisions. Within the Hybrid Predictive Maintenance System, this interpretability was pivotal for generating comprehensive simulation reports and providing granular insights that directly contributed to an estimated <strong>20% reduction in operational downtime costs</strong>, translating into substantial annual savings for industrial operations.</p>
         `
     },
     {
-        id: "fastapi-ml-deployment",
-        title: "FastAPI Patterns for Low-Latency Machine Learning Pipelines",
-        date: "Mar 15, 2026",
-        tag: "Software Engineering",
-        excerpt: "How to avoid common bottlenecks when serving PyTorch or TensorFlow models via FastAPI. Learn about model warming, async worker tuning, and connection pooling.",
+        title: "Unlocking Multi-Modal AI: The Toolkit Approach",
+        date: "2025-06-01",
+        image: "images/toolkit.jpeg",
+        tags: ["AI", "Multi-modal AI", "Transformers", "FastAPI", "Streamlit"],
         content: `
-            <div class="prose-custom">
-                <p>Deploying a model inside a FastAPI wrapper is easy, but optimizing it to handle hundreds of concurrent requests with sub-50ms latencies requires careful architectural adjustments.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">1. Eliminate Cold-Start Latency via Model Warming</h3>
-                <p>Never load your PyTorch or TensorFlow model weights inside an active request route. Load the model globally during the FastAPI startup event and execute a single dummy forward pass. This compiles any internal lazy-evaluated operations before accepting live traffic.</p>
-                
-                <h3 class="text-xl font-bold text-white mt-6 mb-3">2. Async Event Loop Bottlenecks</h3>
-                <p>Model forward passes are CPU-bound operations. If you call model inference inside an <code>async def</code> route without offloading it, you will block the FastAPI event loop, causing other requests to wait. Use standard <code>def</code> endpoints so FastAPI runs the inference in an external thread pool, or use <code>anyio.to_thread.run_sync</code> to offload computation.</p>
-            </div>
+                <p>The contemporary landscape of Artificial Intelligence increasingly necessitates systems capable of processing and synthesizing information across disparate data modalities – text, speech, and images. Building and deploying state-of-the-art AI models that seamlessly handle this multi-modal complexity presents considerable engineering challenges. My <strong>AI Services Toolkit Pro (Multi-Modal AI Assistant)</strong> project was conceived and meticulously designed to address these challenges head-on, by establishing a unified, extensible platform for a diverse array of Transformer-based AI capabilities.</p>
+                <p>The core architectural principle was the strategic integration of <strong>9 distinct Transformer pipelines sourced from Hugging Face</strong>, a leading ecosystem for pre-trained models. This integration encompassed a broad spectrum of AI tasks, including nuanced sentiment analysis, concise text summarization, precise image captioning, and advanced question-answering. This modular approach enabled the offering of a wide range of sophisticated AI services from a singular, cohesive, and high-performance application endpoint.</p>
+                <p>Key aspects of the system's robust architecture include:</p>
+                <ul>
+                    <li>A high-performance <strong>FastAPI backend</strong> meticulously engineered to handle asynchronous operations, ensuring maximal concurrency and responsiveness. This backend leverages <strong>Pydantic models</strong> for rigorous data validation and serialization, guaranteeing data integrity and type safety. AI services are exposed via clean, RESTful <code>/api</code> endpoints, facilitating easy integration with other systems.</li>
+                    <li>An intuitive and dynamic <strong>Streamlit frontend</strong> that provides a rich, interactive user experience. This interface allows users to seamlessly interact with various AI services, observe real-time processing feedback, review comprehensive API call histories, and monitor overall system status, enhancing user transparency and control.</li>
+                    <li>Implementation of advanced multi-modal features, including sophisticated <strong>Text-to-Speech (TTS)</strong> capabilities with dynamic speaker embeddings for personalized voice output, and highly accurate <strong>Speech-to-Text (STT)</strong> with automatic audio resampling to optimize transcription quality across diverse audio inputs. These accessibility enhancements demonstrably improved usability for an estimated <strong>5,000 daily users</strong>, significantly broadening the toolkit’s appeal and utility.</li>
+                </ul>
+                <p>This project serves as a comprehensive demonstration of a full end-to-end MLOps pipeline, spanning from intricate model integration and robust API development to seamless frontend deployment on scalable platforms such as <strong>Hugging Face Spaces</strong>. It unequivocally highlights the transformative power of strategically combining specialized AI models into a user-friendly, enterprise-ready toolkit, thereby rendering advanced AI capabilities both highly accessible and readily actionable for a diverse user base.</p>
+        `
+    },
+    {
+        title: "Mastering MLOps: From Code to Scalable Production AI",
+        date: "2025-05-28",
+        image: "images/mlops.jpeg", // New blog image
+        tags: ["MLOps", "Deployment", "Scalability", "DevOps", "Production AI"],
+        content: `
+                <p>In the dynamic realm of Artificial Intelligence, the development of a powerful and accurate machine learning model represents merely the initial phase of a much broader, complex lifecycle. The quintessential challenge lies in transitioning these experimental models from development environments to reliable, high-performing, and scalable production systems. This critical transition is precisely where <strong>MLOps (Machine Learning Operations)</strong> emerges as an indispensable engineering discipline, acting as the bridge between theoretical models and real-world impact.</p>
+                <p>My extensive experience, honed during a Python Backend Developer Internship and through various rigorous AI projects, has profoundly ingrained in me the paramount importance of robust MLOps practices. MLOps is not merely a collection of tools; it is a holistic engineering philosophy that unifies ML system development (Dev) with ML system operations (Ops). It meticulously encompasses a comprehensive spectrum of practices aimed at streamlining the entire machine learning lifecycle, from initial data collection and iterative model training to robust deployment, continuous monitoring, and perpetual improvement in a production setting. Key components that form the bedrock of an effective MLOps framework include:</p>
+                <ul>
+                    <li><strong>Continuous Integration/Continuous Delivery (CI/CD):</strong> This pillar involves automating the entire pipeline for building, rigorously testing, and reliably deploying models. My direct involvement in orchestrating <strong>Docker-containerized deployments to platforms like Render and Heroku</strong> demonstrably reduced critical deployment cycles by a remarkable <strong>40%</strong>. This automation minimizes manual errors, accelerates iteration velocity, and ensures faster time-to-market for AI-driven features.</li>
+                    <li><strong>Model Versioning and Governance:</strong> Meticulously tracking and managing distinct versions of models, alongside their associated training data and evaluation metrics, is paramount for ensuring reproducibility, facilitating efficient debugging, and enabling seamless rollbacks when necessary. This robust versioning is crucial for regulatory compliance and audit trails in production AI systems.</li>
+                    <li><strong>Proactive Monitoring and Alerting:</strong> Continuous, real-time observation of model performance, detection of data drift and concept drift, and comprehensive system health monitoring in production are essential. This proactive vigilance allows for the rapid identification and timely resolution of issues, preventing degradation of model efficacy and ensuring consistent business value.</li>
+                    <li><strong>Scalable Infrastructure Design:</strong> Architecting systems that can seamlessly handle escalating inference loads and data volumes is fundamental for production AI. My direct experience in building scalable microservices using <strong>FastAPI and Flask</strong> resulted in an impressive <strong>25% improvement in API response times</strong> and demonstrated the capability to handle <strong>over 10,000 daily requests with an exceptional 99.9% uptime</strong>, a clear testament to robust architectural design and effective load balancing.</li>
+                </ul>
+                <p>Furthermore, the advent of platforms like <strong>Hugging Face Spaces</strong> significantly democratizes the application of MLOps principles, providing accessible and efficient avenues for deploying, sharing, and collaborating on machine learning models. By diligently mastering these MLOps tenets, AI solutions transcend the realm of mere innovative prototypes; they evolve into reliable, high-performing, and continuously valuable assets that deliver sustained strategic advantages and profound business impact.</p>
+        `
+    },
+    {
+        title: "Data Engineering for AI: Building Resilient Data Pipelines",
+        date: "2025-05-20",
+        image: "images/datascience.jpeg", // New blog image
+        tags: ["Data Engineering", "Big Data", "Apache Kafka", "Data Pipelines", "ETL"],
+        content: `
+                <p>At the foundational core of every highly effective Artificial Intelligence or Machine Learning system lies an undeniably robust, meticulously engineered, and perpetually reliable data pipeline. Without a continuous flow of clean, accessible, and high-fidelity data, even the most exquisitely sophisticated models are ultimately rendered impotent. My academic background, coupled with extensive hands-on project experience, has equipped me with profound expertise in architecting and implementing <strong>resilient data engineering solutions</strong> that serve as the lifeblood of intelligent systems.</p>
+                <p>My specialized certifications in Data Engineering, particularly focusing on <strong>Hadoop & Spark</strong>, provided the essential theoretical and practical groundwork for comprehending and managing large-scale data processing paradigms. Key technologies that form the bedrock of modern AI-driven data pipelines are:</p>
+                <ul>
+                    <li><strong>Apache Hadoop:</strong> A foundational framework for distributed storage (HDFS) and batch processing of colossal datasets. Hadoop's architecture enables the handling of petabyte-scale data, making it indispensable for foundational data lakes and historical data analysis for model training.</li>
+                    <li><strong>Apache Spark:</strong> A powerful and versatile unified analytics engine designed for large-scale data processing. Spark offers unparalleled speed and flexibility, making it ideal for a multitude of tasks including complex ETL (Extract, Transform, Load) operations, advanced analytics, and machine learning feature engineering on massive datasets, significantly outperforming traditional MapReduce in many scenarios.</li>
+                    <li><strong>Apache Kafka:</strong> A distributed streaming platform architected for building real-time data pipelines and streaming applications. In my <strong>AI-Powered Trading System with Risk Analytics</strong>, I leveraged Apache Kafka to establish ultra-low latency, real-time data ingestion pipelines capable of processing <strong>over 10,000 data points per minute</strong>. This real-time capability was paramount, significantly boosting decision efficiency and enabling immediate responsiveness to market dynamics.</li>
+                    <li><strong>SQL and NoSQL Databases:</strong> Proficiency extends to proficiently managing and optimizing various database systems, including relational databases like <strong>PostgreSQL and MySQL</strong> for structured data integrity and consistency, and NoSQL databases such as <strong>MongoDB</strong> for flexible, scalable storage of unstructured or semi-structured data. My work specifically utilizing the <strong>SQLAlchemy ORM</strong> in conjunction with PostgreSQL databases resulted in a <strong>quantifiable reduction of data retrieval time by 15%</strong>, optimizing application performance and responsiveness.</li>
+                </ul>
+                <p>The meticulous construction of these resilient and high-throughput data pipelines is not merely an operational necessity; it is a strategic differentiator. It ensures that AI models consistently receive the high-quality, timely, and relevant data they critically require to perform optimally and deliver accurate predictions or insights. This foundational layer, though often unseen by end-users, is unequivocally paramount to the success, reliability, and ultimately, the tangible business impact of any sophisticated AI initiative.</p>
         `
     }
-];
+].sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending for recent posts
 
-// --- FORM & MODAL UTILITIES ---
-async function submitPortfolioForm(formData, options = {}) {
-    formData.append('_captcha', 'false');
-    formData.append('_template', 'table');
-    if (options.autoresponse) {
-        formData.append('_autoresponse', options.autoresponse);
-    }
-
-    const response = await fetch(FORMSUBMIT_ENDPOINT, {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' }
-    });
-
-    let payload = {};
-    try {
-        payload = await response.json();
-    } catch {
-        payload = {};
-    }
-
-    const isSuccess = response.ok && (payload.success === true || payload.success === 'true' || response.status === 200);
-    return { isSuccess, payload, status: response.status };
-}
-
-function setContactFormStatus(message, isError = false) {
-    const statusEl = document.getElementById('contact-form-status');
-    if (!statusEl) return;
-    statusEl.textContent = message;
-    statusEl.classList.remove('hidden', 'contact-status-success', 'contact-status-error');
-    statusEl.classList.add(isError ? 'contact-status-error' : 'contact-status-success');
-}
-
-function renderExperienceTimeline() {
-    const timeline = document.getElementById('experience-timeline');
-    if (!timeline) return;
-
-    timeline.innerHTML = '';
-    experiences.forEach((exp, index) => {
-        const item = document.createElement('div');
-        item.className = 'relative grid md:grid-cols-2 gap-8 items-start md:even:flex-row-reverse';
-        item.innerHTML = `
-            <div class="absolute left-4 md:left-1/2 -translate-x-[7px] w-3.5 h-3.5 rounded-full bg-cyan-400 border-4 border-slate-950 z-20 shadow-md shadow-cyan-400/50"></div>
-            <div class="pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:order-2'}">
-                <span class="text-xs font-mono text-cyan-400 font-bold bg-cyan-500/10 border border-cyan-500/25 px-2.5 py-1 rounded-full">${exp.period}</span>
-                <h3 class="text-xl font-bold text-white mt-3">${exp.role}</h3>
-                <h4 class="text-slate-400 text-sm font-semibold mt-1">${exp.company}, ${exp.location}</h4>
-            </div>
-            <div class="pl-8 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 md:order-1 md:text-right'}">
-                <div class="card-bg p-6 md:p-8 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
-                    <ul class="space-y-3 text-slate-300 text-sm ${index % 2 === 1 ? 'md:text-right' : ''}">
-                        ${exp.highlights.map(point => `<li class="flex gap-2 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}"><span class="text-cyan-400 shrink-0">✦</span><span>${point}</span></li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-        `;
-        timeline.appendChild(item);
-    });
-}
-
-const resumeModal = document.getElementById('resume-modal');
-
-function showResumeModal() {
-    if (!resumeModal) return;
-    const iframe = document.getElementById('resume-iframe');
-    const downloadBtn = document.getElementById('resume-download-btn');
-    if (iframe) iframe.src = RESUME_PDF;
-    if (downloadBtn) downloadBtn.href = RESUME_PDF;
-    resumeModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function hideResumeModal() {
-    if (!resumeModal) return;
-    resumeModal.style.display = 'none';
-    document.body.style.overflow = '';
-    const iframe = document.getElementById('resume-iframe');
-    if (iframe) iframe.src = 'about:blank';
-}
-
-function renderProductionSystems() {
-    const grid = document.getElementById('production-systems-grid');
-    if (!grid) return;
-
-    grid.innerHTML = '';
-    workProjects.forEach((proj, idx) => {
-        const card = document.createElement('article');
-        card.className = 'work-project-card card-bg p-6 rounded-2xl relative overflow-hidden group cursor-pointer flex flex-col justify-between h-full border border-indigo-500/10';
-        card.innerHTML = `
-            <div class="space-y-4 relative z-10">
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                    <span class="text-[10px] font-mono text-indigo-300 font-bold bg-indigo-500/15 border border-indigo-500/25 px-2 py-0.5 rounded-full uppercase tracking-wider">Production</span>
-                    <span class="text-[10px] font-mono text-slate-500">${proj.period}</span>
-                </div>
-                <div class="space-y-1">
-                    <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">${proj.title}</h3>
-                    <p class="text-xs font-mono text-indigo-400/90 font-medium leading-snug">${proj.subtitle}</p>
-                </div>
-                <p class="text-slate-400 text-sm leading-relaxed line-clamp-4">${proj.description}</p>
-                <p class="text-[10px] font-mono text-slate-500 leading-relaxed line-clamp-2">${proj.stack}</p>
-                <p class="text-[10px] font-mono text-slate-600 uppercase tracking-wider">Build_${String(idx + 1).padStart(2, '0')} · ${proj.company}</p>
-            </div>
-            <div class="flex flex-wrap gap-1.5 pt-5 relative z-10">
-                ${proj.tags.slice(0, 6).map(tag => `<span class="tag text-[10px] font-mono text-indigo-200/90 bg-indigo-950/30 border border-indigo-800/40 px-2 py-0.5 rounded-md">${tag}</span>`).join('')}
-                ${proj.tags.length > 6 ? `<span class="text-[10px] font-mono text-slate-500 px-1">+${proj.tags.length - 6}</span>` : ''}
-            </div>
-        `;
-        card.addEventListener('click', () => showWorkProjectModal(proj));
-        grid.appendChild(card);
-    });
-}
-
-function showWorkProjectModal(proj) {
-    if (!modal || !modalContent) return;
-
-    const liveLink = proj.liveUrl
-        ? `<a href="${proj.liveUrl}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 font-bold border border-cyan-500/30 px-3 py-1.5 rounded-lg">Live ↗</a>`
-        : '<span class="text-xs font-mono text-slate-500 border border-slate-800 px-3 py-1.5 rounded-lg">Internal / Enterprise</span>';
-
-    modalContent.innerHTML = `
-        <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-900 transition-colors z-30" type="button" aria-label="Close">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div class="space-y-8 relative z-10">
-            <div class="space-y-3">
-                <div class="flex flex-wrap items-center gap-2">
-                    <span class="text-xs font-mono text-indigo-300 font-bold bg-indigo-500/15 border border-indigo-500/25 px-2.5 py-1 rounded-full">Production System</span>
-                    <span class="text-xs font-mono text-slate-500">${proj.company} · ${proj.period}</span>
-                    ${liveLink}
-                </div>
-                <h2 class="text-2xl md:text-3xl font-black text-white">${proj.title}</h2>
-                <p class="text-slate-400 font-mono text-xs md:text-sm text-indigo-400/90">${proj.subtitle}</p>
-                <p class="text-slate-300 text-sm leading-relaxed">${proj.description}</p>
-            </div>
-
-            <div class="rounded-xl border border-slate-800 bg-slate-950/50 p-4">
-                <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Full Tech Stack</h4>
-                <p class="text-slate-300 text-sm leading-relaxed">${proj.stack}</p>
-            </div>
-
-            ${proj.architecture ? `
-            <div class="space-y-2">
-                <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">System Architecture</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
-                    ${proj.architecture.map(item => `<li class="flex gap-2"><span class="text-indigo-400 shrink-0">▸</span><span>${item}</span></li>`).join('')}
-                </ul>
-            </div>` : ''}
-
-            ${proj.infrastructure ? `
-            <div class="space-y-2">
-                <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">AWS & Infrastructure</h4>
-                <ul class="space-y-2 text-slate-300 text-sm">
-                    ${proj.infrastructure.map(item => `<li class="flex gap-2"><span class="text-cyan-400 shrink-0">▸</span><span>${item}</span></li>`).join('')}
-                </ul>
-            </div>` : ''}
-
-            ${proj.apis && proj.apis.length ? `
-            <div class="space-y-2">
-                <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">APIs & Integrations</h4>
-                <ul class="space-y-2 text-slate-300 text-sm font-mono text-[12px]">
-                    ${proj.apis.map(item => `<li class="flex gap-2"><span class="text-purple-400 shrink-0">›</span><span>${item}</span></li>`).join('')}
-                </ul>
-            </div>` : ''}
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-2">
-                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Engineering Highlights</h4>
-                    <ul class="space-y-2 text-slate-300 text-sm">
-                        ${proj.highlights.map(item => `<li class="flex gap-2"><span class="text-indigo-400 shrink-0">✦</span><span>${item}</span></li>`).join('')}
-                    </ul>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Business Impact</h4>
-                    <ul class="space-y-2 text-slate-300 text-sm">
-                        ${proj.impact.map(item => `<li class="flex gap-2"><span class="text-emerald-400 shrink-0">✓</span><span>${item}</span></li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-900">
-                ${proj.tags.map(tag => `<span class="tag text-[10px] font-mono text-indigo-200/90 bg-indigo-950/30 border border-indigo-800/40 px-2 py-0.5 rounded-md">${tag}</span>`).join('')}
-            </div>
-        </div>
-    `;
-
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    const closeBtn = modalContent.querySelector('#close-modal');
-    if (closeBtn) closeBtn.addEventListener('click', hideProjectModal);
-}
 
 // --- UI LOGIC ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Global mouse coordinate tracker for background halo
-    document.addEventListener('mousemove', (e) => {
-        document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-        document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-    });
-
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
     }
-
-    renderExperienceTimeline();
-    renderProductionSystems();
-
-    const viewResumeBtn = document.getElementById('view-resume-btn');
-    const closeResumeBtn = document.getElementById('close-resume-modal');
-    if (viewResumeBtn) viewResumeBtn.addEventListener('click', showResumeModal);
-    if (closeResumeBtn) closeResumeBtn.addEventListener('click', hideResumeModal);
-    if (resumeModal) {
-        resumeModal.addEventListener('click', (e) => {
-            if (e.target === resumeModal) hideResumeModal();
-        });
-    }
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && resumeModal && resumeModal.style.display === 'flex') {
-            hideResumeModal();
+    // Function to create interactive covers (NO LONGER USED FOR PROJECT CARDS DIRECTLY, but kept as a fallback/example if needed elsewhere)
+    const createInteractiveCover = (project) => {
+        const { type } = project.interactive_cover || {}; 
+        let svgContent = '';
+        switch (type) {
+            case 'dashboard':
+                svgContent = `
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                        <defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <rect width="300" height="150" fill="#0a192f"/>
+                        <path d="M20,130 C50,20 80,110 140,80 S200,40 280,60" stroke="#a78bfa" stroke-width="1" class="svg-hidden draw-on-hover"/>
+                        <path d="M20,130 C50,20 80,110 140,80 S200,40 280,60" stroke="#6366f1" stroke-width="2" style="filter:url(#glow);" class="svg-hidden draw-on-hover"/>
+                        <text x="20" y="25" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0" class="font-bold">Sales Forecasting</text>
+                    </svg>`;
+                break;
+            case 'trading':
+                svgContent = `
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                        <rect width="300" height="150" fill="#161a1d"/>
+                        <path d="M30 110 L 80 40 L 130 80 L 180 60 L 230 90 L 280 30" stroke="#4f46e5" stroke-width="2" class="draw-on-hover"/>
+                        <g class="svg-hidden">
+                            <circle cx="80" cy="40" r="4" fill="#39ff14"/>
+                            <circle cx="280" cy="30" r="4" fill="#dc143c"/>
+                        </g>
+                        <text x="20" y="25" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0" class="font-bold">LSTM Analysis</text>
+                    </svg>`;
+                break;
+            case 'toolkit':
+                svgContent = `
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                        <rect width="300" height="150" fill="#111827"/>
+                        <defs><filter id="toolkit-glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <g class="toolkit-glow">
+                            <path d="M150 50 L 120 67 L 120 101 L 150 118 L 180 101 L 180 67 Z" fill="rgba(139, 92, 246, 0.1)" stroke="#8b5cf6" stroke-width="1.5"/>
+                            <text x="138" y="90" font-family="monospace" font-size="14" fill="#c4b5fd">API</text>
+                        </g>
+                        <g class="svg-hidden">
+                            <path d="M110 67 L 80 84" stroke="#a78bfa" stroke-width="1"/>
+                            <path d="M190 67 L 220 84" stroke="#a78bfa" stroke-width="1"/>
+                            <path d="M110 101 L 80 118" stroke="#a78bfa" stroke-width="1"/>
+                            <path d="M190 101 L 220 118" stroke="#a78bfa" stroke-width="1"/>
+                            <text x="50" y="88" font-size="10" fill="white">Sentiment</text>
+                            <text x="225" y="88" font-size="10" fill="white">Summarize</text>
+                            <text x="50" y="122" font-size="10" fill="white">Caption</text>
+                            <text x="225" y="122" font-size="10" fill="white">Generate</text>
+                        </g>
+                        <text x="20" y="25" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0" class="font-bold">AI Services Toolkit</text>
+                    </svg>`;
+                break;
+            case 'maintenance':
+                svgContent = `
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                        <rect width="300" height="150" fill="#2d2d2d"/>
+                        <g class="pm-gear" style="transform-origin: 80px 75px;">
+                            <circle cx="80" cy="75" r="30" fill="none" stroke="#add8e6" stroke-width="4" stroke-dasharray="5 5"/>
+                        </g>
+                        <path d="M110 75 H 280" stroke="rgba(255,140,0,0.3)" stroke-width="2"/>
+                        <path d="M110 75 H 280" stroke="#ff8c00" stroke-width="2" class="draw-on-hover"/>
+                        <g class="svg-hidden">
+                            <rect x="230" y="65" width="50" height="20" fill="#0a0a0a" stroke="#ff8c00"/>
+                            <text x="238" y="79" font-size="10" fill="#ff8c00">RUL: OK</text>
+                        </g>
+                        <text x="20" y="25" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0" class="font-bold">Predictive Maintenance</text>
+                    </svg>`;
+                break;
+            case 'churn':
+                svgContent = `
+                    <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-gray-900">
+                        <rect width="300" height="150" fill="#003638"/>
+                        <g class="churn-dot-imbalanced">
+                            ${[...Array(6)].map((_, i) => `<circle cx="${40 + i * 40}" cy="50" r="5" fill="#008080" class="churn-dot"/>`).join('')}
+                            <circle cx="120" cy="100" r="5" fill="#ffbf00" class="churn-dot"/>
+                        </g>
+                        <g class="svg-hidden">
+                            <circle cx="100" cy="95" r="5" fill="#ffbf00" class="churn-dot churn-dot-synthetic"/>
+                            <circle cx="140" cy="105" r="5" fill="#ffbf00" class="churn-dot churn-dot-synthetic"/>
+                        </g>
+                        <text x="20" y="25" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0" class="font-bold">SMOTE Data Balancing</text>
+                    </svg>`;
+                break;
+            default:
+                svgContent = `<div class="w-full h-full bg-gray-800 flex items-center justify-center"><p class="text-slate-400">Project Image Placeholder</p></div>`;
         }
-    });
-
-    // Scroll Progress bar
-    window.addEventListener('scroll', () => {
-        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const progressBar = document.getElementById('scroll-progress');
-        if (progressBar) {
-            progressBar.style.width = scrolled + '%';
-        }
-    });
-
-    // --- RENDER SELECTED PROJECTS ---
-    const projectsGrid = document.getElementById('projects-grid');
-    if (projectsGrid) {
-        projectsGrid.innerHTML = '';
-        projects.forEach((proj, idx) => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card card-bg p-6 rounded-2xl relative overflow-hidden group cursor-pointer flex flex-col justify-between h-full';
-            projectCard.innerHTML = `
-                <div class="space-y-4 relative z-10">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono text-cyan-400 font-bold bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded-full">Proj_0${idx + 1}</span>
-                        <div class="flex gap-2">
-                            <a href="${proj.github}" target="_blank" class="text-slate-400 hover:text-white transition-colors" onclick="event.stopPropagation();">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">${proj.title}</h3>
-                        <p class="text-xs font-mono text-indigo-400 font-medium">${proj.subtitle}</p>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed">${proj.description}</p>
-                </div>
-                <div class="flex flex-wrap gap-1.5 pt-6 relative z-10">
-                    ${proj.tags.map(tag => `<span class="tag text-xs font-mono text-cyan-300 bg-cyan-950/20 border border-cyan-800/30 px-2 py-0.5 rounded-md">${tag}</span>`).join('')}
-                </div>
-            `;
-            // Add click listener to show the details modal
-            projectCard.addEventListener('click', () => {
-                showProjectModal(proj);
-            });
-            projectsGrid.appendChild(projectCard);
-        });
-    }
-
-    // --- RENDER PLAYGROUND APPS ---
-    const playgroundGrid = document.getElementById('playground-apps-grid');
-    if (playgroundGrid) {
-        playgroundGrid.innerHTML = '';
-        playgroundApps.forEach((app, idx) => {
-            const appCard = document.createElement('div');
-            appCard.className = 'card-bg p-6 rounded-2xl relative overflow-hidden group flex flex-col justify-between h-full';
-            appCard.innerHTML = `
-                <div class="space-y-4 relative z-10">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono text-indigo-400 font-bold bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded-full">App_0${idx + 1}</span>
-                        <a href="${app.demoUrl}" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">${app.title}</h3>
-                        <p class="text-xs font-mono text-cyan-500 font-medium">${app.subtitle}</p>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed">${app.description}</p>
-                </div>
-                <div class="flex flex-wrap gap-1.5 pt-6 relative z-10">
-                    ${app.tags.map(tag => `<span class="tag text-[10px] font-mono text-indigo-300 bg-indigo-950/20 border border-indigo-800/30 px-2 py-0.5 rounded-md">${tag}</span>`).join('')}
-                </div>
-            `;
-            playgroundGrid.appendChild(appCard);
-        });
-    }
-
-    // --- RENDER TECHNICAL ARSENAL (SKILLS) ---
-    const skillsGrid = document.getElementById('skills');
-    if (skillsGrid) {
-        // Clear previous skills list (keeping section header)
-        const header = skillsGrid.querySelector('h2');
-        skillsGrid.innerHTML = '';
-        if (header) skillsGrid.appendChild(header);
-        
-        skills.forEach(skillCat => {
-            const skillCard = document.createElement('div');
-            skillCard.className = 'card-bg p-8 rounded-2xl relative overflow-hidden group';
-            skillCard.innerHTML = `
-                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
-                <h3 class="text-lg font-bold text-white mb-6 relative z-10">${skillCat.category}</h3>
-                <div class="space-y-4 relative z-10">
-                    ${skillCat.items.map(item => `
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-xs font-mono">
-                                <span class="text-slate-300 font-medium">${item.name}</span>
-                                <span class="text-cyan-400">${item.level}%</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full transition-all duration-1000" style="width: ${item.level}%"></div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            skillsGrid.appendChild(skillCard);
-        });
-    }
-
-    // --- RENDER BLOG CONTENT & TAG FILTERS ---
-    const blogPostsContainer = document.getElementById('blog-posts-container');
-    const blogFilters = document.getElementById('blog-filters');
-    const recentPostsContainer = document.getElementById('recent-posts-container');
-    let currentTagFilter = 'All';
-
-    function renderBlog() {
-        if (!blogPostsContainer) return;
-        blogPostsContainer.innerHTML = '';
-        
-        const filteredPosts = currentTagFilter === 'All' 
-            ? blogPosts : blogPosts.filter(post => post.tag === currentTagFilter);
-        
-        if (filteredPosts.length === 0) {
-            blogPostsContainer.innerHTML = `<p class="text-slate-400 font-mono text-sm py-8">No articles found matching this tag.</p>`;
-            return;
-        }
-
-        filteredPosts.forEach(post => {
-            const postCard = document.createElement('div');
-            postCard.className = 'card-bg p-8 rounded-2xl relative overflow-hidden group space-y-4';
-            postCard.innerHTML = `
-                <div class="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-cyan-500 to-indigo-500"></div>
-                <div class="flex items-center justify-between text-xs font-mono">
-                    <span class="text-slate-500">${post.date}</span>
-                    <span class="text-cyan-400 font-bold bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-0.5 rounded-full">${post.tag}</span>
-                </div>
-                <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">${post.title}</h3>
-                <p class="text-slate-300 text-sm leading-relaxed">${post.excerpt}</p>
-                <div class="blog-full-content hidden border-t border-slate-900 pt-6 mt-6">
-                    ${post.content}
-                </div>
-                <button class="read-more-btn inline-flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold hover:text-cyan-300 transition-colors mt-2">
-                    <span>Read Article</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-            `;
-            
-            // Wire expand/collapse click listener
-            const readMoreBtn = postCard.querySelector('.read-more-btn');
-            const fullContent = postCard.querySelector('.blog-full-content');
-            readMoreBtn.addEventListener('click', () => {
-                const isExpanded = !fullContent.classList.contains('hidden');
-                if (isExpanded) {
-                    fullContent.classList.add('hidden');
-                    readMoreBtn.querySelector('span').innerText = 'Read Article';
-                    readMoreBtn.querySelector('svg').style.transform = 'rotate(0deg)';
-                } else {
-                    fullContent.classList.remove('hidden');
-                    readMoreBtn.querySelector('span').innerText = 'Collapse Article';
-                    readMoreBtn.querySelector('svg').style.transform = 'rotate(180deg)';
-                }
-            });
-
-            blogPostsContainer.appendChild(postCard);
-        });
-    }
-
-    function renderBlogFilters() {
-        if (!blogFilters) return;
-        const allTags = ['All', ...new Set(blogPosts.map(post => post.tag))];
-        blogFilters.innerHTML = '';
-        allTags.forEach(tag => {
-            const btn = document.createElement('button');
-            btn.className = `px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-300 border ${
-                currentTagFilter === tag 
-                ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.15)]' 
-                : 'bg-slate-950/40 text-slate-400 border-slate-900 hover:text-slate-200'
-            }`;
-            btn.innerText = tag;
-            btn.addEventListener('click', () => {
-                currentTagFilter = tag;
-                renderBlogFilters();
-                renderBlog();
-            });
-            blogFilters.appendChild(btn);
-        });
-    }
-
-    function renderRecentPostsWidget() {
-        if (!recentPostsContainer) return;
-        recentPostsContainer.innerHTML = '';
-        blogPosts.slice(0, 3).forEach(post => {
-            const link = document.createElement('a');
-            link.href = '#blog';
-            link.className = 'block p-3.5 rounded-xl border border-slate-950 hover:border-slate-900/60 hover:bg-slate-950/20 group transition-all';
-            link.innerHTML = `
-                <span class="text-[10px] font-mono text-cyan-500 font-semibold block mb-1">${post.tag}</span>
-                <span class="text-xs text-slate-300 font-medium group-hover:text-white line-clamp-1 transition-colors">${post.title}</span>
-            `;
-            link.addEventListener('click', () => {
-                currentTagFilter = 'All';
-                renderBlogFilters();
-                renderBlog();
-            });
-            recentPostsContainer.appendChild(link);
-        });
-    }
-
-    renderBlogFilters();
-    renderBlog();
-    renderRecentPostsWidget();
-
-    // --- QUICK POLL INTERACTIVE COMPONENT ---
-    const pollOptionsContainer = document.getElementById('poll-options');
-    const pollFeedback = document.getElementById('poll-feedback');
-    
-    // Simulate initial poll data
-    const pollVotes = {
-        'Generative AI & LLMs': 124,
-        'Computer Vision': 56,
-        'MLOps & Deployment': 78
+        return `<div class="interactive-cover-container">${svgContent}</div>`;
     };
 
-    if (pollOptionsContainer) {
-        const optionButtons = pollOptionsContainer.querySelectorAll('.poll-option');
-        optionButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const choice = btn.innerText.trim();
-                pollVotes[choice] = (pollVotes[choice] || 0) + 1;
-                
-                // Calculate percentages
-                const total = Object.values(pollVotes).reduce((a, b) => a + b, 0);
-                
-                // Show results inline
-                pollOptionsContainer.innerHTML = '';
-                Object.entries(pollVotes).forEach(([key, val]) => {
-                    const pct = Math.round((val / total) * 100);
-                    const isUserChoice = key === choice;
-                    
-                    const resultRow = document.createElement('div');
-                    resultRow.className = 'space-y-2';
-                    resultRow.innerHTML = `
-                        <div class="flex justify-between text-xs font-mono">
-                            <span class="${isUserChoice ? 'text-cyan-400 font-bold' : 'text-slate-300'}">${key}</span>
-                            <span class="${isUserChoice ? 'text-cyan-400 font-bold' : 'text-slate-500'}">${pct}% (${val})</span>
-                        </div>
-                        <div class="w-full h-2 bg-slate-950 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r ${isUserChoice ? 'from-cyan-400 to-indigo-500' : 'from-slate-800 to-slate-700'} rounded-full transition-all duration-1000" style="width: 0%"></div>
-                        </div>
-                    `;
-                    pollOptionsContainer.appendChild(resultRow);
-                    
-                    // Trigger progress bar slide-in animation
-                    setTimeout(() => {
-                        resultRow.querySelector('.h-full').style.width = `${pct}%`;
-                    }, 50);
-                });
-                
-                if (pollFeedback) {
-                    pollFeedback.classList.remove('hidden');
-                    showToast('Quick Poll choice logged. Live telemetry updated.');
-                }
-            });
-        });
-    }
-
-    // --- FORM SUBMISSIONS (TO GMAIL VIA FORMSUBMIT AJAX API) ---
-    // Q&A Question form submission
-    const commentForm = document.getElementById('comment-form');
-    if (commentForm) {
-        commentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('comment-name').value;
-            const text = document.getElementById('comment-text').value;
-            const submitBtn = commentForm.querySelector('button[type="submit"]');
-            
-            // Add loading spinner class/styles to submit button
-            submitBtn.disabled = true;
-            const originalBtnHTML = submitBtn.innerHTML;
-            submitBtn.innerHTML = `
-                <svg class="animate-spin -ml-1 mr-3 h-4.5 w-4.5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>Transmitting...</span>
-            `;
-
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('message', text);
-            formData.append('_subject', `Portfolio AMA Question from ${name}`);
-
-            submitPortfolioForm(formData, {
-                autoresponse: 'Thanks for your question! Adarsh will review it and get back to you soon.'
-            })
-            .then(({ isSuccess }) => {
-                if (isSuccess) {
-                    showToast('Question sent successfully! Check your inbox for a confirmation.');
-                    commentForm.reset();
-                } else {
-                    showToast('Could not send question. Please email divaseadarsh608@gmail.com directly.');
-                }
-            })
-            .catch(error => {
-                showToast('Network error while sending your question.');
-                console.error(error);
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnHTML;
-            });
-        });
-    }
-
-    // Contact Form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const honey = document.getElementById('contact-honey');
-            if (honey && honey.value.trim()) return;
-
-            const name = document.getElementById('contact-name').value.trim();
-            const email = document.getElementById('contact-email').value.trim();
-            const subject = document.getElementById('contact-subject').value.trim();
-            const message = document.getElementById('contact-message').value.trim();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-
-            submitBtn.disabled = true;
-            const originalBtnHTML = submitBtn.innerHTML;
-            submitBtn.innerHTML = `
-                <svg class="animate-spin -ml-1 mr-3 h-4.5 w-4.5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>Transmitting...</span>
-            `;
-
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('_replyto', email);
-            formData.append('subject', subject);
-            formData.append('message', message);
-            formData.append('_subject', `Portfolio Contact: ${subject}`);
-            formData.append('_autoresponse', `Hi ${name}, thanks for reaching out! I received your message and will get back to you shortly.`);
-
-            try {
-                const { isSuccess } = await submitPortfolioForm(formData);
-                if (isSuccess) {
-                    setContactFormStatus('Message delivered successfully. You should receive a confirmation email shortly.', false);
-                    showToast('Message sent! It was delivered to Adarsh\'s inbox.');
-                    contactForm.reset();
-                } else {
-                    setContactFormStatus('Delivery failed. Please email divaseadarsh608@gmail.com directly or try again in a moment.', true);
-                    showToast('Could not deliver message. Try emailing directly.');
-                }
-            } catch (error) {
-                setContactFormStatus('Network error. Please check your connection or email divaseadarsh608@gmail.com.', true);
-                showToast('Network error while sending your message.');
-                console.error(error);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnHTML;
-            }
-        });
-    }
-});
-
-// --- DYNAMIC MODAL SHOW/HIDE ---
-const modal = document.getElementById('project-modal');
-const modalContent = modal ? modal.querySelector('.modal-content') : null;
-
-function showProjectModal(proj) {
-    if (!modal || !modalContent) return;
-    
-    // Generate modal HTML structure
-    modalContent.innerHTML = `
-        <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-900 transition-colors z-30">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div class="space-y-8 relative z-10">
-            <div class="space-y-2">
-                <span class="text-xs font-mono text-cyan-400 font-bold bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-full">Project Spec Sheet</span>
-                <h2 class="text-2xl md:text-3xl font-black text-white mt-4">${proj.title}</h2>
-                <p class="text-slate-400 font-mono text-xs md:text-sm text-cyan-500">${proj.subtitle}</p>
+    // Populate portfolio sections
+    const projectsGrid = document.getElementById('projects-grid');
+    projectsData.forEach((project, index) => {
+        const card = document.createElement('div');
+        card.className = "project-card card-bg rounded-2xl flex flex-col overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer";
+        card.innerHTML = `
+            <div class="interactive-cover-container">
+                <img src="${project.media[0].url}" alt="${project.title} Cover" class="w-full h-full object-cover object-center" onerror="this.onerror=null;this.src='https://placehold.co/300x150/1e1b4b/c4b5fd?text=Image+Error';">
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="space-y-2">
-                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">The Problem</h4>
-                        <p class="text-slate-300 text-sm leading-relaxed">${proj.details.problem}</p>
+            <div class="p-6 flex flex-col flex-grow">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
+                    <p class="text-slate-400 mb-4 text-sm">${project.description}</p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-auto pt-4">
+                    ${project.skills.slice(0, 3).map(skill => `<span class="tag rounded-md px-2 py-1 text-xs">${skill}</span>`).join('')}
+                </div>
+            </div>`;
+        card.addEventListener('click', () => openModal(index));
+        projectsGrid.appendChild(card);
+    });
+    const skillsGrid = document.querySelector('#skills .grid');
+    skillsData.forEach(category => {
+        const card = document.createElement('div');
+        card.className = "card-bg p-6 rounded-2xl";
+        card.innerHTML = `<h3 class="text-xl font-bold text-white mb-4">${category.title}</h3><div class="flex flex-wrap gap-2">${category.skills.map(skill => `<span class="tag rounded-md px-3 py-1 text-sm">${skill}</span>`).join('')}</div>`;
+        skillsGrid.appendChild(card);
+    });
+
+    // Function to render Playground apps
+    const renderPlaygroundApps = () => {
+        const playgroundAppsGrid = document.getElementById('playground-apps-grid');
+        playgroundAppsGrid.innerHTML = ''; // Clear existing content
+        playgroundAppsData.forEach(app => {
+            const appCard = document.createElement('div');
+            appCard.className = "card-bg rounded-2xl flex flex-col overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer";
+            appCard.innerHTML = `
+                <img src="${app.image}" alt="${app.title}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e1b4b/c4b5fd?text=App+Image';">
+                <div class="p-6 flex flex-col flex-grow">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">${app.title}</h3>
+                        <p class="text-slate-400 mb-4 text-sm">${app.description}</p>
                     </div>
-                    <div class="space-y-2">
-                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">The Solution</h4>
-                        <p class="text-slate-300 text-sm leading-relaxed">${proj.details.solution}</p>
-                    </div>
-                    <div class="space-y-2">
-                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Key Architectural Components</h4>
-                        <ul class="space-y-2 text-slate-300 text-sm">
-                            ${proj.details.architecture.map(step => `<li class="flex gap-2"><span class="text-cyan-400">✦</span> <span>${step}</span></li>`).join('')}
-                        </ul>
+                    <div class="mt-auto pt-4">
+                        <a href="${app.url}" target="_blank" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300">
+                            Launch App
+                            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block ml-1 -mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
                     </div>
                 </div>
-                
-                <div class="space-y-6">
-                    <div class="space-y-2">
-                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Quantifiable Business Results</h4>
-                        <ul class="space-y-2 text-slate-300 text-sm">
-                            ${proj.details.results.map(res => `<li class="flex gap-2"><span class="text-emerald-400">✓</span> <span>${res}</span></li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Representative Snippet</h4>
-                        <pre class="p-4 rounded-xl bg-slate-950 border border-slate-900 overflow-x-auto text-[11px] font-mono text-cyan-300"><code class="language-python">${escapeHTML(proj.details.codeSnippet)}</code></pre>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pt-6 border-t border-slate-900 flex gap-4">
-                <a href="${proj.github}" target="_blank" class="bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-white font-bold py-3 px-6 rounded-xl text-sm transition-all duration-300">Inspect Repo on GitHub</a>
-            </div>
-        </div>
-    `;
-    
-    // Open modal with flex display
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Lock background scroll
-    
-    // Initialize highlighting for newly injected codeblock
-    if (window.hljs) {
-        window.hljs.highlightAll();
-    }
+            `;
+            playgroundAppsGrid.appendChild(appCard);
+        });
+    };
 
-    // Bind close click event
-    const closeBtn = modalContent.querySelector('#close-modal');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', hideProjectModal);
-    }
-}
 
-function hideProjectModal() {
-    if (!modal) return;
-    modal.style.display = 'none';
-    document.body.style.overflow = ''; // Unlock background scroll
-}
+    // Mobile menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-// Click outside modal content to close it
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        hideProjectModal();
-    }
-});
+    // Typing animation
+    const roles = ["AI Full Stack Developer", "Machine Learning Engineer", "Cloud & AI Engineer", "Python Backend Developer"];
+    let roleIndex = 0, charIndex = 0;
+    const roleTextElement = document.getElementById('role-text');
+    function typeRole() { if (!roleTextElement) return; if (charIndex < roles[roleIndex].length) { roleTextElement.textContent += roles[roleIndex].charAt(charIndex++); setTimeout(typeRole, 100); } else { setTimeout(eraseRole, 2000); } }
+    function eraseRole() { if (!roleTextElement) return; if (charIndex > 0) { roleTextElement.textContent = roles[roleIndex].substring(0, --charIndex); setTimeout(eraseRole, 50); } else { roleIndex = (roleIndex + 1) % roles.length; setTimeout(typeRole, 500); } }
+    typeRole();
 
-// ESC key to close modal
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') {
-        hideProjectModal();
-    }
-});
-
-// Helper function to escape HTML special characters inside codeblocks
-function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
-        tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag)
-    );
-}
-
-// --- SYSTEM TELEMETRY TOAST NOTIFICATION UTILITY ---
-function showToast(message) {
-    let container = document.getElementById('toast-container');
-    if (!container) {
-        container = document.createElement('div');
-        container.id = 'toast-container';
-        container.className = 'fixed bottom-6 right-6 z-50 space-y-3 pointer-events-none';
-        document.body.appendChild(container);
-    }
-    
-    const toast = document.createElement('div');
-    toast.className = 'card-bg px-5 py-3.5 rounded-xl border border-cyan-500/20 text-xs font-mono text-slate-100 flex items-center gap-3 shadow-[0_4px_20px_rgba(6,182,212,0.15)] pointer-events-auto transition-all duration-300 transform translate-y-8 opacity-0';
-    toast.innerHTML = `
-        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-        <span>[Telemetry] ${message}</span>
-    `;
-    container.appendChild(toast);
-    
-    // Animate in
-    setTimeout(() => {
-        toast.classList.remove('translate-y-8', 'opacity-0');
-    }, 10);
-    
-    // Auto collapse after 4.5 seconds
-    setTimeout(() => {
-        toast.classList.add('translate-y-[-20px]', 'opacity-0');
+    // Modal logic
+    const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    window.openModal = (projectIndex) => {
+        const project = projectsData[projectIndex];
+        let galleryHtml = `<div id="media-viewer" class="mb-4 rounded-lg overflow-hidden bg-black"></div><div id="thumbnail-strip" class="flex gap-2 justify-center flex-wrap"></div>`;
+        // This regex removes the [span_...](...) markers from the details before rendering
+        modalContent.innerHTML = `<button class="absolute top-4 right-6 text-slate-400 hover:text-white text-3xl z-10" onclick="closeModal()">&times;</button>${galleryHtml}<div class="px-1 mt-6"><h2 class="text-3xl font-bold text-white mb-2">${project.title}</h2><p class="text-indigo-300 mb-6">${project.description}</p><h4 class="text-lg font-semibold text-white mb-2">Key Achievements:</h4><ul class="list-none space-y-2 mb-6">${project.details.map(detail => `<li class="flex items-start text-slate-300"><span class="text-indigo-400 mr-3 mt-1">▪</span><div class="flex-1">${detail.replace(/\[span_\d+\]\((start_span|end_span)\)/g, '')}</div></li>`).join('')}</ul><h4 class="text-lg font-semibold text-white mb-3">Technologies Used:</h4><div class="flex flex-wrap gap-2">${project.skills.map(skill => `<span class="tag rounded-md px-3 py-1 text-sm">${skill}</span>`).join('')}</div></div>`;
+        populateGallery(projectIndex);
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    };
+    window.closeModal = () => {
+        modal.style.animation = 'fadeOut 0.3s ease-out forwards';
         setTimeout(() => {
-            toast.remove();
+            modal.style.display = 'none';
+            modal.style.animation = 'fadeIn 0.3s ease-out';
+            document.body.style.overflow = 'auto';
+            modalContent.innerHTML = '';
         }, 300);
-    }, 4500);
-}
+    };
+    window.populateGallery = (projectIndex) => {
+        const project = projectsData[projectIndex];
+        const thumbnailStrip = document.getElementById('thumbnail-strip');
+        if (project.media.length > 1) {
+            thumbnailStrip.innerHTML = project.media.map((mediaItem, index) => `<div class="relative"><img src="${mediaItem.url}" class="thumbnail rounded-md w-24 h-16 object-cover" data-media-index="${index}" data-project-index="${projectIndex}"></div>`).join('');
+            thumbnailStrip.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', (e) => switchMedia(e.target.dataset.mediaIndex, e.target.dataset.projectIndex));
+            });
+        } else { thumbnailStrip.innerHTML = ''; } // Hide thumbnail strip if only one image
+        switchMedia(0, projectIndex);
+    };
+    window.switchMedia = (mediaIndex, projectIndex) => {
+        const mediaItem = projectsData[projectIndex].media[mediaIndex];
+        const viewer = document.getElementById('media-viewer');
+        viewer.innerHTML = `<img src="${mediaItem.url}" alt="Project media" class="w-full h-auto max-h-[50vh] object-contain" onerror="this.onerror=null;this.src='https://placehold.co/1080x720/1e1b4b/c4b5fd?text=Error+Loading+Image';">`;
+        document.querySelectorAll('#thumbnail-strip .thumbnail').forEach((thumb, i) => thumb.classList.toggle('active', i == mediaIndex));
+    };
+    window.onclick = (event) => { if (event.target == modal) closeModal(); };
 
-// --- DYNAMIC HERO SUBTITLE ROLE ROTATOR ---
-const roles = [
-    "AI Full Stack Developer.",
-    "AI Systems Engineer.",
-    "Data Scientist & Analytics Architect.",
-    "Python Backend Developer."
-];
+    // Blog interactions
+    const blogPostsContainer = document.getElementById('blog-posts-container');
+    const blogFiltersContainer = document.getElementById('blog-filters');
+    const recentPostsContainer = document.getElementById('recent-posts-container');
 
-let roleIdx = 0;
-let charIdx = 0;
-let isDeleting = false;
-const typingDelay = 100;
-const erasingDelay = 50;
-const newRoleDelay = 2000;
-
-function typeRole() {
-    const targetElement = document.getElementById('role-text');
-    if (!targetElement) return;
-    
-    const currentRole = roles[roleIdx];
-    
-    if (isDeleting) {
-        targetElement.innerText = currentRole.substring(0, charIdx - 1);
-        charIdx--;
-    } else {
-        targetElement.innerText = currentRole.substring(0, charIdx + 1);
-        charIdx++;
-    }
-    
-    let delay = isDeleting ? erasingDelay : typingDelay;
-    
-    if (!isDeleting && charIdx === currentRole.length) {
-        isDeleting = true;
-        delay = newRoleDelay; // Pause before erasing
-    } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        roleIdx = (roleIdx + 1) % roles.length;
-        delay = 500; // Pause before typing next word
-    }
-    
-    setTimeout(typeRole, delay);
-}
-
-// Trigger role rotator on load
-setTimeout(typeRole, 1000);
-
-// --- DUAL-COLOR CONSTALLATION PARTICLES CANVAS ANIMATION ---
-const canvas = document.getElementById('bg-canvas');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-    
-    let mouse = { x: null, y: null, radius: 150 };
-    
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-    
-    window.addEventListener('mouseout', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-    
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
-    
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            // Very slow, subtle drift speeds
-            this.vx = (Math.random() - 0.5) * 0.35;
-            this.vy = (Math.random() - 0.5) * 0.35;
-            this.radius = Math.random() * 1.5 + 0.5;
-            // Randomly designate cyan or purple particles
-            this.color = Math.random() > 0.5 ? 'rgba(6, 182, 212, 0.45)' : 'rgba(168, 85, 247, 0.45)';
-        }
-        
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            
-            // Boundary bounce checks
-            if (this.x < 0 || this.x > width) this.vx = -this.vx;
-            if (this.y < 0 || this.y > height) this.vy = -this.vy;
-            
-            // Mouse push deflection effect
-            if (mouse.x !== null && mouse.y !== null) {
-                const dx = this.x - mouse.x;
-                const dy = this.y - mouse.y;
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                if (dist < mouse.radius) {
-                    const force = (mouse.radius - dist) / mouse.radius;
-                    // Deflect particles slightly away from cursor coordinates
-                    this.x += (dx / dist) * force * 1.2;
-                    this.y += (dy / dist) * force * 1.2;
-                }
-            }
-        }
-        
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
-    }
-    
-    function init() {
-        particles = [];
-        // Match density with screen width dimensions
-        const density = Math.floor((width * height) / 11000);
-        for (let i = 0; i < Math.min(density, 120); i++) {
-            particles.push(new Particle());
-        }
-    }
-    
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-        
-        particles.forEach(p => {
-            p.update();
-            p.draw();
+    const renderBlogPosts = (filter = 'All') => {
+        blogPostsContainer.innerHTML = '';
+        const filteredPosts = filter === 'All' ? blogPostsData : blogPostsData.filter(p => p.tags.includes(filter));
+        filteredPosts.forEach((post, index) => {
+            const article = document.createElement('article');
+            article.className = 'card-bg p-8 rounded-2xl';
+            article.innerHTML = `
+                <img src="${post.image}" alt="${post.title}" class="rounded-lg mb-6 w-full h-64 object-cover">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    ${post.tags.map(tag => `<span class="tag rounded-md px-2 py-1 text-xs">${tag}</span>`).join('')}
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">${post.title}</h3>
+                <p class="text-sm text-slate-400 mb-4">Posted on ${post.date}</p>
+                <div id="blog-content-${index}" class="prose-custom text-slate-400 blog-content-truncated">
+                    ${post.content}
+                </div>
+                <button class="read-more-btn text-indigo-400 hover:text-indigo-300 mt-4 text-sm font-semibold" data-post-index="${index}">Read More</button>
+            `;
+            blogPostsContainer.appendChild(article);
         });
         
-        // Draw constellation link lines between close nodes
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                
-                if (dist < 110) {
-                    // Compute link opacity based on distance
-                    const alpha = (110 - dist) / 110 * 0.12;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    // Line color blends with endpoints
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
-                    ctx.lineWidth = 0.75;
-                    ctx.stroke();
-                }
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-    
-    init();
-    animate();
-}
-
-// --- CUSTOM CYBER CURSOR INTEGRATION ---
-(function() {
-    const cursor = document.getElementById('cyber-cursor');
-    const follower = document.getElementById('cyber-cursor-follower');
-    if (!cursor || !follower) return;
-
-    let posX = 0, posY = 0;
-    let mouseX = 0, mouseY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    });
-
-    function animateCursor() {
-        posX += (mouseX - posX) * 0.15;
-        posY += (mouseY - posY) * 0.15;
-        follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-        requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    function updateInteractives() {
-        const interactives = document.querySelectorAll('a, button, input, textarea, .project-card, .work-project-card, .poll-option');
-        interactives.forEach(el => {
-            if (el.dataset.cursorBound) return;
-            el.dataset.cursorBound = "true";
-            
-            el.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-hover');
+        // Add event listeners for "Read More" buttons
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const postIndex = e.target.dataset.postIndex;
+                const contentDiv = document.getElementById(`blog-content-${postIndex}`);
+                contentDiv.classList.toggle('blog-content-truncated');
+                contentDiv.classList.toggle('blog-content-expanded');
+                e.target.textContent = contentDiv.classList.contains('blog-content-truncated') ? 'Read More' : 'Read Less';
             });
         });
-    }
+    };
 
-    updateInteractives();
-    setInterval(updateInteractives, 1000);
-})();
+    const renderBlogFilters = () => {
+        const allTags = ['All', ...new Set(blogPostsData.flatMap(p => p.tags))].sort(); // Sort tags alphabetically
+        blogFiltersContainer.innerHTML = allTags.map(tag =>
+            `<button class="blog-tag-filter tag px-4 py-2 rounded-lg ${tag === 'All' ? 'active' : ''}" data-filter="${tag}">${tag}</button>`
+        ).join('');
+
+        blogFiltersContainer.querySelectorAll('.blog-tag-filter').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const filter = e.target.dataset.filter;
+                blogFiltersContainer.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                renderBlogPosts(filter);
+            });
+        });
+    };
+
+    const renderRecentPosts = () => {
+        recentPostsContainer.innerHTML = '';
+        // Get the top 3 most recent posts (already sorted by date in data)
+        const recentPosts = blogPostsData.slice(0, 3);
+        recentPosts.forEach(post => {
+            const postLink = document.createElement('a');
+            postLink.href = "#blog"; // Link to the blog section
+            postLink.className = "block card-bg p-4 rounded-lg hover:bg-slate-800 transition-colors";
+            postLink.innerHTML = `
+                <p class="text-sm font-semibold text-white">${post.title}</p>
+                <p class="text-xs text-slate-400">${post.date}</p>
+            `;
+            recentPostsContainer.appendChild(postLink);
+        });
+    };
+
+    renderBlogFilters();
+    renderBlogPosts();
+    renderRecentPosts(); // Render recent posts on load
+    renderPlaygroundApps(); // Render playground apps on load
+
+    // Q&A and Poll interactions
+    const pollOptions = document.querySelectorAll('.poll-option');
+    pollOptions.forEach(option => { option.addEventListener('click', () => { pollOptions.forEach(opt => { opt.disabled = true; opt.classList.add('opacity-50'); }); option.classList.add('bg-indigo-500'); document.getElementById('poll-feedback').classList.remove('hidden'); }); });
+
+    // Background canvas animation
+    const bgCanvas = document.getElementById('bg-canvas');
+    if (bgCanvas) {
+        const ctx = bgCanvas.getContext('2d');
+        let particlesArray;
+        const mouse = { x: null, y: null, radius: 0 };
+        const resizeHandler = () => { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; mouse.radius = (bgCanvas.height / 120) * (bgCanvas.width / 120); initParticles(); };
+        window.addEventListener('resize', resizeHandler);
+        window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+        class Particle { constructor(x, y, dx, dy) { this.x = x; this.y = y; this.directionX = dx; this.directionY = dy; this.size = (Math.random() * 2) + 1; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = 'rgba(139, 92, 246, 0.2)'; ctx.fill(); } update() { if (this.x > bgCanvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > bgCanvas.height || this.y < 0) this.directionY = -this.directionY; if (mouse.x !== null) { let dx = mouse.x - this.x; let dy = mouse.y - this.y; if (Math.hypot(dx, dy) < mouse.radius + this.size) { if (mouse.x < this.x && this.x < bgCanvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < bgCanvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } } this.x += this.directionX; this.y += this.directionY; this.draw(); } }
+        function initParticles() { particlesArray = []; let num = (bgCanvas.height * bgCanvas.width) / 9000; for (let i = 0; i < num; i++) { let x = Math.random() * innerWidth; let y = Math.random() * innerHeight; let dx = (Math.random() * .4) - 0.2; let dy = (Math.random() * .4) - 0.2; particlesArray.push(new Particle(x, y, dx, dy)); } }
+        function animateParticles() { requestAnimationFrame(animateParticles); ctx.clearRect(0, 0, innerWidth, innerHeight); particlesArray.forEach(p => p.update()); connectParticles(); }
+        function connectParticles() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = Math.hypot(particlesArray[a].x - particlesArray[b].x, particlesArray[a].y - particlesArray[b].y); if (distance < 120) { opacityValue = 1 - (distance / 120); ctx.strokeStyle = `rgba(167, 139, 250, ${opacityValue * 0.3})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
+        resizeHandler();
+        animateParticles();
+    }
+});
