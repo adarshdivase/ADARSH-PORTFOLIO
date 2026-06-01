@@ -4,6 +4,7 @@
 const projectsData = [
     {
         title: "Enterprise RAG Chatbot",
+        github: "https://github.com/adarshdivase/RAG-Chatbot",
         media: [
             { type: 'image', url: 'images/rag1.jpeg' },
             { type: 'image', url: 'images/rag2.jpeg' }
@@ -20,6 +21,7 @@ const projectsData = [
     },
     {
         title: "AI-Fueled E-commerce Analytics & Sales Forecasting System",
+        github: "https://github.com/adarshdivase/Al-Fueled-E-commerce-Analytics-Sales-Forecasting-System",
         media: [
             { type: 'image', url: 'images/ecommerce1.jpeg' },
             { type: 'image', url: 'images/ecommerce2.jpeg' }
@@ -37,6 +39,7 @@ const projectsData = [
     },
     {
         title: "AI-Powered Trading System with Risk Analytics",
+        github: "https://github.com/adarshdivase/AI-POWERED-TRADING-SYSTEM-WITH-RISK-ANALYTICS",
         media: [
             { type: 'image', url: 'images/stocks1.jpeg' },
             { type: 'image', url: 'images/stocks2.jpeg' }
@@ -56,6 +59,7 @@ const projectsData = [
     },
     {
         title: "AI Services Toolkit Pro (Multi-Modal AI Assistant)",
+        github: "https://github.com/adarshdivase/AI-TOOLKIT",
         media: [
             { type: 'image', url: 'images/toolkit.jpeg' },
             { type: 'image', url: 'images/toolkit1.jpeg' }
@@ -73,6 +77,7 @@ const projectsData = [
     },
     {
         title: "Hybrid Predictive Maintenance System",
+        github: "https://github.com/adarshdivase/SMART-PREDICTIVE-MAINTENANCE",
         media: [
             { type: 'image', url: 'images/hybrid1.jpeg' },
             { type: 'image', url: 'images/hybrid2.jpeg' }
@@ -91,6 +96,7 @@ const projectsData = [
     },
     {
         title: "Customer Churn Prediction and API Deployment",
+        github: "https://github.com/adarshdivase/Customer-Churn-Prediction",
         media: [
             { type: 'image', url: 'images/churn1.jpeg' },
             { type: 'image', url: 'images/churn2.jpeg' }
@@ -328,7 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const project = projectsData[projectIndex];
         let galleryHtml = `<div id="media-viewer" class="mb-4 rounded-lg overflow-hidden bg-black"></div><div id="thumbnail-strip" class="flex gap-2 justify-center flex-wrap"></div>`;
         // This regex removes the [span_...](...) markers from the details before rendering
-        modalContent.innerHTML = `<button class="absolute top-4 right-6 text-slate-400 hover:text-white text-3xl z-10" onclick="closeModal()">&times;</button>${galleryHtml}<div class="px-1 mt-6"><h2 class="text-3xl font-bold text-white mb-2">${project.title}</h2><p class="text-indigo-300 mb-6">${project.description}</p><h4 class="text-lg font-semibold text-white mb-2">Key Achievements:</h4><ul class="list-none space-y-2 mb-6">${project.details.map(detail => `<li class="flex items-start text-slate-300"><span class="text-indigo-400 mr-3 mt-1">▪</span><div class="flex-1">${detail.replace(/\[span_\d+\]\((start_span|end_span)\)/g, '')}</div></li>`).join('')}</ul><h4 class="text-lg font-semibold text-white mb-3">Technologies Used:</h4><div class="flex flex-wrap gap-2">${project.skills.map(skill => `<span class="tag rounded-md px-3 py-1 text-sm">${skill}</span>`).join('')}</div></div>`;
+        const githubLinks = project.github
+            ? `<div class="flex flex-wrap gap-3 mb-6">${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-indigo-300 hover:text-white text-sm font-semibold py-2 px-4 rounded-lg border border-slate-600 transition-colors">View on GitHub</a>` : ''}${project.githubExtra ? `<a href="${project.githubExtra}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-sm font-medium py-2 px-4 rounded-lg border border-slate-600 transition-colors">Frontend repo</a>` : ''}</div>`
+            : '';
+        modalContent.innerHTML = `<button class="absolute top-4 right-6 text-slate-400 hover:text-white text-3xl z-10" onclick="closeModal()">&times;</button>${galleryHtml}<div class="px-1 mt-6"><h2 class="text-3xl font-bold text-white mb-2">${project.title}</h2><p class="text-indigo-300 mb-4">${project.description}</p>${githubLinks}<h4 class="text-lg font-semibold text-white mb-2">Key Achievements:</h4><ul class="list-none space-y-2 mb-6">${project.details.map(detail => `<li class="flex items-start text-slate-300"><span class="text-indigo-400 mr-3 mt-1">▪</span><div class="flex-1">${detail.replace(/\[span_\d+\]\((start_span|end_span)\)/g, '')}</div></li>`).join('')}</ul><h4 class="text-lg font-semibold text-white mb-3">Technologies Used:</h4><div class="flex flex-wrap gap-2">${project.skills.map(skill => `<span class="tag rounded-md px-3 py-1 text-sm">${skill}</span>`).join('')}</div></div>`;
         populateGallery(projectIndex);
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
