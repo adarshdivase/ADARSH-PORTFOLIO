@@ -1,4 +1,4 @@
-const RESUME_PDF = 'Adivaseresume.pdf';
+const RESUME_PDF = 'ADresume.pdf';
 const CONTACT_EMAIL = 'divaseadarsh608@gmail.com';
 
 // 1. Open https://web3forms.com  2. Enter divaseadarsh608@gmail.com  3. Paste the access key from your email below:

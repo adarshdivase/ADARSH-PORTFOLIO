@@ -59,7 +59,7 @@ To run this project locally, follow these steps:
 Feel free to reach out for collaborations or opportunities!
 * **Email:** divaseadarsh608@gmail.com
 * **GitHub:** [github.com/adarshdivase](https://github.com/adarshdivase)
-* **Resume:** [Download Adivaseresume.pdf](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/Adivaseresume.pdf)
+* **Resume:** [Download ADresume.pdf](https://raw.githubusercontent.com/adarshdivase/ADARSH-PORTFOLIO/main/ADresume.pdf)
 
 ---
 
